@@ -1,6 +1,13 @@
 ethernet-QEL
 ============
 
+Description
+-----------
+
+This repository is designed to contain all of the firmware, schematics, applications, and documents associated
+with the QEL device project.  
+
+
 Directory Structure
 -------------------
 
