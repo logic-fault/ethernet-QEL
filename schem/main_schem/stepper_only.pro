@@ -1,8 +1,8 @@
-update=8/31/2012 10:39:28 AM
+update=Sat 01 Sep 2012 10:18:29 PM CDT
 last_client=eeschema
 [eeschema]
 version=1
-LibDir=D:/ECE_402
+LibDir=../component_lib
 NetFmt=1
 HPGLSpd=20
 HPGLDm=15
