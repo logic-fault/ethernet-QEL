@@ -23,29 +23,38 @@ PORT = 12345                # Reserve a port for your service.
 RECV_SIZE = 1024
 
 
-def QEL_conn(connection, addr):
-    print 'conn'
-    print addr
-
-    comm_active = True
-
-    # timeout after 1 second
-    while(comm_active):
-       read_ready, write_ready, errors = select.select([connection,],[],[], 5.0)
-       if (len(read_ready) > 0):
-          #interpet the information
-          pass
-       else:
-          # no info within 1 second, disconnect
-          comm_active = False
-
-    connection.close()
-
-
 class QEL_Server(object):
     def __init__(self, hostname, port):
         self.hostname = hostname
         self.port     = port
+
+    def handle_cmd(self,cmd):
+        if (len(cmd) < 2):
+           return ''
+
+        QEL_ID  = cmd[0]
+        QEL_cmd = cmd[1]
+
+        if (QEL_cmd == 'CHECK_TAG'):
+           if (len(cmd) < 3):
+              return 'DENY'
+           ID_num = cmd[2]
+           # lookup ID
+
+           return 'GRANT'
+        elif (QEL_cmd == 'LATCH_OPENED'):
+            # update db
+            print 'latch ' + QEL_ID + 'opened'
+            return ''
+
+        elif (QEL_cmd == 'LATCH_CLOSED'):
+            #update db
+            print 'latch' + QEL_ID + 'closed'
+            return ''
+
+        return ''
+
+
 
     def run(self):
         self.socket = socket.socket()
@@ -57,7 +66,7 @@ class QEL_Server(object):
         while(True):
 
             read_ready, write_ready, errors = select.select(self.sockets,[],[])
-            for ready_socket in self.sockets:
+            for ready_socket in read_ready:
 
                 # if server socket ready, we have new client
                 if (ready_socket == self.socket):
@@ -70,11 +79,11 @@ class QEL_Server(object):
                         data = ready_socket.recv(RECV_SIZE)
                         if (data):
                             #handle it
-                            print 'got data'
-
-                            #echo it
-                            ready_socket.send(data)
-                            print 'data sent'
+                            req = data.split(';')
+                            response = self.handle_cmd(req)
+                            if (response != ''):
+                                ready_socket.send(response)
+                            print 'response=' + response
                         else:
                             ready_socket.close()
                             sockets.remove(ready_socket)
