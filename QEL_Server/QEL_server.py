@@ -15,11 +15,11 @@
 #!/usr/bin/env python
 
 import select
-import socket               # Import socket module
+import socket
 import os
 import multiprocessing
 
-PORT = 12345                # Reserve a port for your service.
+PORT = 12345
 RECV_SIZE = 1024
 
 
@@ -118,5 +118,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-#!/usr/bin/python           # This is server.py file
 
