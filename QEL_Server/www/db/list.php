@@ -11,20 +11,37 @@
 
 */
 
-function print_QEL_list()
+
+function print_QEL_list($sort_field = 'name')
 {
+   if ($sort_field != 'name' && $sort_field != 'status')
+   {
+      die("sorting by invalid field");
+   }
 
    $m = new Mongo(); // connect
    $db = $m->selectDB("QEL_Server");
-   $res = $db->selectCollection('QEL_List')->find();
+   $res = $db->selectCollection('QEL_List')->find()->sort(array( "$sort_field" => 1));
 
    ?>
-   <table>
-   <tr><td>Name</td><td>Status</td></tr>
+   <table class="list_table">
+   <tr class="list_head"><td><a style="text-decoration:none" href="index.php?list_sort_field=name">Name</a></td><td><a style="text-decoration:none" href="index.php?list_sort_field=status">Status</a></td></tr>
    <?
+   
+   $odd = true;
+
    foreach ($res as $qel)
    {
-      echo '<tr> ' . '<td> ' . $qel['name'] . '</td> <td> ' .$qel['status'] . '</td></tr>';
+      $odd = !$odd;
+      if ($odd)
+      {
+          $class_name = 'element_odd';
+      }
+      else
+      {
+          $class_name = 'element_even';
+      }
+      echo '<tr class="' . $class_name . '"><td class="table_c"> ' . $qel['name'] . '</td> <td> ' .$qel['status'] . '</td></tr>';
    }
    ?>
    </table>

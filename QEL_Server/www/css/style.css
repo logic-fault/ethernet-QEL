@@ -9,28 +9,110 @@
 
 body
 {
-   background-color: #aaffff;
+   background-color: #555555
 }
 
 .outer_body
 {
    margin-left: 10px;
    margin-top:  10px;
-   background-color: #ffffff;
+/*   background-color: #ffffff; */
 }
 
 .menu_left
 {
-   width: 30%;
+   width: 100px;
    float: left;
    background-color: #aaaaff;
    color: #ffffff;
 }
 
+.menu_link:link
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.menu_link:visited
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.menu_link:hover
+{
+    text-decoration:none;
+    color: #ffaaaa;
+}
+
+.menu_link:active
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.menu_link_here:link
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.menu_link_here:visited
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.menu_link_here:hover
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.menu_link_here:active
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
 .body_right
 {
-   width: 70%;
-   float: right;
-   background-color: #ffaaaa;
+   margin-left: 100px;
+   float: left;
+   /*background-color: #ffaaaa;*/
    color: #111155;
+}
+
+.list_table
+{
+    border-width: 0px;
+}
+
+.list_head
+{
+    color: #000000;
+    background-color: #888888;
+}
+
+.table_c
+{
+    border: none;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.element_even
+{
+    color: #000000;
+    background-color: #dddddd;
+}
+
+.element_odd
+{
+    color: #000000;
+    background-color: #aaaaaa;
 }

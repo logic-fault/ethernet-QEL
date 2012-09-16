@@ -9,7 +9,7 @@
  *
  */
 
-function printHeader($title = 'Index')
+function printHeader($caller = 'index.php', $title = 'QEL panel')
 {
 ?>
 
@@ -25,17 +25,39 @@ function printHeader($title = 'Index')
 </head>
 
 <body>
-<div class="outer_body">
+<div class="outer_body"> 
+<?
+//   echo $caller
+?>
 <div class="menu_left">
-hello world
+<?
+
+   $pages = array( 'QEL panel' => 'index.php',
+              'Groups'    => 'groups.php',
+              'NFC Tags'  => 'tags.php',
+              'Users'     => 'users.php'
+            );
+
+   foreach ($pages as $name => $url)
+   {
+      $class_name = "menu_link";
+
+      if ($caller == $url)
+         $class_name = "menu_link_here";
+      echo '<a class="' . $class_name . '" href="' . $url . '">' . $name .'</a><br />';
+   }
+?>
+
 </div>
 <div class="body_right">
+
 <?
 }
 
 function printFooter()
 {
 ?>
+</div>
 </div>
 </body>
 </html>
