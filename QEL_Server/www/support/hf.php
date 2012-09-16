@@ -16,14 +16,18 @@ function printHeader($title = 'Index')
 </head>
 
 <body>
-
+<div class="outer_body">
+<div class="menu_left">
+hello world
+</div>
+<div class="body_right">
 <?
 }
 
 function printFooter()
 {
 ?>
-
+</div>
 </body>
 </html>
 
