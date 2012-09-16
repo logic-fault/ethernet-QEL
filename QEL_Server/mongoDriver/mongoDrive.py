@@ -61,7 +61,7 @@ class Mongo_Driver(object):
         finally:
             pass
 
-        if (stat != None)
+        if (stat != None):
            return True
             
 
