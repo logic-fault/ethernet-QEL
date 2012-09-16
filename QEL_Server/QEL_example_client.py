@@ -14,7 +14,7 @@
 
 import os,socket,time
 
-SERVER_NAME = "MSEE189PC18"
+SERVER_NAME = "brock-Lenovo-G570"
 SERVER_PORT = 12345
 QEL_ID      = 'Example_QEL'
 
