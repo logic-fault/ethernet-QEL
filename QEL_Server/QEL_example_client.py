@@ -39,13 +39,13 @@ def main():
     message = [QEL_ID, 'LATCH_OPENED', '']
     server_session(message)
 
-    time.sleep(1)
+    time.sleep(10)
 
     print 'Latch Close test...'
     message[1] = 'LATCH_CLOSED'
     server_session(message)
 
-    time.sleep(1)
+    time.sleep(10)
 
     message[2] = 'ABCEF135' # example NFC tag num
     message[1] = 'CHECK_TAG'

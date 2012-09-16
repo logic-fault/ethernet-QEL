@@ -47,16 +47,23 @@ class Mongo_Driver(object):
 
         self.db.QEL_List.save({"name" : QEL_name, "status": QEL_status}) 
 
-    def get_group_QEL_list(self, group):
+    def find_QEL_in_group(self, group, QEL_name):
+        if (self.db == 0):
+            return False
+
+        stat = None
+
         try:
-            col = 'GRP_' + group
-            res = self.db[col].find({"QEL_name" : 1 })
-            return res
+            coll = 'GRP_' + group
+            stat = self.db[coll].find_one({"name" : QEL_name})
         except:
-            return 'GROUP_DOES_NOT_EXIST'
+            stat = None
         finally:
             pass
 
+        if (stat != None)
+           return True
+            
 
     def get_tag_group(self, tag_id):
         if (self.db == 0):
