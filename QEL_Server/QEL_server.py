@@ -17,7 +17,6 @@
 import select
 import socket
 import os
-import multiprocessing
 
 PORT = 12345
 RECV_SIZE = 1024
@@ -109,11 +108,6 @@ class QEL_Server(object):
 def main():
     serv = QEL_Server(socket.gethostname(), PORT)
     serv.run()
-
-    print 'terminating processes'
-    for p in multiprocessing.active_children():
-        process.terminate()
-        process.join()
 
 if __name__ == '__main__':
     main()
