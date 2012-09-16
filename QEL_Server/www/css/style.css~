@@ -1,12 +1,3 @@
-/*
- *  QELink web server
- *   Styles
- *
- *  Copyright (c) Brock Anderson 2012
- *  All rights reserved.  Not for commercial use
- *
- */
-
 body
 {
    background-color: #aaffff;

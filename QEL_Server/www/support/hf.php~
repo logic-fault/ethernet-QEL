@@ -1,14 +1,5 @@
 <?php
 
-/*
- *  QELink web server
- *   Header and footer generation
- *
- *  Copyright (c) Brock Anderson 2012
- *  All rights reserved.  Not for commercial use
- *
- */
-
 function printHeader($title = 'Index')
 {
 ?>
