@@ -74,6 +74,15 @@ class QEL_Server(object):
            read_list  = []
            read_ready = []
 
+
+           # wait until we can at least select something
+           try:
+              select.select(self.sockets,[],[])
+           except:
+              pass
+           finally:
+              pass:
+
            for test_socket in self.sockets:
                try:
                  read_ready, write_ready, errors = select.select([test_socket], [], [], 0)
@@ -83,6 +92,7 @@ class QEL_Server(object):
                  self.sockets.remove(test_socket)
                finally:
                  pass
+           
            for ready_socket in read_list:
 
                 # if server socket ready, we have new client
