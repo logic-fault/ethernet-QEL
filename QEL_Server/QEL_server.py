@@ -17,6 +17,7 @@
 import select
 import socket
 import os
+import mongoDriver
 
 PORT = 12345
 RECV_SIZE = 1024
@@ -26,6 +27,7 @@ class QEL_Server(object):
     def __init__(self, hostname, port):
         self.hostname = hostname
         self.port     = port
+        self.db            = mongoDriver.Mongo_Driver('localhost', 'QEL_Server' , 27017)
 
     def handle_cmd(self,cmd):
         if (len(cmd) < 2):
@@ -44,11 +46,13 @@ class QEL_Server(object):
         elif (QEL_cmd == 'LATCH_OPENED'):
             # update db
             print 'latch ' + QEL_ID + 'opened'
+            self.db.set_status_opened(QEL_ID)
             return ''
 
         elif (QEL_cmd == 'LATCH_CLOSED'):
             #update db
             print 'latch' + QEL_ID + 'closed'
+            self.db.set_status_closed(QEL_ID)
             return ''
 
         return ''
@@ -56,6 +60,9 @@ class QEL_Server(object):
 
 
     def run(self):
+        # start mongodb
+        self.db.init()
+
         self.socket = socket.socket()
         self.socket.bind((self.hostname, self.port))
         self.socket.listen(5)
