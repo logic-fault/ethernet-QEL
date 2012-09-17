@@ -81,7 +81,7 @@ class QEL_Server(object):
            except:
               pass
            finally:
-              pass:
+              pass
 
            for test_socket in self.sockets:
                try:
@@ -92,7 +92,7 @@ class QEL_Server(object):
                  self.sockets.remove(test_socket)
                finally:
                  pass
-           
+
            for ready_socket in read_list:
 
                 # if server socket ready, we have new client
