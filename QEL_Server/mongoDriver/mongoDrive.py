@@ -14,6 +14,7 @@
 #
 
 import pymongo
+import time
 
 class Mongo_Driver(object):
     def __init__(self, server, db_name, port):
@@ -42,6 +43,7 @@ class Mongo_Driver(object):
  
         if (QEL != None):
            QEL['status'] = QEL_status
+           QEL['time']   = int(time.time()) # s since unix epoch
            self.db.QEL_List.save(QEL)
            return
 
