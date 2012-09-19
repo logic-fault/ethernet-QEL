@@ -69,6 +69,8 @@ class QEL_Server(object):
 
         self.sockets = [self.socket]
 
+        addr_list = []
+
         while(True):
 
            read_list  = []
@@ -81,7 +83,7 @@ class QEL_Server(object):
            except:
               pass
            finally:
-              pass:
+              pass
 
            for test_socket in self.sockets:
                try:
@@ -99,10 +101,21 @@ class QEL_Server(object):
                 if (ready_socket == self.socket):
                    connection, addr = ready_socket.accept()
                    self.sockets.append(connection)
+                   #addr_list.append([connection, addr])
+                   #print addr_list
 
                 # otherwise, we are talking to a client
                 else:
                     try:
+
+                        # find addr
+                        this_addr = ''
+                        for item in addr_list:
+                           #print item
+                           if (item[0] == ready_socket):
+                              this_addr = item[1[1]]
+                        print 'peer: ' + this_addr
+
                         data = ready_socket.recv(RECV_SIZE)
                         if (data):
                             #handle it
