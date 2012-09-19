@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/8/2012 3:41:57 PM
+EESchema Schematic File Version 2  date 9/18/2012 3:41:36 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,7 +37,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 5 6
 Title "Stepper Motor Interface"
-Date "8 sep 2012"
+Date "18 sep 2012"
 Rev "0.1"
 Comp ""
 Comment1 "Modified from Ingersoll-Rand QEL"

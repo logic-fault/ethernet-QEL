@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/8/2012 3:41:57 PM
+EESchema Schematic File Version 2  date 9/18/2012 3:41:36 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -36,65 +36,85 @@ EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
 Sheet 2 6
-Title ""
-Date "8 sep 2012"
-Rev ""
-Comp ""
-Comment1 ""
+Title "QEL_Driver"
+Date "18 sep 2012"
+Rev "2"
+Comp "ECE 402 Senior Design"
+Comment1 "Copyright (c) Brock Anderson 2012"
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Connection ~ 6900 3750
+$Comp
+L GND #PWR?
+U 1 1 5058DB93
+P 7000 4550
+F 0 "#PWR?" H 7000 4550 30  0001 C CNN
+F 1 "GND" H 7000 4480 30  0001 C CNN
+	1    7000 4550
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	6900 3850 6900 3750
+	6500 3750 6500 4050
 Wire Wire Line
-	8150 3850 8150 3650
+	6300 3750 6500 3750
 Wire Wire Line
-	8550 3450 6300 3450
+	7700 3850 8150 3850
+Connection ~ 7250 3450
 Wire Wire Line
-	7250 3550 7250 3400
-Wire Wire Line
-	7300 4050 7250 4050
-Wire Wire Line
-	7250 4050 7250 3950
-Wire Wire Line
-	6300 3750 6350 3750
-Wire Wire Line
-	4850 3650 5050 3650
-Wire Wire Line
-	4050 3350 5050 3350
-Wire Wire Line
-	4350 3650 4300 3650
-Wire Wire Line
-	4300 3650 4300 3800
-Wire Wire Line
-	6850 3750 6950 3750
+	8550 3650 8150 3650
 Wire Wire Line
 	8150 4250 8150 4400
 Wire Wire Line
-	7800 4050 7850 4050
+	4300 3800 4300 3650
 Wire Wire Line
-	8150 3650 8550 3650
-Connection ~ 7250 3450
+	4300 3650 4350 3650
 Wire Wire Line
-	6900 4350 6900 4450
+	4050 3350 5050 3350
+Wire Wire Line
+	4850 3650 5050 3650
+Wire Wire Line
+	7250 3550 7250 3400
+Wire Wire Line
+	8550 3450 6300 3450
+Wire Wire Line
+	8150 3650 8150 3850
+Wire Wire Line
+	7000 4050 7850 4050
 $Comp
 L R R?
-U 1 1 504BA69E
-P 6900 4100
-F 0 "R?" V 6980 4100 50  0000 C CNN
-F 1 "1.68k" V 6900 4100 50  0000 C CNN
-	1    6900 4100
+U 1 1 5058DB7E
+P 6750 4050
+F 0 "R?" V 6830 4050 50  0000 C CNN
+F 1 "68" V 6750 4050 50  0000 C CNN
+	1    6750 4050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 5058DB66
+P 7000 4300
+F 0 "R?" V 7080 4300 50  0000 C CNN
+F 1 "680" V 7000 4300 50  0000 C CNN
+	1    7000 4300
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
-U 1 1 504BA689
-P 6900 4450
-F 0 "#PWR?" H 6900 4450 30  0001 C CNN
-F 1 "GND" H 6900 4380 30  0001 C CNN
-	1    6900 4450
+L DIODE D?
+U 1 1 5058DB32
+P 7700 3650
+F 0 "D?" H 7700 3750 40  0000 C CNN
+F 1 "DIODE" H 7700 3550 40  0000 C CNN
+	1    7700 3650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MOSFET_N Q?
+U 1 1 5058DB1C
+P 8050 4050
+F 0 "Q?" H 7750 3800 60  0000 R CNN
+F 1 "ENHANCED_MOSFET_N" H 8060 3900 60  0000 R CNN
+	1    8050 4050
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -116,48 +136,12 @@ F 1 "+24V" H 7250 3500 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
-U 1 1 504BA4FF
-P 7550 4050
-F 0 "R?" V 7630 4050 50  0000 C CNN
-F 1 "168" V 7550 4050 50  0000 C CNN
-	1    7550 4050
-	0    -1   -1   0   
-$EndComp
-$Comp
 L GND #PWR?
 U 1 1 504BA4EF
 P 8150 4400
 F 0 "#PWR?" H 8150 4400 30  0001 C CNN
 F 1 "GND" H 8150 4330 30  0001 C CNN
 	1    8150 4400
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R?
-U 1 1 504BA4CB
-P 6600 3750
-F 0 "R?" V 6680 3750 50  0000 C CNN
-F 1 "56" V 6600 3750 50  0000 C CNN
-	1    6600 3750
-	0    -1   -1   0   
-$EndComp
-$Comp
-L NPN Q?
-U 1 1 504BA4B8
-P 8050 4050
-F 0 "Q?" H 8050 3900 50  0000 R CNN
-F 1 "TIP41B" H 8050 4200 50  0000 R CNN
-	1    8050 4050
-	1    0    0    -1  
-$EndComp
-$Comp
-L NPN Q?
-U 1 1 504BA400
-P 7150 3750
-F 0 "Q?" H 7150 3600 50  0000 R CNN
-F 1 "NPN" H 7150 3900 50  0000 R CNN
-	1    7150 3750
 	1    0    0    -1  
 $EndComp
 $Comp
