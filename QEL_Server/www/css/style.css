@@ -19,6 +19,25 @@ body
 /*   background-color: #ffffff; */
 }
 
+.QEL_header
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px dotted #ffffff;
+    border-left: 2px dotted #ffffff;
+    color: #ffffff;
+    font-size:120%;
+}
+
+
+.submit_div
+{
+    color: #000000;
+    border-top: 1px dotted #ffffff;
+    border-left: 1px dotted #ffffff;
+}
+
+
 .menu_left
 {
    width: 100px;
@@ -81,10 +100,16 @@ body
 
 .body_right
 {
-   margin-left: 100px;
+   border-left: 2px dotted #ffffff;
+   margin-left: 40px;
    float: left;
    /*background-color: #ffaaaa;*/
    color: #111155;
+}
+
+.inner_body_right
+{
+   margin-left: 40px;
 }
 
 .list_table
