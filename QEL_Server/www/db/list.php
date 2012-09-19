@@ -67,8 +67,8 @@ function print_QEL_list($sort_field = 'name')
    </table>
    <br />
    <div class="submit_div">
-   <input type="radio" name="qel_action" value="Lock" /> Lock <br />
-   <input type="radio" name="qel_action" value="Unlock" /> Unlock <br />
+   <input type="radio" name="qel_action" value="Lock" /> <img src="img/locked.png" alt="Lock" /><br />
+   <input type="radio" name="qel_action" value="Unlock" /> <img src="img/unlocked.png" alt="Unlock" /> <br /> 
    <input type="radio" name="qel_action" value="Secure" /> No Entry (no NFC access) <br />
    <input type="submit" value="Submit" />
    </div>
