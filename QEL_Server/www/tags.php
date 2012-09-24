@@ -9,28 +9,65 @@
  *
  */
 
-session_start();
-
-require_once('db/list.php');
-require_once('support/hf.php');
-
-if(isset($_GET['list_sort_field']))
+function print_tag_entry()
 {
-   $_SESSION['list_sort'] = $_GET["list_sort_field"];
+
+?>
+
+<form action="tags.php?action=new_tag" method="post">
+<br />
+Tag ID: <input type="text" name="new_ID"> <br />
+Name&nbsp;&nbsp;: <input type="text" name="new_name"> <br />
+<input type="submit" name="submit_new_tag" value="New Tag"/>
+</form>
+
+<?
+
 }
 
-if(!isset($_SESSION['list_sort']))
+session_start();
+
+require_once('db/tags.php');
+require_once('support/hf.php');
+
+if(isset($_GET['action']))
 {
-    $list_sort = 'name';
+
+   $action = $_GET['action'];
+   
+   if ($action == 'new_tag')
+   {  
+      add_tag($_POST['new_ID'], $_POST['new_name'], '');
+   }
+
+}
+
+if(isset($_GET['tag_sort_field']))
+{
+   $_SESSION['tag_sort'] = $_GET["tag_sort_field"];
+}
+
+if(!isset($_SESSION['tag_sort']))
+{
+    $tag_sort = 'name';
 }
 else
 {
-    $list_sort = $_SESSION['list_sort'];
+    $tag_sort = $_SESSION['tag_sort'];
 }
 
 
+if(isset($_POST['check_tag']))
+{
+    delete_tags($_POST['check_tag']);
+}
 
-printHeader( 'index.php' ,'QEL Panel');
+
+printHeader( 'tags.php' ,'Tags');
+
+print_tag_list($tag_sort);
+print_tag_entry();
+
 printFooter();
 
 ?>
