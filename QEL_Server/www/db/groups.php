@@ -77,6 +77,26 @@ function get_group_list($sort_field = 'name')
    return $res;
 }
 
+
+/* Get all the qels in a group */
+funtion get_group_qels($group)
+{
+   $m = new Mongo(); // connect
+   $db = $m->selectDB("QEL_Server");
+
+   $collection = 'GRP_' . $group;
+
+   $res = $db->selectCollection($collection)->find()->sort(array( "qel_name" => 1));
+
+   return $res;
+
+}
+
+function add_group_qels($qels)
+{
+   return;
+}
+
 function print_groups_dropdown($select_name = 'group_select')
 {
    $res = get_group_list();
