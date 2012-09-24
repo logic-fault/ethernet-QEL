@@ -59,7 +59,15 @@ else
 
 if(isset($_POST['check_tag']))
 {
-    delete_tags($_POST['check_tag']);
+    if (isset($_POST['tag_radio']))
+    {
+   
+       if($_POST['tag_radio'] == 'delete')
+          delete_tags($_POST['check_tag']);
+
+       if($_POST['tag_radio'] == 'set_group')
+          set_tags_group($_POST['check_tag'], $_POST['group_select']);
+    }
 }
 
 

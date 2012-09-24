@@ -14,11 +14,6 @@ function print_group_entry()
 
 ?>
 
-<form action="groups.php?action=new_group" method="post">
-<br />
-Group Name: <input type="text" name="new_name"> <br />
-<input type="submit" name="submit_new_group" value="New Group"/>
-</form>
 
 <?
 
@@ -47,10 +42,14 @@ if(isset($_POST['check_group']))
 }
 
 
-printHeader( 'groups.php' ,'Groups');
+printHeader( 'groups.php' ,'Modifying Groups');
 
-print_group_list();
-print_group_entry();
+?>
+
+   <a class="groups_link" style="color: #ff0000" href="groups.php">&lt;&lt; Back to groups</a>
+
+<?
+
 printFooter();
 
 ?>

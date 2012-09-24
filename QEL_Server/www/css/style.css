@@ -46,6 +46,27 @@ body
    color: #ffffff;
 }
 
+.group_link:link
+{
+   text-decoration:none;
+   color: #000000;
+}
+.group_link:visited
+{
+   text-decoration:none;
+   color: #000000;
+}
+.group_link:hover
+{
+   text-decoration:none;
+   color: #000000;
+}
+.group_link:active
+{
+   text-decoration:none;
+   color: #i000000;
+}
+
 .menu_link:link
 {
     text-decoration:none;

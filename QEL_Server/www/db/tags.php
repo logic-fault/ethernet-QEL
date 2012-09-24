@@ -12,6 +12,8 @@
 */
 
 
+require_once('db/groups.php');
+
 /* Delete tags */
 function delete_tags($tag_list, $m = '')
 {
@@ -43,6 +45,23 @@ function add_tag($ID, $name, $group)
 
    $db->selectCollection('tag_permissions')->save($entry);
 
+}
+
+function set_tags_group($tags, $group)
+{
+
+   $m = new Mongo();
+   $db = $m->selectDB("QEL_Server");
+
+   foreach ($tags as $tag)
+   {
+      $res = $db->selectCollection('tag_permissions')->find(array('ID' =>$tag));
+      foreach($res as $item)
+      {
+         $item['group'] = $group;
+         $db->selectCollection('tag_permissions')->save($item);
+      }
+   }
 }
 
 /* Show all NFC tags */
@@ -90,8 +109,20 @@ function print_tag_list($sort_field = 'name')
    ?>
    </table>
    <br />
+
+   <input type="radio" name="tag_radio" value="set_group">set group </input>
+   <?
+
+   print_groups_dropdown();
+
+   ?>
+   <br />
+   <input type="radio" name="tag_radio" value="delete">delete</input>
    <div class="submit_div">
-   <input type="submit" value="Delete" />
+   <input type="submit" value="Submit" />
+   <?
+
+   ?>
    </div>
    </form>
    <?

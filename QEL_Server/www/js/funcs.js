@@ -12,3 +12,9 @@ function toggle_tags(source) {
     checkboxes[i].checked = source.checked;
 }
 
+function toggle_groups(source) {
+  checkboxes = document.getElementsByName('check_group[]');
+  for(var i in checkboxes)
+    checkboxes[i].checked = source.checked;
+}
+
