@@ -79,7 +79,7 @@ function get_group_list($sort_field = 'name')
 
 
 /* Get all the qels in a group */
-funtion get_group_qels($group)
+function get_group_qels($group)
 {
    $m = new Mongo(); // connect
    $db = $m->selectDB("QEL_Server");
