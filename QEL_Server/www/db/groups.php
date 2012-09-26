@@ -40,7 +40,7 @@ function add_group($group)
 
 
    // must contain some characters
-   if ($group = '')
+   if ($group == '')
       return;
 
    $m = new Mongo(); // connect
@@ -115,28 +115,36 @@ function get_group_qels_not($group)
    $full_list_len = count($full_list);
    $full_list_ptr = 0;
 
-   return $full_list;
+   $final_list = array();
 
-   // now remove the ones we already have, we know both lists are sorted in same manner
-   foreach ($local_list as $present_qel)
+   //return $full_list;
+
+   // add the entries\
+
+   $end = False; // end of local list
+
+   // try to get first element of local list
+   if ($local_list->hasNext())
+      $local_list->next();
+
+   foreach ($full_list as $present_qel)
    {
+      $local_element = $local_list->current();
 
-      $exit = False;
-      while(($full_list_ptr < $full_list_len) && !$exit)
+      if (!$end && ($present_qel['name'] == $local_element['qel_name']))
       {
-         
-         // once we find the entry in the full list, remove it
-         if ($present_qel['qel_name'] == $full_list['name'])
-         {
-            unset($full_list[$full_list_ptr]);
-            $full_list_len = $full_list_len - 1;
-            $exit = True;
-         }
-
-         $full_list_ptr++;
+         if ($local_list->hasNext())
+            $local_list->next();
+         else
+            $end = True;
+      }
+      else
+      {
+         $final_list[] = $present_qel['name'];
       }
    }
-   return $full_list; 
+
+   return $final_list; 
 }
 
 function print_group_qels_not($group)
@@ -149,11 +157,11 @@ function print_group_qels_not($group)
 //   if ($size_len > $list_len)
 //      $size_len = $list_len;
 
-   echo '<select name="qels_not_list" multiple="multiple" size="' . $size_len . '">';
+   echo '<select name="qels_not_list[]" multiple="multiple" size="' . $size_len . '">';
 
    foreach(get_group_qels_not($group) as $qel)
    {
-       echo '<option value="' . $qel['name'] . '">' . $qel['name'] . '</option>';
+       echo '<option value="' . $qel . '">' . $qel . '</option>';
    }
    echo '</select>';
 }
@@ -163,11 +171,11 @@ function print_group_qels($group)
 
    $size_len = 10;
  
-   echo '<select name="qels_list" multiple="multiple" size="' . $size_len . '">';
+   echo '<select name="qels_list[]" multiple="multiple" size="' . $size_len . '">';
 
    foreach(get_group_qels($group) as $qel)
    {
-       echo '<option value="' . $qel['name'] . '">' . $qel['name'] . '</option>';
+       echo '<option value="' . $qel['qel_name'] . '">' . $qel['qel_name'] . '</option>';
    }
    echo '</select>';
 }

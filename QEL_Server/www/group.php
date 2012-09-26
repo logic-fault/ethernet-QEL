@@ -33,11 +33,15 @@ if(isset($_GET['action']))
 
    $action = $_GET['action'];
    
-   if ($action == 'new_qels')
+   if ($action == 'submit_new_qels')
    {  
-      add_group_qels($_POST['new_qels']);
+      add_group_qels($_GET['group_name'], $_POST['qels_not_list']);
    }
 
+   elseif ($action == 'submit_delete_qels')
+   {  
+      delete_group_qels($_GET['group_name'], $_POST['qels_list']);
+   }
 }
 
 
@@ -50,13 +54,28 @@ printHeader( 'groups.php' ,'Modifying Groups');
    <a class="groups_link" style="color: #ff0000" href="groups.php">&lt;&lt; Back to groups</a>
    <br />
    <div class="qel_list"> 
-   <div class="qel_list_header"> QELs in Group <? echo $_GET['group_name'];  ?></div>
+   <div class="qel_list_header"> Group <? echo $_GET['group_name'];  ?></div>
+
+<div style="float:left">
+
 <?
+echo '<form name="qel_not_form" action="' . $page_ref .  '&action=submit_new_qels" method="post">'; 
 
 print_group_qels_not($_GET['group_name']);
+
 echo '<br />';
-echo '<br />';
+echo '<input type="submit" value="Add" />';
+echo '</form>';
+
+echo '</div>';
+echo '<div style="float:right; margin-left: 100px; border-left: 1px dotted #ffffff;"><div style="margin-left: 100px">';
+
+echo '<form name="qel_delete_form" action="' . $page_ref .  '&action=submit_delete_qels" method="post">'; 
 print_group_qels($_GET['group_name']);
+echo '<br />';
+echo '<input type="submit" value="Remove" />';
+echo '</form>';
+echo '</div></div>';
 
 
 ?>
