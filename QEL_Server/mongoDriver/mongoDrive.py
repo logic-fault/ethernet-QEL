@@ -47,7 +47,7 @@ class Mongo_Driver(object):
            self.db.QEL_List.save(QEL)
            return
 
-        self.db.QEL_List.save({"name" : QEL_name, "status": QEL_status}) 
+        self.db.QEL_List.save({"name" : QEL_name, "status": QEL_status, "time" : int(time.time())}) 
 
     def find_QEL_in_group(self, group, QEL_name):
         if (self.db == 0):
