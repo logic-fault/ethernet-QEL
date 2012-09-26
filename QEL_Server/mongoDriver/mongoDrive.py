@@ -57,7 +57,7 @@ class Mongo_Driver(object):
 
         try:
             coll = 'GRP_' + group
-            stat = self.db[coll].find_one({"name" : QEL_name})
+            stat = self.db[coll].find_one({"qel_name" : QEL_name})
         except:
             stat = None
         finally:
@@ -65,6 +65,8 @@ class Mongo_Driver(object):
 
         if (stat != None):
            return True
+
+        return False
             
 
     def get_tag_group(self, tag_id):
@@ -73,7 +75,7 @@ class Mongo_Driver(object):
         
         stat = self.db.tag_permissions.find_one({"ID" : tag_id},{"group" : 1})
         if (stat == None):
-            return 'NOT_IN_DB'
+            return ''
 
         return stat['group']
 

@@ -40,9 +40,20 @@ class QEL_Server(object):
            if (len(cmd) < 3):
               return 'DENY'
            ID_num = cmd[2]
-           # lookup ID
+ 
+           grp = self.db.get_tag_group(ID_num)
+           if (grp == ''):
+              return 'DENY'
 
+           print 'Looking up group'
+           per = self.db.find_QEL_in_group(grp, QEL_ID)
+           if (per == False):
+              print 'denying'
+              return 'DENY'
+
+           print 'accepting'
            return 'GRANT'
+
         elif (QEL_cmd == 'LATCH_OPENED'):
             # update db
             print 'latch ' + QEL_ID + 'opened'
