@@ -49,6 +49,16 @@ if(isset($_POST['check_group']))
 
 printHeader( 'groups.php' ,'Groups');
 
+?>
+
+<br />
+
+<div class="info">Click on a group to modify which QELs that the users of those groups are allowed to use.</div>
+
+<br />
+
+<?
+
 print_group_list();
 print_group_entry();
 printFooter();

@@ -55,6 +55,10 @@ printHeader( 'groups.php' ,'Modifying Groups');
    <br />
    <div class="qel_list"> 
    <div class="qel_list_header"> Group <? echo $_GET['group_name'];  ?></div>
+<br />
+<div class="info">Use the CTRL and SHIFT keys to select QELs to add or remove from the group.</div>
+<br />
+<br />
 
 <div style="float:left">
 
