@@ -11,6 +11,7 @@
 
 */
 
+$TIME_THRESHOLD = 60; // minutes
 
 /* Delete tags */
 function delete_groups($group_list, $m = '')
@@ -79,9 +80,11 @@ function get_group_list($sort_field = 'name')
 
 
 /* Get all the qels in a group */
-function get_group_qels($group)
+function get_group_qels($group, $m = '')
 {
-   $m = new Mongo(); // connect
+   if ($m == '')
+      $m = new Mongo(); // connect
+
    $db = $m->selectDB("QEL_Server");
 
    $collection = 'GRP_' . $group;
@@ -92,8 +95,115 @@ function get_group_qels($group)
 
 }
 
-function add_group_qels($qels)
+/* Get all qels not in the group, filter only for ones that have reported in the last hour */
+function get_group_qels_not($group)
 {
+   global $TIME_THRESHOLD;
+
+   $cutoff = intval(time()) - $TIME_THRESHOLD * 60;
+
+   $m = new Mongo(); // connect
+   $db = $m->selectDB("QEL_Server");
+
+   // get the list of all the qels
+   $full_list = $db->selectCollection('QEL_List')->find(array("time" => array('$gt' => $cutoff)))->sort(array( "name" => 1));
+   //$full_list = $db->selectCollection('QEL_List')->find()->sort(array( "name" => 1));   
+
+   // get list of qels we have in this group
+   $local_list = get_group_qels($group, $m);
+
+   $full_list_len = count($full_list);
+   $full_list_ptr = 0;
+
+   return $full_list;
+
+   // now remove the ones we already have, we know both lists are sorted in same manner
+   foreach ($local_list as $present_qel)
+   {
+
+      $exit = False;
+      while(($full_list_ptr < $full_list_len) && !$exit)
+      {
+         
+         // once we find the entry in the full list, remove it
+         if ($present_qel['qel_name'] == $full_list['name'])
+         {
+            unset($full_list[$full_list_ptr]);
+            $full_list_len = $full_list_len - 1;
+            $exit = True;
+         }
+
+         $full_list_ptr++;
+      }
+   }
+   return $full_list; 
+}
+
+function print_group_qels_not($group)
+{
+   $qels_not_list = get_group_qels_not($group);
+   $list_len = count($qels_not_list);
+
+   $size_len = 10;
+ 
+//   if ($size_len > $list_len)
+//      $size_len = $list_len;
+
+   echo '<select name="qels_not_list" multiple="multiple" size="' . $size_len . '">';
+
+   foreach(get_group_qels_not($group) as $qel)
+   {
+       echo '<option value="' . $qel['name'] . '">' . $qel['name'] . '</option>';
+   }
+   echo '</select>';
+}
+
+function print_group_qels($group)
+{
+
+   $size_len = 10;
+ 
+   echo '<select name="qels_list" multiple="multiple" size="' . $size_len . '">';
+
+   foreach(get_group_qels($group) as $qel)
+   {
+       echo '<option value="' . $qel['name'] . '">' . $qel['name'] . '</option>';
+   }
+   echo '</select>';
+}
+
+
+function delete_group_qels($group, $qels)
+{
+   $m = new Mongo(); // connect
+   $db = $m->selectDB("QEL_Server");
+
+   $collection = 'GRP_' . $group;
+
+   foreach ($qels as $qel)
+   {
+      $res = $db->selectCollection($collection)->remove(array( "qel_name" => $qel));
+   }
+
+   return $res;
+}
+
+function add_group_qels($group, $qels)
+{
+   $m = new Mongo(); // connect
+   $db = $m->selectDB("QEL_Server");
+
+   $collection = 'GRP_' . $group;
+
+    foreach ($qels as $qel)
+    {
+       $entry = array(
+                     'qel_name'=> "$qel"
+                     );
+
+       $db->selectCollection($collection)->save($entry);
+    }
+
    return;
 }
 

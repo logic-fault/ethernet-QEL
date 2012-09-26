@@ -19,6 +19,20 @@ body
 /*   background-color: #ffffff; */
 }
 
+.qel_list
+{
+   margin-left: 5px;
+   margin-top : 5px;
+   border:      1px solid #ffffff;
+   color:       #ffffff;
+}
+
+.qel_list_header
+{
+   font-size:110%;
+   color: #8888ff;
+}
+
 .QEL_header
 {
     margin-top: 10px;
