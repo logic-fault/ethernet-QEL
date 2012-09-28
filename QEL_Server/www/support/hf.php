@@ -15,10 +15,15 @@ function printHeader($caller = 'index.php', $title = 'QEL panel')
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--  QEL Interface copyright (c) Brock Anderson 2012.  Not for commercial use-->
 
 <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <script src="js/funcs.js"> </script>
 	<title>QELink: <? echo $title ?></title>
 	<meta http-equiv="content-type" 
 		content="text/html;charset=utf-8" />
@@ -26,6 +31,9 @@ function printHeader($caller = 'index.php', $title = 'QEL panel')
 
 <body>
 <div class="outer_body"> 
+<div class="QEL_header">
+ &nbsp;QELink Control System
+</div>
 <?
 //   echo $caller
 ?>
@@ -35,7 +43,6 @@ function printHeader($caller = 'index.php', $title = 'QEL panel')
    $pages = array( 'QEL panel' => 'index.php',
               'Groups'    => 'groups.php',
               'NFC Tags'  => 'tags.php',
-              'Users'     => 'users.php'
             );
 
    foreach ($pages as $name => $url)
@@ -50,13 +57,14 @@ function printHeader($caller = 'index.php', $title = 'QEL panel')
 
 </div>
 <div class="body_right">
-
+<div class="inner_body_right">
 <?
 }
 
 function printFooter()
 {
 ?>
+</div>
 </div>
 </div>
 </body>

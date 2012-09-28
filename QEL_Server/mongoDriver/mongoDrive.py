@@ -14,6 +14,7 @@
 #
 
 import pymongo
+import time
 
 class Mongo_Driver(object):
     def __init__(self, server, db_name, port):
@@ -42,10 +43,11 @@ class Mongo_Driver(object):
  
         if (QEL != None):
            QEL['status'] = QEL_status
+           QEL['time']   = int(time.time()) # s since unix epoch
            self.db.QEL_List.save(QEL)
            return
 
-        self.db.QEL_List.save({"name" : QEL_name, "status": QEL_status}) 
+        self.db.QEL_List.save({"name" : QEL_name, "status": QEL_status, "time" : int(time.time())}) 
 
     def find_QEL_in_group(self, group, QEL_name):
         if (self.db == 0):
@@ -55,7 +57,7 @@ class Mongo_Driver(object):
 
         try:
             coll = 'GRP_' + group
-            stat = self.db[coll].find_one({"name" : QEL_name})
+            stat = self.db[coll].find_one({"qel_name" : QEL_name})
         except:
             stat = None
         finally:
@@ -63,6 +65,8 @@ class Mongo_Driver(object):
 
         if (stat != None):
            return True
+
+        return False
             
 
     def get_tag_group(self, tag_id):
@@ -71,7 +75,7 @@ class Mongo_Driver(object):
         
         stat = self.db.tag_permissions.find_one({"ID" : tag_id},{"group" : 1})
         if (stat == None):
-            return 'NOT_IN_DB'
+            return ''
 
         return stat['group']
 

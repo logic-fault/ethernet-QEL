@@ -40,9 +40,20 @@ class QEL_Server(object):
            if (len(cmd) < 3):
               return 'DENY'
            ID_num = cmd[2]
-           # lookup ID
+ 
+           grp = self.db.get_tag_group(ID_num)
+           if (grp == ''):
+              return 'DENY'
 
+           print 'Looking up group'
+           per = self.db.find_QEL_in_group(grp, QEL_ID)
+           if (per == False):
+              print 'denying'
+              return 'DENY'
+
+           print 'accepting'
            return 'GRANT'
+
         elif (QEL_cmd == 'LATCH_OPENED'):
             # update db
             print 'latch ' + QEL_ID + 'opened'
@@ -68,6 +79,8 @@ class QEL_Server(object):
         self.socket.listen(5)
 
         self.sockets = [self.socket]
+
+        addr_list = []
 
         while(True):
 
@@ -99,10 +112,21 @@ class QEL_Server(object):
                 if (ready_socket == self.socket):
                    connection, addr = ready_socket.accept()
                    self.sockets.append(connection)
+                   #addr_list.append([connection, addr])
+                   #print addr_list
 
                 # otherwise, we are talking to a client
                 else:
                     try:
+
+                        # find addr
+                        this_addr = ''
+                        for item in addr_list:
+                           #print item
+                           if (item[0] == ready_socket):
+                              this_addr = item[1[1]]
+                        print 'peer: ' + this_addr
+
                         data = ready_socket.recv(RECV_SIZE)
                         if (data):
                             #handle it
