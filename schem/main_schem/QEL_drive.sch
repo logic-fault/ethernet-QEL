@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/18/2012 3:41:36 PM
+EESchema Schematic File Version 2  date 9/28/2012 9:39:08 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,6 +30,8 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:QEL
+LIBS:pic18f97j60
+LIBS:pwr
 LIBS:main_schem-cache
 EELAYER 25  0
 EELAYER END
@@ -37,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 2 6
 Title "QEL_Driver"
-Date "18 sep 2012"
+Date "28 sep 2012"
 Rev "2"
 Comp "ECE 402 Senior Design"
 Comment1 "Copyright (c) Brock Anderson 2012"
@@ -154,13 +156,13 @@ F 1 "GND" H 4300 3730 30  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 4100 3300 0    60   ~ 0
-Draws approx 66 mA @ 5V
+Draws approx 20 mA @ 3.3
 $Comp
 L R R?
 U 1 1 504B9FF4
 P 4600 3650
 F 0 "R?" V 4680 3650 50  0000 C CNN
-F 1 "56" V 4600 3650 50  0000 C CNN
+F 1 "100" V 4600 3650 50  0000 C CNN
 	1    4600 3650
 	0    -1   -1   0   
 $EndComp

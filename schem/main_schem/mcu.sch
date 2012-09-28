@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/18/2012 3:41:36 PM
+EESchema Schematic File Version 2  date 9/28/2012 9:39:08 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,19 +30,369 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:QEL
+LIBS:pic18f97j60
+LIBS:pwr
 LIBS:main_schem-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
-Sheet 2 6
-Title ""
-Date "18 sep 2012"
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Sheet 3 6
+Title "MCU block"
+Date "28 sep 2012"
+Rev "1"
+Comp "ECE 402 Senior Design, Ingersoll Rand Group"
+Comment1 "Everything except for PIC18 IC block Copyright (c) Brock Anderson 2012"
+Comment2 "All rights reserved.  Not for commercial use."
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Bus Line
+	3950 3650 3950 3300
+Wire Wire Line
+	5200 3650 4050 3650
+Wire Wire Line
+	5200 3500 4050 3500
+Wire Wire Line
+	1850 3800 1750 3800
+Wire Wire Line
+	1750 3800 1750 3900
+Wire Wire Line
+	4050 4500 4050 4600
+Wire Wire Line
+	3450 4500 3450 4600
+Wire Wire Line
+	2850 4500 2850 4600
+Wire Wire Line
+	4900 4800 4900 4500
+Wire Wire Line
+	2350 4500 2350 4600
+Wire Wire Line
+	2500 3850 2500 4100
+Wire Wire Line
+	3750 3800 3750 4100
+Wire Wire Line
+	3150 3800 3150 4100
+Wire Wire Line
+	4700 4050 4700 3850
+Wire Wire Line
+	4700 4050 5200 4050
+Connection ~ 3750 4050
+Wire Wire Line
+	3750 4050 4500 4050
+Wire Wire Line
+	4500 4050 4500 4300
+Wire Wire Line
+	4500 4300 5200 4300
+Connection ~ 3150 3950
+Wire Wire Line
+	3150 3950 4600 3950
+Wire Wire Line
+	4600 3950 4600 4200
+Wire Wire Line
+	4600 4200 5200 4200
+Connection ~ 4900 4700
+Wire Wire Line
+	4900 4700 5200 4700
+Connection ~ 4900 4600
+Wire Wire Line
+	4900 4600 5200 4600
+Wire Wire Line
+	4900 4500 5200 4500
+Wire Wire Line
+	4900 4550 5200 4550
+Connection ~ 4900 4550
+Wire Wire Line
+	4900 4650 5200 4650
+Connection ~ 4900 4650
+Wire Wire Line
+	4900 4750 5200 4750
+Connection ~ 4900 4750
+Wire Wire Line
+	5200 4150 4650 4150
+Wire Wire Line
+	4650 4150 4650 3900
+Wire Wire Line
+	4650 3900 2850 3900
+Connection ~ 2850 3900
+Wire Wire Line
+	5200 4250 4550 4250
+Wire Wire Line
+	4550 4250 4550 4000
+Wire Wire Line
+	4550 4000 3450 4000
+Connection ~ 3450 4000
+Wire Wire Line
+	5200 4350 4450 4350
+Wire Wire Line
+	4450 4350 4450 4100
+Wire Wire Line
+	4450 4100 4050 4100
+Wire Wire Line
+	2850 3800 2850 4100
+Wire Wire Line
+	3450 3800 3450 4100
+Wire Wire Line
+	4050 4100 4050 3800
+Wire Wire Line
+	4700 3850 2200 3850
+Wire Wire Line
+	2200 3850 2200 4100
+Connection ~ 2500 3850
+Wire Wire Line
+	2500 4500 2200 4500
+Connection ~ 2350 4500
+Wire Wire Line
+	4350 3800 4350 3850
+Connection ~ 4350 3850
+Wire Wire Line
+	3150 4500 3150 4600
+Wire Wire Line
+	3750 4500 3750 4600
+Wire Wire Line
+	5050 3950 5200 3950
+Wire Wire Line
+	5200 3850 5100 3850
+Wire Wire Line
+	5100 3850 5100 3800
+Wire Wire Line
+	5100 3800 5050 3800
+Wire Wire Line
+	1750 4400 1750 4600
+Wire Wire Line
+	5200 3450 4050 3450
+Wire Wire Line
+	5200 3600 4050 3600
+Text Label 3950 3300 3    30   ~ 0
+ETH_BUS[1..4]
+Text Label 4150 3650 0    30   ~ 0
+ETH_BUS4
+Text Label 4150 3600 0    30   ~ 0
+ETH_BUS3
+Text Label 4150 3500 0    30   ~ 0
+ETH_BUS2
+Text Label 4150 3450 0    30   ~ 0
+ETH_BUS1
+Entry Wire Line
+	3950 3350 4050 3450
+Entry Wire Line
+	3950 3400 4050 3500
+Entry Wire Line
+	3950 3500 4050 3600
+Entry Wire Line
+	3950 3550 4050 3650
+NoConn ~ 5200 3750
+$Comp
+L VSS #PWR?
+U 1 1 5065B446
+P 1750 4600
+F 0 "#PWR?" H 1750 4600 30  0001 C CNN
+F 1 "VSS" H 1750 4530 30  0000 C CNN
+	1    1750 4600
+	1    0    0    -1  
+$EndComp
+Text GLabel 1850 3800 2    60   Output ~ 0
+RBIAS
+Text GLabel 5050 3800 0    60   Input ~ 0
+RBIAS
+$Comp
+L R R?
+U 1 1 5065B1BD
+P 1750 4150
+F 0 "R?" V 1830 4150 50  0000 C CNN
+F 1 "2.26k 1%" V 1650 4150 50  0000 C CNN
+	1    1750 4150
+	-1   0    0    1   
+$EndComp
+Text GLabel 5050 3950 0    60   Input ~ 0
+MCLR
+$Comp
+L VDDCORE #PWR?
+U 1 1 5065B14E
+P 4350 3800
+F 0 "#PWR?" H 4350 3900 30  0001 C CNN
+F 1 "VDDCORE" H 4350 3910 30  0000 C CNN
+	1    4350 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065B04F
+P 2200 4300
+F 0 "C?" H 2250 4400 50  0000 L CNN
+F 1 "1uF" H 2250 4200 50  0000 L CNN
+	1    2200 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065B01C
+P 4050 4600
+F 0 "#PWR?" H 4050 4600 30  0001 C CNN
+F 1 "VSS" H 4050 4530 30  0000 C CNN
+	1    4050 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065B019
+P 3750 4600
+F 0 "#PWR?" H 3750 4600 30  0001 C CNN
+F 1 "VSS" H 3750 4530 30  0000 C CNN
+	1    3750 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065B016
+P 3450 4600
+F 0 "#PWR?" H 3450 4600 30  0001 C CNN
+F 1 "VSS" H 3450 4530 30  0000 C CNN
+	1    3450 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065B013
+P 3150 4600
+F 0 "#PWR?" H 3150 4600 30  0001 C CNN
+F 1 "VSS" H 3150 4530 30  0000 C CNN
+	1    3150 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065B00F
+P 2850 4600
+F 0 "#PWR?" H 2850 4600 30  0001 C CNN
+F 1 "VSS" H 2850 4530 30  0000 C CNN
+	1    2850 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065B00B
+P 2350 4600
+F 0 "#PWR?" H 2350 4600 30  0001 C CNN
+F 1 "VSS" H 2350 4530 30  0000 C CNN
+	1    2350 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065AF98
+P 2500 4300
+F 0 "C?" H 2550 4400 50  0000 L CNN
+F 1 "0.1uF" H 2550 4200 50  0000 L CNN
+	1    2500 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5065AECE
+P 4050 3800
+F 0 "#PWR?" H 4050 3900 30  0001 C CNN
+F 1 "VDD" H 4050 3910 30  0000 C CNN
+	1    4050 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065AD59
+P 2850 4300
+F 0 "C?" H 2900 4400 50  0000 L CNN
+F 1 "0.1uF" H 2900 4200 50  0000 L CNN
+	1    2850 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065AD55
+P 3150 4300
+F 0 "C?" H 3200 4400 50  0000 L CNN
+F 1 "0.1uF" H 3200 4200 50  0000 L CNN
+	1    3150 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065AD52
+P 3450 4300
+F 0 "C?" H 3500 4400 50  0000 L CNN
+F 1 "0.1uF" H 3500 4200 50  0000 L CNN
+	1    3450 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065AD50
+P 4050 4300
+F 0 "C?" H 4100 4400 50  0000 L CNN
+F 1 "0.1uF" H 4100 4200 50  0000 L CNN
+	1    4050 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5065AD48
+P 3750 4300
+F 0 "C?" H 3800 4400 50  0000 L CNN
+F 1 "0.1uF" H 3800 4200 50  0000 L CNN
+	1    3750 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5065AD36
+P 2850 3800
+F 0 "#PWR?" H 2850 3900 30  0001 C CNN
+F 1 "VDD" H 2850 3910 30  0000 C CNN
+	1    2850 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5065AD33
+P 3150 3800
+F 0 "#PWR?" H 3150 3900 30  0001 C CNN
+F 1 "VDD" H 3150 3910 30  0000 C CNN
+	1    3150 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5065AD30
+P 3450 3800
+F 0 "#PWR?" H 3450 3900 30  0001 C CNN
+F 1 "VDD" H 3450 3910 30  0000 C CNN
+	1    3450 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5065AD0A
+P 3750 3800
+F 0 "#PWR?" H 3750 3900 30  0001 C CNN
+F 1 "VDD" H 3750 3910 30  0000 C CNN
+	1    3750 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5065AC8B
+P 4900 4800
+F 0 "#PWR?" H 4900 4800 30  0001 C CNN
+F 1 "VSS" H 4900 4730 30  0000 C CNN
+	1    4900 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L PIC18F97J60 U?
+U 1 1 5065AAA1
+P 5500 5250
+F 0 "U?" H 6050 5200 60  0000 C CNN
+F 1 "PIC18F97J60" V 6050 6700 60  0000 C CNN
+	1    5500 5250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

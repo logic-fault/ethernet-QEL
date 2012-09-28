@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/18/2012 3:41:36 PM
+EESchema Schematic File Version 2  date 9/28/2012 9:39:08 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,6 +30,8 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:QEL
+LIBS:pic18f97j60
+LIBS:pwr
 LIBS:main_schem-cache
 EELAYER 25  0
 EELAYER END
@@ -37,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 3 6
 Title ""
-Date "18 sep 2012"
+Date "28 sep 2012"
 Rev ""
 Comp ""
 Comment1 ""
