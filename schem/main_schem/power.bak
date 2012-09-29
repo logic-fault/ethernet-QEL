@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/29/2012 2:27:16 PM
+EESchema Schematic File Version 2  date 9/29/2012 2:34:49 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -38,17 +38,22 @@ EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
 Sheet 4 6
-Title ""
+Title "Power Subsystem"
 Date "29 sep 2012"
 Rev ""
-Comp ""
-Comment1 ""
+Comp "Ingersoll Rand 402 Senior Design group."
+Comment1 "Copyright (c) Brock Anderson and Sankalp G Prakash 2012.  All rights reserved."
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 6600 650  0    60   ~ 0
-DIGITAL SYSTEM REGULATORS
+Text Notes 9700 800  0    30   ~ 0
+These grounds should be connected via single points only,\n possibly with ferrite beads between them to minimize transients.
+Connection ~ 10250 900 
+Wire Wire Line
+	10650 900  10650 1000
+Wire Wire Line
+	10650 900  9850 900 
 Wire Notes Line
 	11150 2350 6350 2350
 Wire Notes Line
@@ -85,6 +90,39 @@ Wire Wire Line
 	9350 1100 9350 1350
 Wire Wire Line
 	9450 1800 9450 2050
+Wire Wire Line
+	9850 900  9850 1000
+Wire Wire Line
+	10250 900  10250 1000
+$Comp
+L GNDPWR #PWR?
+U 1 1 50674BFE
+P 10650 1000
+F 0 "#PWR?" H 10650 1050 40  0001 C CNN
+F 1 "GNDPWR" H 10650 920 40  0000 C CNN
+	1    10650 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 50674BEC
+P 10250 1000
+F 0 "#PWR?" H 10250 1000 30  0001 C CNN
+F 1 "VSS" H 10250 930 30  0000 C CNN
+	1    10250 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 50674BE7
+P 9850 1000
+F 0 "#PWR?" H 9850 1000 30  0001 C CNN
+F 1 "GND" H 9850 930 30  0001 C CNN
+	1    9850 1000
+	1    0    0    -1  
+$EndComp
+Text Notes 6600 650  0    60   ~ 0
+DIGITAL SYSTEM REGULATORS
 $Comp
 L GND #PWR?
 U 1 1 50674B55
