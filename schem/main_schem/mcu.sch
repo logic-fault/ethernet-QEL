@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/29/2012 3:55:25 PM
+EESchema Schematic File Version 2  date 9/29/2012 4:18:52 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -47,6 +47,10 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text Notes 500  1800 0    100  ~ 0
+WARNING: CHECK PORT OUTPUT SOURCE/SINK RATINGS\n                    BEFORE FINALIZING LED SELECTIONS
+Text Notes 1550 1400 0    100  ~ 0
+WARNING: READ ABOUT MCLR,\n  IT MAY NEED PARTS ADDED
 NoConn ~ 7100 5200
 Text Label 4650 2350 0    30   ~ 0
 RB5
