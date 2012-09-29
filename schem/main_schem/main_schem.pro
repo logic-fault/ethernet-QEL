@@ -1,4 +1,4 @@
-update=9/28/2012 9:08:49 AM
+update=9/29/2012 11:04:25 AM
 last_client=eeschema
 [eeschema]
 version=1
@@ -30,7 +30,7 @@ offY_E=0
 RptD_X=0
 RptD_Y=100
 RptLab=1
-LabSize=60
+LabSize=30
 [eeschema/libraries]
 LibName1=power
 LibName2=device
