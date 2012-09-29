@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/29/2012 9:53:50 AM
+EESchema Schematic File Version 2  date 9/29/2012 9:59:06 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -47,8 +47,14 @@ Comment2 "All rights reserved.  Not for commercial use."
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 10500 850  0    60   ~ 0
-DEBUG
+Connection ~ 3650 3150
+Wire Wire Line
+	3650 3100 3650 3150
+Connection ~ 3650 2550
+Wire Wire Line
+	3650 2600 3650 2550
+Wire Wire Line
+	2700 3150 2700 3300
 Wire Wire Line
 	4850 3050 4850 3100
 Wire Wire Line
@@ -274,6 +280,78 @@ Wire Wire Line
 	9750 1650 9750 1250
 Wire Wire Line
 	9750 1250 10300 1250
+Wire Wire Line
+	2700 2550 2700 2700
+Wire Wire Line
+	3100 2550 4450 2550
+Wire Wire Line
+	4450 2550 4450 3250
+Wire Wire Line
+	4450 3250 5200 3250
+Connection ~ 3250 2550
+Wire Wire Line
+	3100 3150 4400 3150
+Wire Wire Line
+	4400 3150 4400 3300
+Wire Wire Line
+	4400 3300 5200 3300
+Connection ~ 3250 3150
+$Comp
+L R 1M
+U 1 1 50670C58
+P 3650 2850
+F 0 "1M" V 3730 2850 50  0000 C CNN
+F 1 "R" V 3650 2850 50  0000 C CNN
+	1    3650 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 50670C25
+P 2700 2700
+F 0 "#PWR?" H 2700 2700 30  0001 C CNN
+F 1 "VSS" H 2700 2630 30  0000 C CNN
+	1    2700 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 50670C20
+P 2700 3300
+F 0 "#PWR?" H 2700 3300 30  0001 C CNN
+F 1 "VSS" H 2700 3230 30  0000 C CNN
+	1    2700 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 50670C0B
+P 2900 3150
+F 0 "C?" H 2950 3250 50  0000 L CNN
+F 1 "27pF" H 2950 3050 50  0000 L CNN
+	1    2900 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 50670C05
+P 2900 2550
+F 0 "C?" H 2950 2650 50  0000 L CNN
+F 1 "27pF" H 2950 2450 50  0000 L CNN
+	1    2900 2550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CRYSTAL X?
+U 1 1 50670BD9
+P 3250 2850
+F 0 "X?" H 3250 3000 60  0000 C CNN
+F 1 "25MHz" H 3250 2700 60  0000 C CNN
+	1    3250 2850
+	0    -1   -1   0   
+$EndComp
+Text Notes 10500 850  0    60   ~ 0
+DEBUG
 $Comp
 L VDD #PWR?
 U 1 1 50670B22

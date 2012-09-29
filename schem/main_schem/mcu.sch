@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/29/2012 9:59:06 AM
+EESchema Schematic File Version 2  date 9/29/2012 10:23:31 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -42,11 +42,47 @@ Title "MCU block"
 Date "29 sep 2012"
 Rev "1"
 Comp "ECE 402 Senior Design, Ingersoll Rand Group"
-Comment1 "Everything except for PIC18 IC block Copyright (c) Brock Anderson 2012"
-Comment2 "All rights reserved.  Not for commercial use."
+Comment1 "Layout (not graphics) Copyright (c) Brock Anderson 2012.  All rights reserved."
+Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Wire Line
+	10000 1950 10000 2000
+Wire Wire Line
+	9950 2600 10050 2600
+Wire Bus Line
+	11100 2750 11100 1750
+Wire Wire Line
+	9350 2600 9350 2750
+Wire Bus Line
+	11100 1750 8500 1750
+Wire Wire Line
+	10250 5200 10250 4900
+Wire Wire Line
+	10250 4900 9950 4900
+Wire Wire Line
+	8600 5550 8000 5550
+Wire Wire Line
+	8000 5550 8000 5050
+Wire Wire Line
+	8000 5050 7100 5050
+Wire Wire Line
+	7100 4950 8450 4950
+Wire Wire Line
+	8450 4950 8450 5000
+Wire Wire Line
+	8450 5000 8600 5000
+Wire Wire Line
+	8600 4800 8450 4800
+Wire Wire Line
+	8450 4800 8450 4900
+Wire Wire Line
+	8450 4900 7100 4900
+Wire Wire Line
+	9100 4800 9550 4800
+Wire Wire Line
+	9100 5350 9550 5350
 Connection ~ 3650 3150
 Wire Wire Line
 	3650 3100 3650 3150
@@ -274,8 +310,6 @@ Wire Bus Line
 	4850 1250 8500 1250
 Wire Bus Line
 	8500 1250 8500 1750
-Wire Bus Line
-	8500 1750 10400 1750
 Wire Wire Line
 	9750 1650 9750 1250
 Wire Wire Line
@@ -296,6 +330,172 @@ Wire Wire Line
 Wire Wire Line
 	4400 3300 5200 3300
 Connection ~ 3250 3150
+Wire Wire Line
+	700  750  900  750 
+Wire Wire Line
+	9100 5550 9550 5550
+Wire Wire Line
+	9100 5000 9550 5000
+Wire Wire Line
+	7100 5000 8050 5000
+Wire Wire Line
+	8050 5000 8050 5350
+Wire Wire Line
+	8050 5350 8600 5350
+Wire Wire Line
+	7100 5250 7400 5250
+Wire Wire Line
+	9950 5450 10250 5450
+Wire Wire Line
+	10250 5450 10250 5750
+Wire Wire Line
+	11000 2600 10550 2600
+Wire Wire Line
+	10000 2500 10000 2600
+Connection ~ 10000 2600
+$Comp
+L VDD #PWR?
+U 1 1 506711C2
+P 10000 1950
+F 0 "#PWR?" H 10000 2050 30  0001 C CNN
+F 1 "VDD" H 10000 2060 30  0000 C CNN
+	1    10000 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 506711A8
+P 10000 2250
+F 0 "R?" V 10080 2250 50  0000 C CNN
+F 1 "10k" V 10000 2250 50  0000 C CNN
+	1    10000 2250
+	1    0    0    -1  
+$EndComp
+Entry Wire Line
+	11000 2600 11100 2700
+$Comp
+L R R?
+U 1 1 5067115F
+P 10300 2600
+F 0 "R?" V 10380 2600 50  0000 C CNN
+F 1 "470" V 10300 2600 50  0000 C CNN
+	1    10300 2600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5067114D
+P 9350 2750
+F 0 "#PWR?" H 9350 2750 30  0001 C CNN
+F 1 "VSS" H 9350 2680 30  0000 C CNN
+	1    9350 2750
+	1    0    0    -1  
+$EndComp
+Text Label 10850 2600 0    30   ~ 0
+RB0
+$Comp
+L SW_PUSH SW?
+U 1 1 5067111F
+P 9650 2600
+F 0 "SW?" H 9650 2750 50  0000 C CNN
+F 1 "SW_RESET" H 9650 2520 50  0000 C CNN
+	1    9650 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 506710A1
+P 10250 5200
+F 0 "#PWR?" H 10250 5200 30  0001 C CNN
+F 1 "VSS" H 10250 5130 30  0000 C CNN
+	1    10250 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSS #PWR?
+U 1 1 5067109D
+P 10250 5750
+F 0 "#PWR?" H 10250 5750 30  0001 C CNN
+F 1 "VSS" H 10250 5680 30  0000 C CNN
+	1    10250 5750
+	1    0    0    -1  
+$EndComp
+Text GLabel 7400 5250 2    30   Output ~ 0
+QEL_DRIVE
+$Comp
+L R R?
+U 1 1 50670F86
+P 8850 5550
+F 0 "R?" V 8930 5550 50  0000 C CNN
+F 1 "470" V 8850 5550 50  0000 C CNN
+	1    8850 5550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 50670F80
+P 8850 5350
+F 0 "R?" V 8930 5350 50  0000 C CNN
+F 1 "470" V 8850 5350 50  0000 C CNN
+	1    8850 5350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L DOUBLE_LED D?
+U 1 1 50670F68
+P 9750 5450
+F 0 "D?" H 9850 5620 50  0000 L CNN
+F 1 "NETWORK_RED_GREEN" H 9750 5250 50  0000 C CNN
+	1    9750 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L DOUBLE_LED D?
+U 1 1 50670F61
+P 9750 4900
+F 0 "D?" H 9850 5070 50  0000 L CNN
+F 1 "STATUS_RED_GREEN" H 9750 4700 50  0000 C CNN
+	1    9750 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 50670EF7
+P 8850 5000
+F 0 "R?" V 8930 5000 50  0000 C CNN
+F 1 "470" V 8850 5000 50  0000 C CNN
+	1    8850 5000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 50670EEE
+P 8850 4800
+F 0 "R?" V 8930 4800 50  0000 C CNN
+F 1 "470" V 8850 4800 50  0000 C CNN
+	1    8850 4800
+	0    -1   -1   0   
+$EndComp
+Text Notes 550  850  0    30   ~ 0
+VDD tied to regulated 3.3V
+$Comp
+L +3.3V #PWR?
+U 1 1 50670E40
+P 900 750
+F 0 "#PWR?" H 900 710 30  0001 C CNN
+F 1 "+3.3V" H 900 860 30  0000 C CNN
+	1    900  750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 50670E3A
+P 700 750
+F 0 "#PWR?" H 700 850 30  0001 C CNN
+F 1 "VDD" H 700 860 30  0000 C CNN
+	1    700  750 
+	1    0    0    -1  
+$EndComp
 $Comp
 L R 1M
 U 1 1 50670C58
