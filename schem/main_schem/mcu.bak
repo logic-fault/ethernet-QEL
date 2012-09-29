@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/29/2012 1:29:43 PM
+EESchema Schematic File Version 2  date 9/29/2012 2:27:16 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -47,51 +47,17 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-NoConn ~ 7100 3450
-NoConn ~ 7100 3400
-NoConn ~ 7100 3350
-NoConn ~ 7100 3300
-NoConn ~ 7100 3250
-NoConn ~ 7100 3200
-NoConn ~ 7100 3150
-NoConn ~ 7100 3100
-NoConn ~ 7100 2450
-NoConn ~ 7100 2550
-NoConn ~ 7100 2300
-NoConn ~ 7100 2250
-NoConn ~ 7100 2200
-NoConn ~ 7100 3000
-NoConn ~ 7100 2950
-NoConn ~ 7100 2900
-NoConn ~ 7100 2850
-NoConn ~ 7100 2800
-NoConn ~ 7100 2750
-NoConn ~ 7100 2700
-NoConn ~ 7100 2650
-NoConn ~ 7100 3550
-NoConn ~ 7100 3600
-NoConn ~ 7100 3650
-NoConn ~ 7100 3700
-NoConn ~ 7100 3750
-NoConn ~ 7100 3800
-NoConn ~ 7100 3850
-NoConn ~ 7100 3900
-NoConn ~ 7100 4350
-NoConn ~ 7100 4300
-NoConn ~ 7100 4250
-NoConn ~ 7100 4200
-NoConn ~ 7100 4150
-NoConn ~ 7100 4100
-NoConn ~ 7100 4050
-NoConn ~ 7100 4750
-NoConn ~ 7100 4700
-NoConn ~ 7100 4650
-NoConn ~ 7100 4600
-NoConn ~ 7100 4550
-NoConn ~ 7100 4500
-NoConn ~ 7100 4450
-Text Notes 7300 3950 0    30   ~ 0
-FLIPS RX POLARITY OF ETHERNET
+NoConn ~ 7100 5250
+NoConn ~ 5200 2450
+NoConn ~ 5200 2400
+NoConn ~ 5200 2350
+NoConn ~ 5200 2300
+Text Notes 4900 2100 0    30   ~ 0
+to LEDs on RJ45 Jack
+Wire Wire Line
+	5200 2200 5200 2150
+Wire Wire Line
+	5200 2150 5150 2150
 Wire Wire Line
 	7100 4000 7500 4000
 Wire Wire Line
@@ -454,6 +420,58 @@ Wire Wire Line
 	7950 2200 8350 2200
 Wire Wire Line
 	7100 2500 8350 2500
+Wire Wire Line
+	5150 2250 5200 2250
+Text GLabel 5150 2250 0    30   Input ~ 0
+NET_LED_B
+Text GLabel 5150 2150 0    30   Input ~ 0
+NET_LED_A
+NoConn ~ 7100 4850
+NoConn ~ 7100 3450
+NoConn ~ 7100 3400
+NoConn ~ 7100 3350
+NoConn ~ 7100 3300
+NoConn ~ 7100 3250
+NoConn ~ 7100 3200
+NoConn ~ 7100 3150
+NoConn ~ 7100 3100
+NoConn ~ 7100 2450
+NoConn ~ 7100 2550
+NoConn ~ 7100 2300
+NoConn ~ 7100 2250
+NoConn ~ 7100 2200
+NoConn ~ 7100 3000
+NoConn ~ 7100 2950
+NoConn ~ 7100 2900
+NoConn ~ 7100 2850
+NoConn ~ 7100 2800
+NoConn ~ 7100 2750
+NoConn ~ 7100 2700
+NoConn ~ 7100 2650
+NoConn ~ 7100 3550
+NoConn ~ 7100 3600
+NoConn ~ 7100 3650
+NoConn ~ 7100 3700
+NoConn ~ 7100 3750
+NoConn ~ 7100 3800
+NoConn ~ 7100 3850
+NoConn ~ 7100 3900
+NoConn ~ 7100 4350
+NoConn ~ 7100 4300
+NoConn ~ 7100 4250
+NoConn ~ 7100 4200
+NoConn ~ 7100 4150
+NoConn ~ 7100 4100
+NoConn ~ 7100 4050
+NoConn ~ 7100 4750
+NoConn ~ 7100 4700
+NoConn ~ 7100 4650
+NoConn ~ 7100 4600
+NoConn ~ 7100 4550
+NoConn ~ 7100 4500
+NoConn ~ 7100 4450
+Text Notes 7300 3950 0    30   ~ 0
+FLIPS RX POLARITY OF ETHERNET
 Text GLabel 7500 4000 2    30   Output ~ 0
 RXSWAP
 Text GLabel 8350 2350 2    60   Input ~ 0

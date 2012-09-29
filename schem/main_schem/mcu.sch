@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/29/2012 1:33:09 PM
+EESchema Schematic File Version 2  date 9/29/2012 2:30:36 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -47,6 +47,7 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+NoConn ~ 7100 5250
 NoConn ~ 5200 2450
 NoConn ~ 5200 2400
 NoConn ~ 5200 2350
