@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/30/2012 11:25:30 PM
+EESchema Schematic File Version 2  date 10/5/2012 10:27:38 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,9 +37,9 @@ EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
-Sheet 1 5
+Sheet 1 6
 Title "noname.sch"
-Date "1 oct 2012"
+Date "5 oct 2012"
 Rev "0.1"
 Comp ""
 Comment1 ""
@@ -47,6 +47,12 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Sheet
+S 7700 2450 2200 1500
+U 506EEAD1
+F0 "Ethernet Analog subsystem" 60
+F1 "ethernet_analog.sch" 60
+$EndSheet
 $Sheet
 S 4650 850  1700 1250
 U 504B9E36
