@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 10/8/2012 1:43:35 PM
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 10/8/2012 1:50:07 PM
 
 BeginCmp
 TimeStamp = /506EEAD1/506EFD16;
@@ -403,7 +403,7 @@ BeginCmp
 TimeStamp = /504B9E36/5072317B;
 Reference = U3;
 ValeurCmp = PS2501-1;
-IdModule  = VQFP100;
+IdModule  = DIP-8__300;
 EndCmp
 
 BeginCmp

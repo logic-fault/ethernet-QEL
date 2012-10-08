@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  10/8/2012 1:43:35 PM
+# EESchema Netlist Version 1.1 created  10/8/2012 1:50:07 PM
 (
  ( /506EEAD1/506EFD16 SM1206 C1 0.1uF
   ( 1 N-000097 )
@@ -256,7 +256,7 @@
   ( 5 TXC )
   ( 6 RXSWAP )
  )
- ( /504B9E36/5072317B VQFP100 U3 PS2501-1
+ ( /504B9E36/5072317B DIP-8__300 U3 PS2501-1
   ( 1 QEL_DRIVE )
   ( 2 N-000090 )
   ( 3 N-000088 )
