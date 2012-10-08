@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/6/2012 9:35:46 AM
+EESchema Schematic File Version 2  date 10/7/2012 8:27:40 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 3 6
 Title "QEL_Driver"
-Date "6 oct 2012"
+Date "8 oct 2012"
 Rev "2"
 Comp "ECE 402 Senior Design"
 Comment1 "Copyright (c) Brock Anderson 2012"
