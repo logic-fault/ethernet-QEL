@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/6/2012 9:35:46 AM
+EESchema Schematic File Version 2  date 10/7/2012 9:05:54 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 3 6
 Title "QEL_Driver"
-Date "6 oct 2012"
+Date "8 oct 2012"
 Rev "2"
 Comp "ECE 402 Senior Design"
 Comment1 "Copyright (c) Brock Anderson 2012"
@@ -47,6 +47,15 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Comp
+L PS2501-1 U3
+U 1 1 5072317B
+P 5700 3550
+F 0 "U3" H 5675 3775 60  0000 C CNN
+F 1 "PS2501-1" H 5700 3250 60  0000 C CNN
+	1    5700 3550
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	8150 4250 8150 4550
 Wire Wire Line
@@ -93,10 +102,6 @@ F 1 "GNDPWR" H 7000 4470 40  0000 C CNN
 	1    7000 4550
 	1    0    0    -1  
 $EndComp
-NoConn ~ 6300 4300
-NoConn ~ 6300 4000
-NoConn ~ 5050 4200
-NoConn ~ 5050 3900
 $Comp
 L VSS #PWR010
 U 1 1 50674779
@@ -173,13 +178,4 @@ F 1 "100" V 4600 3650 50  0000 C CNN
 $EndComp
 Text GLabel 4050 3350 0    60   Input ~ 0
 QEL_DRIVE
-$Comp
-L PS2501-2 U3
-U 1 1 504B9FB2
-P 5700 3550
-F 0 "U3" H 5875 2625 60  0000 C CNN
-F 1 "PS2501-2" H 5650 2750 60  0000 C CNN
-	1    5700 3550
-	1    0    0    -1  
-$EndComp
 $EndSCHEMATC
