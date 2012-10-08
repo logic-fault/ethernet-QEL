@@ -40,7 +40,7 @@
 "R6";100;1206;"P100ECT-ND ";"Digikey";"5% Thick Film "
 "R7";68;1206;"P68ECT-ND";"Digikey";"5% Thick Film "
 "R8";680;1206;"P680ECT-ND";"Digikey";"5% Thick Film "
-"R9";"2.26k 1%";1206;"P2.26KFCT-ND ";"Digikey";1.00%
+"R9";"2.26k 1%";1206;"P2.26KFCT-ND ";"Digikey";"1.00%"
 "R10";"1M";1206;"P1.0MECT-ND ";"Digikey";"5% Thick Film "
 "R11";"4.7k";1206;"P4.7KECT-ND ";"Digikey";"5% Thick Film "
 "R12";"1k";1206;"P1.0KECT-ND ";"Digikey";"5% Thick Film "
@@ -52,6 +52,7 @@
 "R18";"10k";1206;"P10KECT-ND";"Digikey";"5% Thick Film "
 "R19";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film "
 "R20";"1k";1206;"P1.0KECT-ND ";"Digikey";"5% Thick Film "
+"R21";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film "
 "SW1";"SW_RESET";"See datasheet";"CKN10226CT-ND";"Digikey";"NO, momentary, SPST"
 "U1";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
 "U2";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
