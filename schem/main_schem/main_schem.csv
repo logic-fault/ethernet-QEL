@@ -53,11 +53,11 @@
 "R19";470;;;;
 "R?";"1k";;;;
 "SW1";"SW_RESET";;;;
-"U1";"SPDT_ANALOG";;;;
-"U2";"SPDT_ANALOG";;;;
-"U3";"PS2501-2";;;;
-"U4";"25LC256";;;;
-"U5";"PIC18F97J60";;;;
-"U6";"LM7805";;;;
-"U7";"LM1117-3.3";;;;
-"X1";"25MHz";;;;
+"U1";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
+"U2";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
+"U3";"PS2501-1";"4-SMD";"PS2501L-1-F3-L-ACT-ND";"Digikey";
+"U4";"25LC256";"8-SOIC";"25LC256-I/SN-ND";"Digikey";
+"U5";"PIC18F97J60";"100-TQFP";"PIC18F97J60-I/PT-ND ";"Digikey";
+"U6";"LM7805";"TO-220-3";"LM7805CT-ND";"Digikey";
+"U7";"LM1117-3.3";"TO-220-3";"LM1117T-3.3/NOPB-ND";"Digikey";
+"X1";"25MHz";"2-SMD";"XC1671CT-ND";"Digikey";"c_l = 18pF"
