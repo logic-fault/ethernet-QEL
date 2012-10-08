@@ -1,5 +1,5 @@
-update=10/5/2012 9:11:43 AM
-last_client=eeschema
+update=10/8/2012 3:24:13 PM
+last_client=cvpcb
 [eeschema]
 version=1
 LibDir=../component_lib
@@ -65,3 +65,22 @@ LibName30=valves
 LibName31=QEL
 LibName32=pic18f97j60
 LibName33=pwr
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
+[pcbnew]
+[pcbnew/libraries]
+LibName1=sockets
+LibName2=connect
+LibName3=discret
+LibName4=pin_array
+LibName5=divers
+LibName6=libcms
+LibName7=display
+LibName8=valves
+LibName9=led
+LibName10=dip_sockets
+LibName11=C:/school/ethernet-QEL/schem/component_lib/XTAL_ECX-64A
+LibDir=
