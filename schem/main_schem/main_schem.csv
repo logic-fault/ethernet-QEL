@@ -1,58 +1,58 @@
 "ref";"value";"footprint";"P/N";"Vendor";"Comments"
-"C1";"0.1uF";;;;
-"C2";"0.1uF";;;;
-"C3";"1uF";;;;
-"C4";"0.1uF";;;;
-"C5";"0.1uF";;;;
-"C6";"27pF";;;;
-"C7";"27pF";;;;
-"C8";"0.1uF";;;;
-"C9";"0.1uF";;;;
-"C10";"0.1uF";;;;
-"C11";"0.1uF";;;;
-"C12";"0.1uF";;;;
-"C13";"0.1uF";;;;
-"C14";"0.1uF";;;;
-"C15";"0.1uF";;;;
-"C16";"0.1uF";;;;
-"C17";"0.1uF";;;;
-"C18";"0.1uF";;;;
-"C19";"0.33uF";;;;
-"C20";"0.1uF";;;;
-"C21";"10uF";;;;
-"D1";"DIODE";;;;
-"D2";"STATUS_RED_GREEN";;;;
-"D3";"NETWORK_RED_GREEN";;;;
-"FB1";"120 @ 100 MHz";;;;
-"FB2";"120 @ 100 MHz";;;;
-"P1";"CONN_2";;;;
-"P2";"CONN_PORTD";;;;
-"P3";"CONN_ICD";;;;
-"P4";"CONN_NFC";;;;
-"P?";"CONN_2";;;;
-"Q1";"ENHANCED_MOSFET_N";;;;
-"Q?";"NPN";;;;
-"R1";49.9;;;;
-"R2";49.9;;;;
-"R3";"100k";;;;
-"R4";49.9;;;;
-"R5";49.9;;;;
-"R6";100;;;;
-"R7";68;;;;
-"R8";680;;;;
-"R9";"2.26k 1%";;;;
-"R10";"1M";;;;
-"R11";"4.7k";;;;
-"R12";"1k";;;;
-"R13";470;;;;
-"R14";470;;;;
-"R15";470;;;;
-"R16";470;;;;
-"R17";100;;;;
-"R18";"10k";;;;
-"R19";470;;;;
-"R?";"1k";;;;
-"SW1";"SW_RESET";;;;
+"C1";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C2";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C3";"1uF";1206;"445-4024-1-ND";"Digikey";"Ceramic 20%"
+"C4";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C5";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C6";"27pF";805;"712-1384-1-ND";"Digikey";"CAP CER 27PF 250V 5% NP0 0805"
+"C7";"27pF";805;"712-1384-1-ND";"Digikey";"CAP CER 27PF 250V 5% NP0 0805"
+"C8";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C9";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C10";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C11";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C12";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C13";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C14";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C15";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C16";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C17";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C18";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C19";"0.33uF";1206;"445-4011-1-ND ";"Digikey";"Ceramic 20% 50V"
+"C20";"0.1uF";1206;"445-1378-1-ND";"Digikey";"Ceramic 20%"
+"C21";"10uF";1206;"493-2351-1-ND";"Digikey";"Tantalum 20%"
+"D1";"DIODE";"DO-214AC, SMA ";"10MQ060NPBFCT-ND";"Digikey";"Shottky, 60 V, "
+"D2";"STATUS_RED_GREEN";1210;"160-1172-1-ND";"Digikey";"Dual LED package"
+"D3";"NETWORK_RED_GREEN";1210;"160-1172-1-ND";"Digikey";"Dual LED package"
+"FB1";"120 @ 100 MHz";805;"A102194CT-ND";"Digikey";"FERRITE CHIP 120 OHM 300MA 0805"
+"FB2";"120 @ 100 MHz";805;"A102194CT-ND";"Digikey";"FERRITE CHIP 120 OHM 300MA 0805"
+"P1";"CONN_2";;"A99996TR-ND ";"Digikey";"1.5 mm Pitch"
+"P2";"CONN_PORTD";;;;"No connector"
+"P3";"CONN_ICD";;;;"No connector"
+"P4";"CONN_NFC";;"A100102-ND ";"Digikey";"CONN HEADER 8PS 2MM VERT W/LATCH"
+"P5";"CONN_2";;"A99996TR-ND ";"Digikey";"1.5 mm Pitch"
+"Q1";"ENHANCED_MOSFET_N";"TO-220-3";"497-2757-5-ND";"Digikey";"IRF630, through hole"
+"Q?";"NPN";"SOT-23-3 ";"568-1636-1-ND";"Digikey";"TRANS NPN GP 100MA 45V SOT23"
+"R1";49.9;1206;"P49.9FCT-ND ";"Digikey";"RES 49.9 OHM 1/4W 1% 1206 SMD"
+"R2";49.9;1206;"P49.9FCT-ND ";"Digikey";"RES 49.9 OHM 1/4W 1% 1206 SMD"
+"R3";"100k";1206;"P100KECT-ND";"Digikey";"5% Thick Film "
+"R4";49.9;1206;"P49.9FCT-ND ";"Digikey";"RES 49.9 OHM 1/4W 1% 1206 SMD"
+"R5";49.9;1206;"P49.9FCT-ND ";"Digikey";"RES 49.9 OHM 1/4W 1% 1206 SMD"
+"R6";100;1206;"P100ECT-ND ";"Digikey";"5% Thick Film "
+"R7";68;1206;"P68ECT-ND";"Digikey";"5% Thick Film "
+"R8";680;1206;"P680ECT-ND";"Digikey";"5% Thick Film "
+"R9";"2.26k 1%";1206;"P2.26KFCT-ND ";"Digikey";1.00%
+"R10";"1M";1206;"P1.0MECT-ND ";"Digikey";"5% Thick Film "
+"R11";"4.7k";1206;"P4.7KECT-ND ";"Digikey";"5% Thick Film "
+"R12";"1k";1206;"P1.0KECT-ND ";"Digikey";"5% Thick Film "
+"R13";220;1206;"P220ECT-ND";"Digikey";"5% Thick Film "
+"R14";220;1206;"P220ECT-ND";"Digikey";"5% Thick Film "
+"R15";220;1206;"P220ECT-ND";"Digikey";"5% Thick Film "
+"R16";220;1206;"P220ECT-ND";"Digikey";"5% Thick Film "
+"R17";100;1206;"P100ECT-ND ";"Digikey";"5% Thick Film "
+"R18";"10k";1206;"P10KECT-ND";"Digikey";"5% Thick Film "
+"R19";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film "
+"R20";"1k";1206;"P1.0KECT-ND ";"Digikey";"5% Thick Film "
+"SW1";"SW_RESET";"See datasheet";"CKN10226CT-ND";"Digikey";"NO, momentary, SPST"
 "U1";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
 "U2";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
 "U3";"PS2501-1";"4-SMD";"PS2501L-1-F3-L-ACT-ND";"Digikey";

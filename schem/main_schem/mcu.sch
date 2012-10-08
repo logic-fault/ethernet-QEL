@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/7/2012 9:06:12 PM
+EESchema Schematic File Version 2  date 10/8/2012 12:57:14 PM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -47,6 +47,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text Notes 2000 2650 0    30   ~ 0
+for XC1671CT-ND:\n c_l = 18pF\n\nC7=C8=Cb\n\nCb / 2 + (2 to 5 pF) = cl\n27/2 + 3.5 = 17pF --> about 18 pF
 Text Notes 8900 3700 0    60   ~ 0
 BREAKOUT TO EXTERNAL NFC BOARD
 Wire Notes Line
@@ -567,10 +569,10 @@ NFC BUZZER (4kHz)
 Text Notes 6750 6850 0    30   ~ 0
 PIEZO: PS1240P02BT
 $Comp
-L CONN_2 P?
+L CONN_2 P5
 U 1 1 50703F74
 P 7050 6600
-F 0 "P?" V 7000 6600 40  0000 C CNN
+F 0 "P5" V 7000 6600 40  0000 C CNN
 F 1 "CONN_2" V 7100 6600 40  0000 C CNN
 	1    7050 6600
 	1    0    0    -1  
@@ -585,10 +587,10 @@ F 1 "+3.3V" H 6500 6360 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R R20
 U 1 1 50703F34
 P 6500 6600
-F 0 "R?" V 6580 6600 50  0000 C CNN
+F 0 "R20" V 6580 6600 50  0000 C CNN
 F 1 "1k" V 6500 6600 50  0000 C CNN
 	1    6500 6600
 	1    0    0    -1  
@@ -605,10 +607,10 @@ F 1 "VSS" H 6500 7530 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R R19
 U 1 1 50703DAF
 P 5900 7200
-F 0 "R?" V 5980 7200 50  0000 C CNN
+F 0 "R19" V 5980 7200 50  0000 C CNN
 F 1 "470" V 5900 7200 50  0000 C CNN
 	1    5900 7200
 	0    -1   -1   0   
@@ -616,10 +618,10 @@ $EndComp
 Text GLabel 5550 7200 0    30   UnSpc ~ 0
 NFC_BUZZER
 $Comp
-L NPN Q?
+L NPN Q2
 U 1 1 50703D8E
 P 6400 7200
-F 0 "Q?" H 6400 7050 50  0000 R CNN
+F 0 "Q2" H 6400 7050 50  0000 R CNN
 F 1 "NPN" H 6400 7350 50  0000 R CNN
 	1    6400 7200
 	1    0    0    -1  
@@ -941,7 +943,7 @@ L R R16
 U 1 1 50670F86
 P 9250 6250
 F 0 "R16" V 9330 6250 50  0000 C CNN
-F 1 "470" V 9250 6250 50  0000 C CNN
+F 1 "220" V 9250 6250 50  0000 C CNN
 	1    9250 6250
 	0    -1   -1   0   
 $EndComp
@@ -950,7 +952,7 @@ L R R15
 U 1 1 50670F80
 P 9250 6050
 F 0 "R15" V 9330 6050 50  0000 C CNN
-F 1 "470" V 9250 6050 50  0000 C CNN
+F 1 "220" V 9250 6050 50  0000 C CNN
 	1    9250 6050
 	0    -1   -1   0   
 $EndComp
@@ -977,7 +979,7 @@ L R R14
 U 1 1 50670EF7
 P 9250 5700
 F 0 "R14" V 9330 5700 50  0000 C CNN
-F 1 "470" V 9250 5700 50  0000 C CNN
+F 1 "220" V 9250 5700 50  0000 C CNN
 	1    9250 5700
 	0    -1   -1   0   
 $EndComp
@@ -986,7 +988,7 @@ L R R13
 U 1 1 50670EEE
 P 9250 5500
 F 0 "R13" V 9330 5500 50  0000 C CNN
-F 1 "470" V 9250 5500 50  0000 C CNN
+F 1 "220" V 9250 5500 50  0000 C CNN
 	1    9250 5500
 	0    -1   -1   0   
 $EndComp
