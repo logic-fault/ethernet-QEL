@@ -1,4 +1,4 @@
-PCBNEW-BOARD Version 1 date 10/8/2012 3:09:10 PM
+PCBNEW-BOARD Version 1 date 10/10/2012 9:19:04 AM
 
 # Created by Pcbnew(2012-01-19 BZR 3256)-stable
 
@@ -9,19 +9,19 @@ Ly 1FFF8007
 EnabledLayers 1FFF8007
 Links 147
 NoConn 147
-Di 14299 22099 90388 46901
+Di -478 -607 90388 46901
 Ndraw 4
 Ntrack 0
 Nzone 0
 BoardThickness 630
-Nmodule 63
+Nmodule 64
 Nnets 54
 $EndGENERAL
 
 $SHEETDESCR
 Sheet A4 11700 8267
 Title ""
-Date "8 oct 2012"
+Date "10 oct 2012"
 Rev ""
 Comp ""
 Comment1 ""
@@ -58,8 +58,8 @@ TextPcbSize 600 800
 EdgeModWidth 150
 TextModSize 600 600
 TextModWidth 120
-PadSize 600 600
-PadDrill 320
+PadSize 157 236
+PadDrill 0
 Pad2MaskClearance 100
 AuxiliaryAxisOrg 0 0
 PcbPlotParams (pcbplotparams (layerselection 3178497) (usegerberextensions true) (excludeedgelayer true) (linewidth 60) (plotframeref false) (viasonmask false) (mode 1) (useauxorigin false) (hpglpennumber 1) (hpglpenspeed 20) (hpglpendiameter 15) (hpglpenoverlay 0) (pscolor true) (psnegative false) (psa4output false) (plotreference true) (plotvalue true) (plotothertext true) (plotinvisibletext false) (padsonsilk false) (subtractmaskfromsilk false) (outputformat 1) (mirror false) (drillshape 1) (scaleselection 1) (outputdirectory gerber/))
@@ -365,6 +365,57 @@ ViaDrill 250
 uViaDia 200
 uViaDrill 50
 $EndNCLASS
+$MODULE SC70
+Po 0 0 0 15 50758122 50758181 ~~
+Li SC70
+Sc 50758181
+AR 
+Op 0 0 0
+T0 689 -453 118 118 0 30 N V 21 N "SC70"
+T1 728 531 118 118 0 30 N V 21 N "VAL**"
+$PAD
+Sh "2" R 157 236 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 0 374
+$EndPAD
+$PAD
+Sh "3" R 157 236 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 256 374
+$EndPAD
+$PAD
+Sh "1" R 157 236 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -256 374
+$EndPAD
+$PAD
+Sh "6" R 157 236 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -256 -374
+$EndPAD
+$PAD
+Sh "5" R 157 236 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 0 -374
+$EndPAD
+$PAD
+Sh "4" R 157 236 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 256 -374
+$EndPAD
+$EndMODULE  SC70
 $MODULE VQFP100
 Po 67950 37800 0 15 3D86F9E3 507320A6 ~~
 Li VQFP100
