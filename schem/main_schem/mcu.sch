@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/8/2012 1:33:22 PM
+EESchema Schematic File Version 2  date 10/12/2012 9:52:20 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 4 6
 Title "MCU block"
-Date "8 oct 2012"
+Date "12 oct 2012"
 Rev "1"
 Comp "ECE 402 Senior Design, Ingersoll Rand Group"
 Comment1 "Layout (not graphics) Copyright (c) Brock Anderson 2012.  All rights reserved."
@@ -47,10 +47,17 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 2000 2650 0    30   ~ 0
-for XC1671CT-ND:\n c_l = 18pF\n\nC7=C8=Cb\n\nCb / 2 + (2 to 5 pF) = cl\n27/2 + 3.5 = 17pF --> about 18 pF
-Text Notes 8900 3700 0    60   ~ 0
-BREAKOUT TO EXTERNAL NFC BOARD
+Connection ~ 8500 3700
+Wire Wire Line
+	8500 3700 8500 3650
+Connection ~ 7950 4300
+Wire Wire Line
+	7950 4300 8450 4300
+Wire Wire Line
+	8450 4300 8450 4250
+Wire Wire Line
+	8050 4500 8050 3250
+Connection ~ 7950 3350
 Wire Notes Line
 	11200 5150 8850 5150
 Wire Wire Line
@@ -562,6 +569,64 @@ Wire Notes Line
 	8850 5150 8850 3600
 Wire Notes Line
 	8850 3600 11200 3600
+Connection ~ 8050 3250
+Wire Wire Line
+	7950 4500 7950 3350
+Wire Wire Line
+	8600 4250 8600 4350
+Wire Wire Line
+	8600 4350 8050 4350
+Connection ~ 8050 4350
+Wire Wire Line
+	8450 3750 8450 3700
+Wire Wire Line
+	8450 3700 8600 3700
+Wire Wire Line
+	8600 3700 8600 3750
+$Comp
+L +3.3V #PWR?
+U 1 1 50782C27
+P 8500 3650
+F 0 "#PWR?" H 8500 3610 30  0001 C CNN
+F 1 "+3.3V" H 8500 3760 30  0000 C CNN
+	1    8500 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 50782BA9
+P 8450 4000
+F 0 "R?" V 8530 4000 50  0000 C CNN
+F 1 "3.3k" V 8450 4000 50  0000 C CNN
+	1    8450 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 50782B9F
+P 8600 4000
+F 0 "R?" V 8680 4000 50  0000 C CNN
+F 1 "3.3k" V 8600 4000 50  0000 C CNN
+	1    8600 4000
+	1    0    0    -1  
+$EndComp
+Text GLabel 7950 4500 3    30   BiDi ~ 0
+SCA
+Text GLabel 8050 4500 3    30   Output ~ 0
+SCL
+$Comp
+L CONN_8 P2
+U 1 1 506EDDF7
+P 8500 3100
+F 0 "P2" V 8450 3100 60  0000 C CNN
+F 1 "CONN_PORTD" V 8550 3100 60  0000 C CNN
+	1    8500 3100
+	1    0    0    -1  
+$EndComp
+Text Notes 2000 2650 0    30   ~ 0
+for XC1671CT-ND:\n c_l = 18pF\n\nC7=C8=Cb\n\nCb / 2 + (2 to 5 pF) = cl\n27/2 + 3.5 = 17pF --> about 18 pF
+Text Notes 8900 3700 0    60   ~ 0
+BREAKOUT TO EXTERNAL NFC BOARD
 Text Notes 5150 7050 0    60   ~ 0
 4kHz PWM sig
 Text Notes 5200 5950 0    60   ~ 0
@@ -680,20 +745,11 @@ Entry Wire Line
 Text GLabel 10050 4500 0    30   BiDi ~ 0
 NFC_SELECT_NOT
 Text GLabel 10050 4400 0    60   BiDi ~ 0
-SDO1
+SCA
 Text GLabel 10050 4250 0    60   BiDi ~ 0
 SDI1
 Text GLabel 10050 4100 0    60   BiDi ~ 0
-SCK1
-$Comp
-L CONN_8 P2
-U 1 1 506EDDF7
-P 8500 3100
-F 0 "P2" V 8450 3100 60  0000 C CNN
-F 1 "CONN_PORTD" V 8550 3100 60  0000 C CNN
-	1    8500 3100
-	1    0    0    -1  
-$EndComp
+SCL
 $Comp
 L VSS #PWR48
 U 1 1 50691AE9
@@ -795,8 +851,6 @@ NoConn ~ 7100 4600
 NoConn ~ 7100 4550
 NoConn ~ 7100 4500
 NoConn ~ 7100 4450
-Text Notes 7300 3950 0    30   ~ 0
-FLIPS RX POLARITY OF ETHERNET
 Text GLabel 7500 4000 2    30   Output ~ 0
 RXSWAP
 Text GLabel 8350 2350 2    60   Input ~ 0

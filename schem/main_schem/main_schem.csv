@@ -53,6 +53,8 @@
 "R19";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film "
 "R20";"1k";1206;"P1.0KECT-ND ";"Digikey";"5% Thick Film "
 "R21";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film "
+"R22";"3.3K";1206;"P3.3KECT-ND ";"Digikey";"5% Thick Film "
+"R23";"3.3K";1206;"P3.3KECT-ND ";"Digikey";"5% Thick Film "
 "SW1";"SW_RESET";"See datasheet";"CKN10226CT-ND";"Digikey";"NO, momentary, SPST"
 "U1";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";
 "U2";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";

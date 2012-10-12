@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/8/2012 1:33:22 PM
+EESchema Schematic File Version 2  date 10/12/2012 9:52:20 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 2 6
 Title "Ethernet Analog Subsystem w/ Polarity Switching"
-Date "8 oct 2012"
+Date "12 oct 2012"
 Rev ""
 Comp "Ingersoll Rand 402 Group"
 Comment1 "Brock Anderson, 2012"
