@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  10/10/2012 9:46:20 AM
+# EESchema Netlist Version 1.1 created  10/13/2012 10:28:30 PM
 (
  ( /506EEAD1/506EFD16 SM1206 C1 0.1uF
   ( 1 N-000097 )
@@ -110,7 +110,7 @@
   ( 1 +24V )
   ( 2 N-000089 )
  )
- ( /50476328/506EDDF7 PIN_ARRAY_4x1 P2 CONN_PORTD
+ ( /50476328/506EDDF7 CONN_8_PITCH-2MM P2 CONN_PORTD
   ( 1 N-000018 )
   ( 2 N-000081 )
   ( 3 N-000019 )
@@ -128,7 +128,7 @@
   ( 5 /MCU_subsystem/RB6 )
   ( 6 ? )
  )
- ( /50476328/506EE876 pin_array_8x2 P4 CONN_NFC
+ ( /50476328/506EE876 CONN_8_PITCH-2MM P4 CONN_NFC
   ( 1 TXC )
   ( 2 SCK1 )
   ( 3 SDI1 )

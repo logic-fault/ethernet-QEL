@@ -1,4 +1,4 @@
-update=10/10/2012 9:44:34 AM
+update=10/13/2012 10:20:32 PM
 last_client=cvpcb
 [eeschema]
 version=1
@@ -80,6 +80,7 @@ LibName10=dip_sockets
 LibName11=C:/school/ethernet-QEL/schem/component_lib/XTAL_ECX-64A
 LibName12=C:/school/ethernet-QEL/schem/component_lib/SC70
 LibName13=C:/school/ethernet-QEL/schem/component_lib/DIP-4
+LibName14=C:/school/ethernet-QEL/schem/component_lib/CONN_8_PITCH-2MM
 LibDir=
 [cvpcb]
 version=1
