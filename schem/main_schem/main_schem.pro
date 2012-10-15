@@ -1,4 +1,4 @@
-update=10/15/2012 9:20:28 AM
+update=10/15/2012 1:04:51 PM
 last_client=cvpcb
 [eeschema]
 version=1
@@ -101,6 +101,7 @@ LibName15=SC70
 LibName16=XTAL_ECX-64A
 LibName17=SPST_K5G
 LibName18=DUAL_LED
+LibName19=DO214_DIODE
 LibDir=../component_lib
 [cvpcb]
 version=1

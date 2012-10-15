@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  10/15/2012 9:28:18 AM
+# EESchema Netlist Version 1.1 created  10/15/2012 1:05:34 PM
 (
  ( /506EEAD1/506EFD16 SM1206 C1 0.1uF
   ( 1 N-000097 )
@@ -84,7 +84,7 @@
   ( 1 TXC )
   ( 2 GND )
  )
- ( /504B9E36/5058DB32 DO-214AC (SMA) D1 DIODE
+ ( /504B9E36/5058DB32 DO214_DIODE D1 DIODE
   ( 1 N-000089 )
   ( 2 +24V )
  )
