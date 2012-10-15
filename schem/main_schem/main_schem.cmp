@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 10/13/2012 10:28:30 PM
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 10/15/2012 9:28:18 AM
 
 BeginCmp
 TimeStamp = /506EEAD1/506EFD16;
@@ -151,21 +151,21 @@ BeginCmp
 TimeStamp = /504B9E36/5058DB32;
 Reference = D1;
 ValeurCmp = DIODE;
-IdModule  = D4;
+IdModule  = DO-214AC (SMA);
 EndCmp
 
 BeginCmp
 TimeStamp = /50476328/50670F61;
 Reference = D2;
 ValeurCmp = STATUS_RED_GREEN;
-IdModule  = SM1210;
+IdModule  = DUAL_LED;
 EndCmp
 
 BeginCmp
 TimeStamp = /50476328/50670F68;
 Reference = D3;
 ValeurCmp = NETWORK_RED_GREEN;
-IdModule  = SM1210;
+IdModule  = DUAL_LED;
 EndCmp
 
 BeginCmp
@@ -382,7 +382,7 @@ BeginCmp
 TimeStamp = /50476328/5067111F;
 Reference = SW1;
 ValeurCmp = SW_RESET;
-IdModule  = PUSH_BUTT_SHAPE1;
+IdModule  = SPST_K5G;
 EndCmp
 
 BeginCmp

@@ -1,0 +1,107 @@
+PCBNEW-LibModule-V1  10/15/2012 9:05:27 AM
+# encoding utf-8
+$INDEX
+SPST_K5G
+$EndINDEX
+$MODULE SPST_K5G
+Po 0 0 0 15 507C1819 507C1400 ~~
+Li SPST_K5G
+Sc 507C1400
+AR 
+Op 0 0 0
+T0 1142 -512 276 276 0 69 N V 21 N "SPST_K5G"
+T1 787 945 236 236 0 59 N V 21 N "VAL**"
+$PAD
+Sh "" C 472 472 0 0 0
+Dr 472 0 0
+At HOLE N 00E0FFFF
+Ne 0 ""
+Po 0 0
+$EndPAD
+$PAD
+Sh "" C 354 354 0 0 0
+Dr 354 0 0
+At HOLE N 00E0FFFF
+Ne 0 ""
+Po 2264 0
+$EndPAD
+$PAD
+Sh "" R 472 559 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -207 -1106
+.SolderMask 4
+.LocalClearance 4
+$EndPAD
+$PAD
+Sh "" R 472 559 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -207 1106
+.SolderMask 4
+.LocalClearance 4
+$EndPAD
+$PAD
+Sh "" R 472 559 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 2470 1106
+.SolderMask 4
+.LocalClearance 4
+$EndPAD
+$PAD
+Sh "" R 472 559 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 2470 -1106
+.SolderMask 4
+.LocalClearance 4
+$EndPAD
+$PAD
+Sh "5" R 472 787 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1132 1772
+$EndPAD
+$PAD
+Sh "6" R 472 787 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 423 1772
+$EndPAD
+$PAD
+Sh "4" R 472 787 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1841 1772
+$EndPAD
+$PAD
+Sh "3" R 472 787 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1841 -1772
+$EndPAD
+$PAD
+Sh "2" R 472 787 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1132 -1772
+$EndPAD
+$PAD
+Sh "1" R 472 787 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 423 -1772
+$EndPAD
+$EndMODULE  SPST_K5G
+$EndLIBRARY

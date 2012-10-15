@@ -1,4 +1,4 @@
-update=10/13/2012 10:20:32 PM
+update=10/15/2012 9:20:28 AM
 last_client=cvpcb
 [eeschema]
 version=1
@@ -66,6 +66,22 @@ LibName31=QEL
 LibName32=pic18f97j60
 LibName33=pwr
 [pcbnew]
+version=1
+PadDrlX=320
+PadDimH=600
+PadDimV=600
+BoardThickness=630
+TxtPcbV=800
+TxtPcbH=600
+TxtModV=600
+TxtModH=600
+TxtModW=120
+VEgarde=100
+DrawLar=150
+EdgeLar=150
+TxtLar=120
+MSegLar=150
+LastNetListRead=main_schem.net
 [pcbnew/libraries]
 LibName1=sockets
 LibName2=connect
@@ -77,11 +93,15 @@ LibName7=display
 LibName8=valves
 LibName9=led
 LibName10=dip_sockets
-LibName11=C:/school/ethernet-QEL/schem/component_lib/XTAL_ECX-64A
-LibName12=C:/school/ethernet-QEL/schem/component_lib/SC70
-LibName13=C:/school/ethernet-QEL/schem/component_lib/DIP-4
-LibName14=C:/school/ethernet-QEL/schem/component_lib/CONN_8_PITCH-2MM
-LibDir=
+LibName11=CONN_8_PITCH-2MM
+LibName12=custom_mosfet
+LibName13=DIP-4
+LibName14=DO-214AC (SMA)
+LibName15=SC70
+LibName16=XTAL_ECX-64A
+LibName17=SPST_K5G
+LibName18=DUAL_LED
+LibDir=../component_lib
 [cvpcb]
 version=1
 NetIExt=net
