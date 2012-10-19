@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/12/2012 10:11:24 AM
+EESchema Schematic File Version 2  date 10/17/2012 8:53:55 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 2 6
 Title "Ethernet Analog Subsystem w/ Polarity Switching"
-Date "12 oct 2012"
+Date "17 oct 2012"
 Rev ""
 Comp "Ingersoll Rand 402 Group"
 Comment1 "Brock Anderson, 2012"
@@ -165,10 +165,10 @@ ETHERNET RX
 Text Notes 1500 3050 0    60   ~ 0
 ETHERNET TX
 $Comp
-L +3.3V #PWR1
+L +3.3V #PWR01
 U 1 1 507229A7
 P 2950 1300
-F 0 "#PWR1" H 2950 1260 30  0001 C CNN
+F 0 "#PWR01" H 2950 1260 30  0001 C CNN
 F 1 "+3.3V" H 2950 1410 30  0000 C CNN
 	1    2950 1300
 	1    0    0    -1  
@@ -178,10 +178,10 @@ TXC
 Text Notes 7100 1350 0    30   ~ 0
 This is supposed to go to cener tap of transformer
 $Comp
-L VSS #PWR8
+L VSS #PWR02
 U 1 1 506EFD34
 P 7150 2500
-F 0 "#PWR8" H 7150 2500 30  0001 C CNN
+F 0 "#PWR02" H 7150 2500 30  0001 C CNN
 F 1 "VSS" H 7150 2430 30  0000 C CNN
 	1    7150 2500
 	1    0    0    -1  
@@ -196,19 +196,19 @@ F 1 "0.1uF" H 3800 5300 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VSS #PWR2
+L VSS #PWR03
 U 1 1 506EFD0E
 P 3750 5750
-F 0 "#PWR2" H 3750 5750 30  0001 C CNN
+F 0 "#PWR03" H 3750 5750 30  0001 C CNN
 F 1 "VSS" H 3750 5680 30  0000 C CNN
 	1    3750 5750
 	1    0    0    -1  
 $EndComp
 $Comp
-L VSS #PWR5
+L VSS #PWR04
 U 1 1 506EFADF
 P 6850 6450
-F 0 "#PWR5" H 6850 6450 30  0001 C CNN
+F 0 "#PWR04" H 6850 6450 30  0001 C CNN
 F 1 "VSS" H 6850 6380 30  0000 C CNN
 	1    6850 6450
 	1    0    0    -1  
@@ -229,37 +229,37 @@ RXSWAP
 Text GLabel 7050 3550 2    60   Input ~ 0
 RXSWAP
 $Comp
-L VSS #PWR3
+L VSS #PWR05
 U 1 1 506EFA1F
 P 5100 3800
-F 0 "#PWR3" H 5100 3800 30  0001 C CNN
+F 0 "#PWR05" H 5100 3800 30  0001 C CNN
 F 1 "VSS" H 5100 3730 30  0000 C CNN
 	1    5100 3800
 	1    0    0    -1  
 $EndComp
 $Comp
-L VSS #PWR4
+L VSS #PWR06
 U 1 1 506EF9D4
 P 5100 4950
-F 0 "#PWR4" H 5100 4950 30  0001 C CNN
+F 0 "#PWR06" H 5100 4950 30  0001 C CNN
 F 1 "VSS" H 5100 4880 30  0000 C CNN
 	1    5100 4950
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR7
+L +3.3V #PWR07
 U 1 1 506EF9AE
 P 6900 4900
-F 0 "#PWR7" H 6900 4860 30  0001 C CNN
+F 0 "#PWR07" H 6900 4860 30  0001 C CNN
 F 1 "+3.3V" H 6900 5010 30  0000 C CNN
 	1    6900 4900
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR6
+L +3.3V #PWR08
 U 1 1 506EF99F
 P 6900 3750
-F 0 "#PWR6" H 6900 3710 30  0001 C CNN
+F 0 "#PWR08" H 6900 3710 30  0001 C CNN
 F 1 "+3.3V" H 6900 3860 30  0000 C CNN
 	1    6900 3750
 	1    0    0    -1  
