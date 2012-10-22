@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 10/17/2012 8:52:55 AM
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 10/22/2012 9:11:21 AM
 
 BeginCmp
 TimeStamp = /506EEAD1/506EFD16;
@@ -183,6 +183,13 @@ IdModule  = SM0805;
 EndCmp
 
 BeginCmp
+TimeStamp = /506EEAD1/5082E1D8;
+Reference = J1;
+ValeurCmp = RJ45-QEL;
+IdModule  = RJ45_TRANSFO;
+EndCmp
+
+BeginCmp
 TimeStamp = /504B9E36/504BA571;
 Reference = P1;
 ValeurCmp = CONN_2;
@@ -215,6 +222,20 @@ TimeStamp = /50476328/50703F74;
 Reference = P5;
 ValeurCmp = CONN_2;
 IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /504762F5/508471EA;
+Reference = P6;
+ValeurCmp = CONN_2;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50476328/50855204;
+Reference = P7;
+ValeurCmp = CONN_EEPROM;
+IdModule  = CONN_8_PITCH-2MM;
 EndCmp
 
 BeginCmp
@@ -375,6 +396,20 @@ BeginCmp
 TimeStamp = /50476328/50703DAF;
 Reference = R21;
 ValeurCmp = 470;
+IdModule  = SM1206;
+EndCmp
+
+BeginCmp
+TimeStamp = /506EEAD1/5082E45D;
+Reference = R22;
+ValeurCmp = 220;
+IdModule  = SM1206;
+EndCmp
+
+BeginCmp
+TimeStamp = /506EEAD1/5082E53A;
+Reference = R23;
+ValeurCmp = 220;
 IdModule  = SM1206;
 EndCmp
 
