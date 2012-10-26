@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/22/2012 10:04:33 AM
+EESchema Schematic File Version 2  date 10/24/2012 8:18:13 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 5 6
 Title "Power Subsystem"
-Date "22 oct 2012"
+Date "24 oct 2012"
 Rev ""
 Comp "Ingersoll Rand 402 Senior Design group."
 Comment1 "Copyright (c) Brock Anderson and Sankalp G Prakash 2012.  All rights reserved."
