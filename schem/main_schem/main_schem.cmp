@@ -1,4 +1,4 @@
-Cmp-Mod V01 Genere par PcbNew le 10/22/2012 1:45:45 PM
+Cmp-Mod V01 Genere par PcbNew le 10/27/2012 11:00:33 AM
 
 BeginCmp
 TimeStamp = /506EEAD1/506EFD16;
@@ -193,7 +193,7 @@ BeginCmp
 TimeStamp = /504B9E36/504BA571;
 Reference = P1;
 ValeurCmp = CONN_2;
-IdModule  = PIN_ARRAY_2X1;
+IdModule  = bornier2_V;
 EndCmp
 
 BeginCmp
@@ -228,7 +228,7 @@ BeginCmp
 TimeStamp = /504762F5/508471EA;
 Reference = P6;
 ValeurCmp = CONN_2;
-IdModule  = PIN_ARRAY_2X1;
+IdModule  = bornier2_V;
 EndCmp
 
 BeginCmp
