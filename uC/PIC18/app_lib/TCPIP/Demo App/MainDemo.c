@@ -655,6 +655,7 @@ static void InitializeBoard(void)
 	LED5_TRIS = 0;
 	LED6_TRIS = 0;
 	LED7_TRIS = 0;
+        QEL_TRIS = 0;
 	LED_PUT(0x00);
 
 #if defined(__18CXX)

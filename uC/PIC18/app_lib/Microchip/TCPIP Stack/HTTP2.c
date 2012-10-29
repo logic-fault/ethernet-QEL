@@ -164,7 +164,7 @@
 		HTTP_CONN					HTTPControlBlocks[MAX_HTTP_CONNECTIONS];
 		#define HTTPLoadConn(a)		do{curHTTPID = (a);}while(0)
 	#else
-		HTTP_CONN curHTTP;							// Current HTTP connection state
+		HTTP_CONN curHTTP;			     // Current HTTP connection state
 		static void HTTPLoadConn(BYTE hHTTP);
 	#endif
 	HTTP_STUB httpStubs[MAX_HTTP_CONNECTIONS];	// HTTP stubs with state machine and socket
@@ -451,7 +451,7 @@ static void HTTPProcess(void)
 			// Reset the watchdog timer
 			curHTTP.callbackID = TickGet() + HTTP_TIMEOUT*TICK_SECOND;
 
-			// Determine the request method
+			// Determine the request method  sktHTTP = socket#
 			lenA = TCPFind(sktHTTP, ' ', 0, FALSE);
 			if(lenA > 5u)
 				lenA = 5;
@@ -1306,8 +1306,8 @@ static void HTTPHeaderParseContentLength(void)
 
   Description:
 	Parses a string from URL encoding to plain-text.  The following
-	conversions are made: ‘=’ to ‘\0’, ‘&’ to ‘\0’, ‘+’ to ‘ ‘, and
-	“%xx” to a single hex byte.
+	conversions are made: ï¿½=ï¿½ to ï¿½\0ï¿½, ï¿½&ï¿½ to ï¿½\0ï¿½, ï¿½+ï¿½ to ï¿½ ï¿½, and
+	ï¿½%xxï¿½ to a single hex byte.
  
 	After completion, the data has been decoded and a null terminator
 	signifies the end of a name or value.  A second null terminator (or a

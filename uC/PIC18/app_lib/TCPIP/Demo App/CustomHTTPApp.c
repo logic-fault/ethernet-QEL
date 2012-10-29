@@ -154,8 +154,8 @@ BYTE HTTPNeedsAuth(BYTE* cFile)
 #if defined(HTTP_USE_AUTHENTICATION)
 BYTE HTTPCheckAuth(BYTE* cUser, BYTE* cPass)
 {
-	if(strcmppgm2ram((char *)cUser,(ROM char *)"admin") == 0
-		&& strcmppgm2ram((char *)cPass, (ROM char *)"microchip") == 0)
+	if(strcmppgm2ram((char *)cUser,(ROM char *)"shreyas") == 0
+		&& strcmppgm2ram((char *)cPass, (ROM char *)"manu") == 0)
 		return 0x80;		// We accept this combination
 	
 	// You can add additional user/pass combos here.
@@ -188,7 +188,7 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 	
 	// Load the file name
 	// Make sure BYTE filename[] above is large enough for your longest name
-	MPFSGetFilename(curHTTP.file, filename, 20);
+	MPFSGetFilename(curHTTP.file, filename, 20);          //file from current HTTP connection
 	
 	// If its the forms.htm page
 	if(!memcmppgm2ram(filename, "forms.htm", 9))
@@ -232,6 +232,7 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 		// Toggle the specified LED
 		switch(*ptr) {
 			case '1':
+                            //QEL_IO ^= 1;
 				LED1_IO ^= 1;
 				break;
 			case '2':
@@ -1422,6 +1423,7 @@ void HTTPPrint_led(WORD num)
 			num = LED0_IO;
 			break;
 		case 1:
+                        //num = QEL_IO;
 			num = LED1_IO;
 			break;
 		case 2:
@@ -1458,9 +1460,10 @@ void HTTPPrint_ledSelected(WORD num, WORD state)
 	switch(num)
 	{
 		case 0:
-			num = LED0_IO;
+                        num = LED0_IO;
 			break;
 		case 1:
+                        //num = QEL_IO;
 			num = LED1_IO;
 			break;
 		case 2:
