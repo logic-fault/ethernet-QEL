@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/26/2012 9:37:13 AM
+EESchema Schematic File Version 2  date 11/1/2012 8:24:50 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 2 6
 Title "Ethernet Analog Subsystem w/ Polarity Switching"
-Date "26 oct 2012"
+Date "1 nov 2012"
 Rev ""
 Comp "Ingersoll Rand 402 Group"
 Comment1 "Brock Anderson, 2012"
@@ -48,24 +48,26 @@ Comment3 "http://ww1.microchip.com/downloads/en/DeviceDoc/51623d.pdf, pg 29"
 Comment4 ""
 $EndDescr
 Wire Wire Line
-	4630 7540 4650 7540
+	6290 6470 6190 6470
 Wire Wire Line
-	4650 7340 4630 7340
-Connection ~ 5080 7640
+	3960 7490 3980 7490
 Wire Wire Line
-	5160 7640 5080 7640
+	3980 7290 3960 7290
+Connection ~ 4410 7590
 Wire Wire Line
-	5070 7040 5030 7040
+	4490 7590 4410 7590
 Wire Wire Line
-	5070 7040 5070 6940
+	4400 6990 4360 6990
 Wire Wire Line
-	5070 6940 5160 6940
+	4400 6990 4400 6890
 Wire Wire Line
-	5030 7040 5030 7120
+	4400 6890 4490 6890
 Wire Wire Line
-	5030 7120 4280 7120
+	4360 6990 4360 7070
 Wire Wire Line
-	4270 6740 5160 6740
+	4360 7070 3610 7070
+Wire Wire Line
+	3600 6690 4490 6690
 Wire Notes Line
 	1150 7800 1150 500 
 Wire Notes Line
@@ -180,81 +182,81 @@ Wire Notes Line
 Wire Notes Line
 	1150 6400 10600 6400
 Wire Wire Line
-	4270 6570 5020 6570
+	3600 6520 4350 6520
 Wire Wire Line
-	5020 6570 5020 6640
+	4350 6520 4350 6590
 Wire Wire Line
-	5020 6640 5160 6640
+	4350 6590 4490 6590
 Wire Wire Line
-	5030 6910 5030 6840
+	4360 6860 4360 6790
 Wire Wire Line
-	5030 6910 4270 6910
+	4360 6860 3600 6860
 Wire Wire Line
-	4280 7270 5070 7270
+	3610 7220 4400 7220
 Wire Wire Line
-	5070 7270 5070 7140
+	4400 7220 4400 7090
 Wire Wire Line
-	5070 7140 5160 7140
+	4400 7090 4490 7090
 Wire Wire Line
-	5030 6840 5160 6840
+	4360 6790 4490 6790
 Wire Wire Line
-	5160 7440 5080 7440
+	4490 7390 4410 7390
 Wire Wire Line
-	5080 7440 5080 7700
+	4410 7390 4410 7650
 Wire Wire Line
-	5150 7340 5160 7340
+	4480 7290 4490 7290
 Wire Wire Line
-	5160 7540 5150 7540
-Text GLabel 4630 7540 0    30   Input ~ 0
+	4490 7490 4480 7490
+Text GLabel 3960 7490 0    30   Input ~ 0
 NET_LED_B
 $Comp
 L R R23
 U 1 1 5082E53A
-P 4900 7540
-F 0 "R23" V 4820 7580 50  0000 C CNN
-F 1 "220" V 4900 7540 50  0000 C CNN
-	1    4900 7540
+P 4230 7490
+F 0 "R23" V 4150 7530 50  0000 C CNN
+F 1 "220" V 4230 7490 50  0000 C CNN
+	1    4230 7490
 	0    -1   -1   0   
 $EndComp
 $Comp
 L R R22
 U 1 1 5082E45D
-P 4900 7340
-F 0 "R22" V 4820 7370 50  0000 C CNN
-F 1 "220" V 4900 7340 50  0000 C CNN
-	1    4900 7340
+P 4230 7290
+F 0 "R22" V 4150 7320 50  0000 C CNN
+F 1 "220" V 4230 7290 50  0000 C CNN
+	1    4230 7290
 	0    -1   -1   0   
 $EndComp
-Text GLabel 4630 7340 0    30   Input ~ 0
+Text GLabel 3960 7290 0    30   Input ~ 0
 NET_LED_A
-Text Notes 6230 7770 0    30   ~ 0
+Text Notes 5560 7720 0    30   ~ 0
 08B0-1G1T-06-F
 $Comp
 L VSS #PWR3
 U 1 1 5082E2BE
-P 5080 7700
-F 0 "#PWR3" H 5080 7700 30  0001 C CNN
-F 1 "VSS" H 5080 7630 30  0000 C CNN
-	1    5080 7700
+P 4410 7650
+F 0 "#PWR3" H 4410 7650 30  0001 C CNN
+F 1 "VSS" H 4410 7580 30  0000 C CNN
+	1    4410 7650
 	1    0    0    -1  
 $EndComp
-Text GLabel 4280 7120 0    60   Output ~ 0
+Text GLabel 3610 7070 0    60   Output ~ 0
 RX+
-Text GLabel 4280 7270 0    60   Output ~ 0
+Text GLabel 3610 7220 0    60   Output ~ 0
 RX-
-Text GLabel 4270 6570 0    60   Input ~ 0
+Text GLabel 3600 6520 0    60   Input ~ 0
 TX+
-Text GLabel 4270 6910 0    60   Input ~ 0
+Text GLabel 3600 6860 0    60   Input ~ 0
 TX-
-Text GLabel 4270 6740 0    60   Input ~ 0
+Text GLabel 3600 6690 0    60   Input ~ 0
 TXC
 $Comp
 L RJ45-QEL J1
 U 1 1 5082E1D8
-P 6260 7140
-F 0 "J1" H 6360 7740 60  0000 L CNN
-F 1 "RJ45-QEL" H 6210 7740 60  0000 R CNN
-	1    6260 7140
+P 5590 7090
+F 0 "J1" H 5690 7690 60  0000 L CNN
+F 1 "RJ45-QEL" H 5540 7690 60  0000 R CNN
+	1    5590 7090
 	1    0    0    -1  
 $EndComp
 Text Notes 1500 750  0    60   ~ 0
@@ -275,10 +277,10 @@ TXC
 Text Notes 7100 1350 0    30   ~ 0
 This is supposed to go to cener tap of transformer
 $Comp
-L VSS #PWR9
+L VSS #PWR10
 U 1 1 506EFD34
 P 7150 2500
-F 0 "#PWR9" H 7150 2500 30  0001 C CNN
+F 0 "#PWR10" H 7150 2500 30  0001 C CNN
 F 1 "VSS" H 7150 2430 30  0000 C CNN
 	1    7150 2500
 	1    0    0    -1  
@@ -302,10 +304,10 @@ F 1 "VSS" H 3750 5680 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VSS #PWR6
+L VSS #PWR7
 U 1 1 506EFADF
 P 6800 6250
-F 0 "#PWR6" H 6800 6250 30  0001 C CNN
+F 0 "#PWR7" H 6800 6250 30  0001 C CNN
 F 1 "VSS" H 6800 6180 30  0000 C CNN
 	1    6800 6250
 	1    0    0    -1  
@@ -344,19 +346,19 @@ F 1 "VSS" H 5100 4880 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR8
+L +3.3V #PWR9
 U 1 1 506EF9AE
 P 6900 4900
-F 0 "#PWR8" H 6900 4860 30  0001 C CNN
+F 0 "#PWR9" H 6900 4860 30  0001 C CNN
 F 1 "+3.3V" H 6900 5010 30  0000 C CNN
 	1    6900 4900
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR7
+L +3.3V #PWR8
 U 1 1 506EF99F
 P 6900 3750
-F 0 "#PWR7" H 6900 3710 30  0001 C CNN
+F 0 "#PWR8" H 6900 3710 30  0001 C CNN
 F 1 "+3.3V" H 6900 3860 30  0000 C CNN
 	1    6900 3750
 	1    0    0    -1  

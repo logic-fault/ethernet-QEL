@@ -1,4 +1,4 @@
-update=10/27/2012 10:47:25 AM
+update=10/27/2012 5:30:10 PM
 last_client=pcbnew
 [cvpcb]
 version=1
@@ -110,3 +110,4 @@ LibName18=DUAL_LED
 LibName19=DO214_DIODE
 LibName20=RJ45-QEL
 LibName21=borniers
+LibName22=C:/Users/null/Downloads/LOGO (2)
