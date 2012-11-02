@@ -74,6 +74,8 @@
 
 #include "qel_state.h"
 
+static SYSTEM_STATE_STRUCT qel_state;
+
 // Used for Wi-Fi assertions
 #define WF_MODULE_NUMBER   WF_MODULE_MAIN_DEMO
 
@@ -185,6 +187,9 @@ int main(void)
 {
 	static DWORD t = 0;
 	static DWORD dwLastIP = 0;
+
+        // initialize qel state machine
+        init_system_state(&qel_state);
 
 	// Initialize application specific hardware
 	InitializeBoard();

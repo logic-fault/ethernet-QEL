@@ -1,9 +1,14 @@
-/* 
- * File:   qel_state.h
- * Author: Brock Anderson
- *
- * Created on November 2, 2012, 9:08 AM
- */
+/*-------------------------------------------------------------------------------
+* Name:        QELink
+* Purpose:     state machine interface
+*
+* Author:      Brock Anderson
+*
+* Created:     2 November 2012
+* Copyright:   (c) Brock Anderson 2012
+* Licence:   All rights reserved.
+*            Not permitted for commercial use.
+*/
 
 #ifndef QEL_STATE_H
 #define	QEL_STATE_H
@@ -50,6 +55,8 @@ typedef struct
 
 
 } SYSTEM_STATE_STRUCT;
+
+void init_system_state(SYSTEM_STATE_STRUCT * sys);
 
 // interface functions for state
 void           update_system_state(SYSTEM_STATE_STRUCT * sys,
