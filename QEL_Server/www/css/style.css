@@ -1,0 +1,185 @@
+/*
+ *  QELink web server
+ *   Styles
+ *
+ *  Copyright (c) Brock Anderson 2012
+ *  All rights reserved.  Not for commercial use
+ *
+ */
+
+body
+{
+   background-color: #555555
+}
+
+.outer_body
+{
+   margin-left: 10px;
+   margin-top:  10px;
+/*   background-color: #ffffff; */
+}
+
+.info
+{
+   color: #000000;
+   font-size: 75%;
+   border: 1px dotted #ffffff;
+}
+
+.qel_list
+{
+   margin-left: 5px;
+   margin-top : 5px;
+   border-top:      1px solid #ffffff;
+   color:       #ffffff;
+}
+
+.qel_list_header
+{
+   font-size:110%;
+   color: #ffffff;
+}
+
+.QEL_header
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px dotted #ffffff;
+    border-left: 2px dotted #ffffff;
+    color: #ffffff;
+    font-size:120%;
+}
+
+
+.submit_div
+{
+    color: #000000;
+    border-top: 1px dotted #ffffff;
+    border-left: 1px dotted #ffffff;
+}
+
+
+.menu_left
+{
+   width: 100px;
+   float: left;
+   background-color: #aaaaff;
+   color: #ffffff;
+}
+
+.group_link:link
+{
+   text-decoration:none;
+   color: #000000;
+}
+.group_link:visited
+{
+   text-decoration:none;
+   color: #000000;
+}
+.group_link:hover
+{
+   text-decoration:none;
+   color: #000000;
+}
+.group_link:active
+{
+   text-decoration:none;
+   color: #i000000;
+}
+
+.menu_link:link
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.menu_link:visited
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.menu_link:hover
+{
+    text-decoration:none;
+    color: #ffaaaa;
+}
+
+.menu_link:active
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.menu_link_here:link
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.menu_link_here:visited
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.menu_link_here:hover
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.menu_link_here:active
+{
+    text-decoration:none;
+    color: #000000;
+    font-size:110%;
+}
+
+.body_right
+{
+   border-left: 2px dotted #ffffff;
+   margin-left: 40px;
+   float: left;
+   /*background-color: #ffaaaa;*/
+   color: #111155;
+}
+
+.inner_body_right
+{
+   margin-left: 40px;
+}
+
+.list_table
+{
+    border-width: 0px;
+}
+
+.list_head
+{
+    color: #000000;
+    background-color: #888888;
+}
+
+.table_c
+{
+    border: none;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.element_even
+{
+    color: #000000;
+    background-color: #dddddd;
+}
+
+.element_odd
+{
+    color: #000000;
+    background-color: #aaaaaa;
+}

@@ -1,0 +1,4 @@
+ lib="C:\Program Files\Orcad\Capture\Library\PSpice\diode.lib", offset=27541, size=160
+ lib="C:\Program Files\Orcad\Capture\Library\PSpice\pwrbjt.lib", offset=224645, size=342
+ lib="C:\Program Files\Orcad\Capture\Library\PSpice\bipolar.lib", offset=13005, size=564
+ lib="C:\Program Files\Orcad\Capture\Library\PSpice\opto.lib", offset=24816, size=881

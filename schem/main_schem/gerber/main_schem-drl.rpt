@@ -1,0 +1,42 @@
+Drill report for C:\school\ethernet-QEL\schem\main_schem\main_schem.brd
+Created on 11/1/2012 8:28:31 AM
+Selected Drill Unit: Imperial (")
+
+Drill report for through holes :
+T1  0.025"  0.64mm  (124 holes)
+T2  0.032"  0.81mm  (28 holes)
+T3  0.035"  0.89mm  (6 holes)
+T4  0.040"  1.02mm  (12 holes)
+T5  0.045"  1.14mm  (9 holes)
+T6  0.051"  1.30mm  (6 holes)
+T7  0.062"  1.57mm  (2 holes)
+T8  0.120"  3.05mm  (3 holes)
+
+total plated holes count 190
+
+
+Drill report for buried and blind vias :
+
+Drill report for holes from layer Back to layer Inner2
+
+total plated holes count 0
+
+
+Drill report for holes from layer Inner2 to layer Inner3
+
+total plated holes count 0
+
+
+Drill report for holes from layer Inner3 to layer Front
+
+total plated holes count 0
+
+
+Drill report for Not Plated through holes :
+T1  0.035"  0.90mm  (1 hole)
+T2  0.047"  1.20mm  (1 hole)
+T3  0.128"  3.25mm  (2 holes)
+
+total Not Plated holes count 4
+
+

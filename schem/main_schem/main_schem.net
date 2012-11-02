@@ -1,0 +1,681 @@
+# EESchema Netlist Version 1.1 created  10/22/2012 9:11:21 AM
+(
+ ( /506EEAD1/506EFD16 SM1206 C1 0.1uF
+  ( 1 N-000104 )
+  ( 2 GND )
+ )
+ ( /506EEAD1/506EF466 SM1206 C2 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065B04F SM1206 C3 1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065AF98 SM1206 C4 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065AD59 SM1206 C5 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/50670C05 SM0805 C6 27pF
+  ( 1 GND )
+  ( 2 N-000031 )
+ )
+ ( /50476328/50670C0B SM0805 C7 27pF
+  ( 1 GND )
+  ( 2 N-000090 )
+ )
+ ( /50476328/5065AD55 SM1206 C8 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065E528 SM1206 C9 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065AD52 SM1206 C10 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065E51E SM1206 C11 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065AD48 SM1206 C12 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065E50D SM1206 C13 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065AD50 SM1206 C14 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5065E4EF SM1206 C15 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/5067150F SM1206 C16 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /50476328/50691ADA SM1206 C17 0.1uF
+  ( 1 N-000086 )
+  ( 2 GND )
+ )
+ ( /50476328/506707F4 SM1206 C18 0.1uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /504762F5/506749B5 SM1206 C19 0.33uF
+  ( 1 +24V )
+  ( 2 GND )
+ )
+ ( /504762F5/50674985 SM1206 C20 0.1uF
+  ( 1 +5V )
+  ( 2 GND )
+ )
+ ( /504762F5/506749BB SM1206 C21 10uF
+  ( 1 TXC )
+  ( 2 GND )
+ )
+ ( /504B9E36/5058DB32 DO214_DIODE D1 DIODE
+  ( 1 N-000092 )
+  ( 2 +24V )
+ )
+ ( /50476328/50670F61 DUAL_LED D2 STATUS_RED_GREEN
+  ( A1 N-000037 )
+  ( A2 N-000032 )
+  ( K GND )
+ )
+ ( /50476328/50670F68 DUAL_LED D3 NETWORK_RED_GREEN
+  ( A1 N-000035 )
+  ( A2 N-000036 )
+  ( K GND )
+ )
+ ( /506EEAD1/506EF3AF SM0805 FB1 120_@_100_MHz
+  ( 1 TPOUT+ )
+  ( 2 TX+ )
+ )
+ ( /506EEAD1/506EF3B9 SM0805 FB2 120_@_100_MHz
+  ( 1 TPOUT- )
+  ( 2 TX- )
+ )
+ ( /506EEAD1/5082E1D8 RJ45_TRANSFO J1 RJ45-QEL
+  ( 1 TXC )
+  ( 2 TX+ )
+  ( 3 TX- )
+  ( 4 RX+ )
+  ( 5 RX- )
+  ( 6 ? )
+  ( 7 GND )
+  ( 8 N-000098 )
+  ( 9 GND )
+  ( 10 N-000097 )
+  ( 13 ? )
+ )
+ ( /504B9E36/504BA571 PIN_ARRAY_2X1 P1 CONN_2
+  ( 1 +24V )
+  ( 2 N-000092 )
+ )
+ ( /50476328/506EDDF7 CONN_8_PITCH-2MM P2 CONN_PORTD
+  ( 1 N-000088 )
+  ( 2 N-000038 )
+  ( 3 N-000070 )
+  ( 4 SDO2 )
+  ( 5 N-000072 )
+  ( 6 SCL2 )
+  ( 7 SDI2 )
+  ( 8 N-000087 )
+ )
+ ( /50476328/50670762 PIN_ARRAY-6X1 P3 CONN_ICD
+  ( 1 N-000075 )
+  ( 2 TXC )
+  ( 3 GND )
+  ( 4 /MCU_subsystem/RB7 )
+  ( 5 /MCU_subsystem/RB6 )
+  ( 6 ? )
+ )
+ ( /50476328/506EE876 CONN_8_PITCH-2MM P4 CONN_NFC
+  ( 1 TXC )
+  ( 2 SCL2 )
+  ( 3 SDI2 )
+  ( 4 SDO2 )
+  ( 5 NFC_SELECT_NOT )
+  ( 6 NFC_RST_NOT )
+  ( 7 NFC_IRQ )
+  ( 8 GND )
+ )
+ ( /50476328/50703F74 PIN_ARRAY_2X1 P5 CONN_2
+  ( 1 TXC )
+  ( 2 N-000084 )
+ )
+ ( /504762F5/508471EA PIN_ARRAY_2X1 P6 CONN_2
+  ( 1 +24V )
+  ( 2 GND )
+ )
+ ( /50476328/50855204 CONN_8_PITCH-2MM P7 CONN_EEPROM
+  ( 1 EEPROM_SELECT_NOT )
+  ( 2 SDI1 )
+  ( 3 TXC )
+  ( 4 GND )
+  ( 5 SDO1 )
+  ( 6 SCK1 )
+  ( 7 TXC )
+  ( 8 TXC )
+ )
+ ( /504B9E36/5058DB1C TO220 Q1 ENHANCED_MOSFET_N
+  ( D N-000092 )
+  ( G N-000094 )
+  ( S GND )
+ )
+ ( /50476328/50703D8E SOT23 Q2 NPN
+  ( 1 GND )
+  ( 2 N-000040 )
+  ( 3 N-000084 )
+ )
+ ( /506EEAD1/506EED8E SM1206 R1 49.9
+  ( 1 N-000104 )
+  ( 2 TPIN- )
+ )
+ ( /506EEAD1/506EED96 SM1206 R2 49.9
+  ( 1 N-000104 )
+  ( 2 TPIN+ )
+ )
+ ( /506EEAD1/506EFAD8 SM1206 R3 100k
+  ( 1 RXSWAP )
+  ( 2 GND )
+ )
+ ( /506EEAD1/506EED9D SM1206 R4 49.9
+  ( 1 TXC )
+  ( 2 TX+ )
+ )
+ ( /506EEAD1/506EEDA5 SM1206 R5 49.9
+  ( 1 TXC )
+  ( 2 TX- )
+ )
+ ( /504B9E36/504B9FF4 SM1206 R6 100
+  ( 1 GND )
+  ( 2 N-000093 )
+ )
+ ( /504B9E36/5058DB7E SM1206 R7 68
+  ( 1 N-000091 )
+  ( 2 N-000094 )
+ )
+ ( /504B9E36/5058DB66 SM1206 R8 680
+  ( 1 N-000094 )
+  ( 2 GND )
+ )
+ ( /50476328/5065B1BD SM1206 R9 2.26k_1%
+  ( 1 GND )
+  ( 2 RBIAS )
+ )
+ ( /50476328/50670C58 SM1206 R10 1M
+  ( 1 N-000031 )
+  ( 2 N-000090 )
+ )
+ ( /50476328/50691A99 SM1206 R11 4.7k
+  ( 1 TXC )
+  ( 2 N-000086 )
+ )
+ ( /50476328/50691AAD SM1206 R12 1k
+  ( 1 N-000086 )
+  ( 2 MCLR )
+ )
+ ( /50476328/50670EEE SM1206 R13 220
+  ( 1 N-000030 )
+  ( 2 N-000032 )
+ )
+ ( /50476328/50670EF7 SM1206 R14 220
+  ( 1 N-000069 )
+  ( 2 N-000037 )
+ )
+ ( /50476328/50670F80 SM1206 R15 220
+  ( 1 N-000074 )
+  ( 2 N-000036 )
+ )
+ ( /50476328/50670F86 SM1206 R16 220
+  ( 1 N-000034 )
+  ( 2 N-000035 )
+ )
+ ( /50476328/506707BF SM1206 R17 100
+  ( 1 N-000075 )
+  ( 2 MCLR )
+ )
+ ( /50476328/506711A8 SM1206 R18 10k
+  ( 1 TXC )
+  ( 2 N-000033 )
+ )
+ ( /50476328/5067115F SM1206 R19 470
+  ( 1 N-000033 )
+  ( 2 /MCU_subsystem/RB0 )
+ )
+ ( /50476328/50703F34 SM1206 R20 1k
+  ( 1 TXC )
+  ( 2 N-000084 )
+ )
+ ( /50476328/50703DAF SM1206 R21 470
+  ( 1 NFC_BUZZER )
+  ( 2 N-000040 )
+ )
+ ( /506EEAD1/5082E45D SM1206 R22 220
+  ( 1 NET_LED_A )
+  ( 2 N-000098 )
+ )
+ ( /506EEAD1/5082E53A SM1206 R23 220
+  ( 1 NET_LED_B )
+  ( 2 N-000097 )
+ )
+ ( /50476328/5067111F SPST_K5G SW1 SW_RESET
+  ( 1 GND )
+  ( 2 N-000033 )
+ )
+ ( /506EEAD1/506EF94B SC70 U1 SPDT_ANALOG
+  ( 1 TPIN- )
+  ( 2 GND )
+  ( 3 TPIN+ )
+  ( 4 RX+ )
+  ( 5 TXC )
+  ( 6 RXSWAP )
+ )
+ ( /506EEAD1/506EF954 SC70 U2 SPDT_ANALOG
+  ( 1 TPIN+ )
+  ( 2 GND )
+  ( 3 TPIN- )
+  ( 4 RX- )
+  ( 5 TXC )
+  ( 6 RXSWAP )
+ )
+ ( /504B9E36/5072317B DIP-4 U3 PS2501-1
+  ( 1 QEL_DRIVE )
+  ( 2 N-000093 )
+  ( 3 N-000091 )
+  ( 4 +24V )
+ )
+ ( /50476328/50671491 SO8E U4 25LC256
+  ( 1 EEPROM_SELECT_NOT )
+  ( 2 SDI1 )
+  ( 3 TXC )
+  ( 4 GND )
+  ( 5 SDO1 )
+  ( 6 SCK1 )
+  ( 7 TXC )
+  ( 8 TXC )
+ )
+ ( /50476328/5065AAA1 VQFP100 U5 PIC18F97J60
+  ( 1 ? )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 ? )
+  ( 5 /MCU_subsystem/RB0 )
+  ( 6 NFC_IRQ )
+  ( 7 NFC_RST_NOT )
+  ( 8 NFC_BUZZER )
+  ( 9 ? )
+  ( 10 ? )
+  ( 11 ? )
+  ( 12 ? )
+  ( 13 MCLR )
+  ( 14 ? )
+  ( 15 GND )
+  ( 16 TXC )
+  ( 17 TXC )
+  ( 18 ? )
+  ( 19 ? )
+  ( 20 ? )
+  ( 21 ? )
+  ( 22 ? )
+  ( 23 ? )
+  ( 24 ? )
+  ( 25 ? )
+  ( 26 ? )
+  ( 27 ? )
+  ( 28 ? )
+  ( 29 TXC )
+  ( 30 TXC )
+  ( 31 GND )
+  ( 32 ? )
+  ( 33 ? )
+  ( 34 NET_LED_B )
+  ( 35 NET_LED_A )
+  ( 36 GND )
+  ( 37 TXC )
+  ( 38 ? )
+  ( 39 ? )
+  ( 40 GND )
+  ( 41 ? )
+  ( 42 ? )
+  ( 43 ? )
+  ( 44 ? )
+  ( 45 ? )
+  ( 46 ? )
+  ( 47 EEPROM_SELECT_NOT )
+  ( 48 NFC_SELECT_NOT )
+  ( 49 N-000030 )
+  ( 50 N-000069 )
+  ( 51 ? )
+  ( 52 ? )
+  ( 53 ? )
+  ( 54 SCK1 )
+  ( 55 SDI1 )
+  ( 56 SDO1 )
+  ( 57 /MCU_subsystem/RB7 )
+  ( 58 ? )
+  ( 59 TXC )
+  ( 60 GND )
+  ( 61 N-000034 )
+  ( 62 TXC )
+  ( 63 N-000090 )
+  ( 64 N-000031 )
+  ( 65 GND )
+  ( 66 N-000074 )
+  ( 67 /MCU_subsystem/RB6 )
+  ( 68 QEL_DRIVE )
+  ( 69 ? )
+  ( 70 ? )
+  ( 71 RXSWAP )
+  ( 72 GND )
+  ( 73 TPIN- )
+  ( 74 TPIN+ )
+  ( 75 TXC )
+  ( 76 TXC )
+  ( 77 TPOUT- )
+  ( 78 TPOUT+ )
+  ( 79 GND )
+  ( 80 RBIAS )
+  ( 81 TXC )
+  ( 82 GND )
+  ( 83 N-000087 )
+  ( 84 SCL2 )
+  ( 85 GND )
+  ( 86 TXC )
+  ( 87 SDI2 )
+  ( 88 SDO2 )
+  ( 89 N-000072 )
+  ( 90 N-000070 )
+  ( 91 N-000038 )
+  ( 92 N-000088 )
+  ( 93 ? )
+  ( 94 ? )
+  ( 95 ? )
+  ( 96 ? )
+  ( 97 ? )
+  ( 98 ? )
+  ( 99 ? )
+  ( 100 ? )
+ )
+ ( /504762F5/5067487E LM78XX U6 LM7805
+  ( GND GND )
+  ( VI +24V )
+  ( VO +5V )
+ )
+ ( /504762F5/50674945 LM78XX U7 LM1117-3.3
+  ( GND GND )
+  ( VI +5V )
+  ( VO TXC )
+ )
+ ( /50476328/50670BD9 XTAL_ECX-64A X1 25MHz
+  ( 1 N-000090 )
+  ( 2 N-000031 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C1
+ CP*
+ SM*
+$endlist
+$component C2
+ CP*
+ SM*
+$endlist
+$component C3
+ CP*
+ SM*
+$endlist
+$component C4
+ CP*
+ SM*
+$endlist
+$component C5
+ CP*
+ SM*
+$endlist
+$component C6
+ SM*
+ C?
+ C1-1
+$endlist
+$component C7
+ SM*
+ C?
+ C1-1
+$endlist
+$component C8
+ CP*
+ SM*
+$endlist
+$component C9
+ CP*
+ SM*
+$endlist
+$component C10
+ CP*
+ SM*
+$endlist
+$component C11
+ CP*
+ SM*
+$endlist
+$component C12
+ CP*
+ SM*
+$endlist
+$component C13
+ CP*
+ SM*
+$endlist
+$component C14
+ CP*
+ SM*
+$endlist
+$component C15
+ CP*
+ SM*
+$endlist
+$component C16
+ CP*
+ SM*
+$endlist
+$component C17
+ CP*
+ SM*
+$endlist
+$component C18
+ CP*
+ SM*
+$endlist
+$component C19
+ CP*
+ SM*
+$endlist
+$component C20
+ CP*
+ SM*
+$endlist
+$component C21
+ CP*
+ SM*
+$endlist
+$component D1
+ D?
+ S*
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R6
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R7
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R8
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R9
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R10
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R11
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R12
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R13
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R14
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R15
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R16
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R17
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R18
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R19
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R20
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R21
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R22
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R23
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$endfootprintlist
+}

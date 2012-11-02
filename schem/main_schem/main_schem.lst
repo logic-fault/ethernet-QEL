@@ -1,0 +1,127 @@
+eeschema (2012-01-19 BZR 3256)-stable  >> Creation date: 10/5/2012 11:44:13 PM
+
+#Cmp ( order = Reference )
+| C1         0.1uF       
+| C2         0.1uF       
+| C3         1uF         
+| C4         0.1uF       
+| C5         0.1uF       
+| C6         27pF        
+| C7         27pF        
+| C8         0.1uF       
+| C9         0.1uF       
+| C10        0.1uF       
+| C11        0.1uF       
+| C12        0.1uF       
+| C13        0.1uF       
+| C14        0.1uF       
+| C15        0.1uF       
+| C16        0.1uF       
+| C17        0.1uF       
+| C18        0.1uF       
+| C19        0.33uF      
+| C20        0.1uF       
+| C21        10uF        
+| D1         DIODE       
+| D2         STATUS_RED_GREEN
+| D3         NETWORK_RED_GREEN
+| FB1        120 @ 100 MHz
+| FB2        120 @ 100 MHz
+| P1         CONN_2      
+| P2         CONN_PORTD  
+| P3         CONN_ICD    
+| P4         CONN_8      
+| Q1         ENHANCED_MOSFET_N
+| R1         49.9        
+| R2         49.9        
+| R3         100k        
+| R4         49.9        
+| R5         49.9        
+| R6         100         
+| R7         68          
+| R8         680         
+| R9         2.26k 1%    
+| R10        1M          
+| R11        4.7k        
+| R12        1k          
+| R13        470         
+| R14        470         
+| R15        470         
+| R16        470         
+| R17        100         
+| R18        10k         
+| R19        470         
+| SW1        SW_RESET    
+| U1         SPDT_ANALOG 
+| U2         SPDT_ANALOG 
+| U3         PS2501-2    
+| U4         25LC256     
+| U5         PIC18F97J60 
+| U6         LM7805      
+| U7         LM1117-3.3  
+| X1         25MHz       
+#End Cmp
+
+#Cmp ( order = Value )
+| 0.1uF        C1        
+| 0.1uF        C2        
+| 0.1uF        C4        
+| 0.1uF        C5        
+| 0.1uF        C8        
+| 0.1uF        C9        
+| 0.1uF        C10       
+| 0.1uF        C11       
+| 0.1uF        C12       
+| 0.1uF        C13       
+| 0.1uF        C14       
+| 0.1uF        C15       
+| 0.1uF        C16       
+| 0.1uF        C17       
+| 0.1uF        C18       
+| 0.1uF        C20       
+| 0.33uF       C19       
+| 100          R6        
+| 100          R17       
+| 100k         R3        
+| 10k          R18       
+| 10uF         C21       
+| 120 @ 100 MHz FB1       
+| 120 @ 100 MHz FB2       
+| 1k           R12       
+| 1M           R10       
+| 1uF          C3        
+| 2.26k 1%     R9        
+| 25LC256      U4        
+| 25MHz        X1        
+| 27pF         C6        
+| 27pF         C7        
+| 4.7k         R11       
+| 470          R13       
+| 470          R14       
+| 470          R15       
+| 470          R16       
+| 470          R19       
+| 49.9         R1        
+| 49.9         R2        
+| 49.9         R4        
+| 49.9         R5        
+| 68           R7        
+| 680          R8        
+| CONN_2       P1        
+| CONN_8       P4        
+| CONN_ICD     P3        
+| CONN_PORTD   P2        
+| DIODE        D1        
+| ENHANCED_MOSFET_N Q1        
+| LM1117-3.3   U7        
+| LM7805       U6        
+| NETWORK_RED_GREEN D3        
+| PIC18F97J60  U5        
+| PS2501-2     U3        
+| SPDT_ANALOG  U1        
+| SPDT_ANALOG  U2        
+| STATUS_RED_GREEN D2        
+| SW_RESET     SW1       
+#End Cmp
+
+#End List

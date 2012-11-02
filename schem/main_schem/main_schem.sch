@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 9/5/2012 10:38:10 AM
+EESchema Schematic File Version 2  date 11/1/2012 8:24:50 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,13 +30,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:QEL
+LIBS:pic18f97j60
+LIBS:pwr
+LIBS:main_schem-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
-Sheet 1 5
+Sheet 1 6
 Title "noname.sch"
-Date "5 sep 2012"
+Date "1 nov 2012"
 Rev "0.1"
 Comp ""
 Comment1 ""
@@ -44,6 +47,18 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Sheet
+S 7700 2450 2200 1500
+U 506EEAD1
+F0 "Ethernet Analog subsystem" 60
+F1 "ethernet_analog.sch" 60
+$EndSheet
+$Sheet
+S 4650 850  1700 1250
+U 504B9E36
+F0 "QEL Drive" 60
+F1 "QEL_drive.sch" 60
+$EndSheet
 $Sheet
 S 4750 2500 1850 1500
 U 50476328
@@ -61,11 +76,5 @@ S 850  2150 2500 1850
 U 5047628A
 F0 "NFC Subsystem" 60
 F1 "NFC.sch" 60
-$EndSheet
-$Sheet
-S 8100 2150 2350 1850
-U 5042EF28
-F0 "Stepper_sheet" 60
-F1 "stepper_only.sch" 60
 $EndSheet
 $EndSCHEMATC

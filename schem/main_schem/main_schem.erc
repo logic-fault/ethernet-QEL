@@ -1,0 +1,44 @@
+ERC report (9/30/2012 11:14:31 PM)
+
+***** Sheet /
+
+***** Sheet /QEL Drive/
+
+***** Sheet /MCU subsystem/
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",2.7000 "): Pin 7 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (7.1000 ",5.1500 "): Pin 48 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",2.2500 "): Pin 34 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",2.6500 "): Pin 6 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",2.7500 "): Pin 8 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (7.1000 ",4.0000 "): Pin 71 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",5.2500 "): Pin 31 (input) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",2.8000 "): Pin 69 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",3.6000 "): Pin 78 (output) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",3.4500 "): Pin 73 (input) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",2.2000 "): Pin 35 (BiDi) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",3.5000 "): Pin 74 (input) of component U3 is unconnected.
+ErrType(2): Pin not connected (and no connect symbol found on this pin)
+    @ (5.2000 ",3.6500 "): Pin 77 (output) of component U3 is unconnected.
+ErrType(3): Pin connected to some others pins but no pin to drive it
+    @ (9.3500 ",2.7500 "): Pin 1 (power_in) of component #PWR010 is not driven (Net 1).
+
+***** Sheet /Power Subsystem/
+ErrType(4): Conflict problem between pins. Severity: warning
+    @ (9.2000 ",1.3500 "): Pin VO (power_out) of component U5 is connected to 
+    @ (5.2000 ",3.1000 "): pin 29 (BiDi) of component U3 (net 28).
+
+***** Sheet /NFC Subsystem/
+
+ >> Errors ERC: 0
