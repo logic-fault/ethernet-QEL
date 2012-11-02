@@ -55,7 +55,7 @@ typedef struct
 void           update_system_state(SYSTEM_STATE_STRUCT * sys,
                                    system_state_t state);
 
-void request_nfc(SYSTEM_STATE_STRUCT * sys, )
+void request_nfc_state(SYSTEM_STATE_STRUCT * sys, unsigned char * buf);
 
 system_state_t    get_system_state(SYSTEM_STATE_STRUCT * sys);
 
