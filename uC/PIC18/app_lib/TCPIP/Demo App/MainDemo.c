@@ -72,6 +72,8 @@
 // Include functions specific to this stack application
 #include "MainDemo.h"
 
+#include "qel_state.h"
+
 // Used for Wi-Fi assertions
 #define WF_MODULE_NUMBER   WF_MODULE_MAIN_DEMO
 
