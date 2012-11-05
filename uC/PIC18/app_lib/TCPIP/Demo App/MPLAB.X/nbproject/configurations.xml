@@ -141,6 +141,7 @@
       <itemPath>../TCPIPConfig.h</itemPath>
       <itemPath>../WF_Config.h</itemPath>
       <itemPath>qel_state.h</itemPath>
+      <itemPath>qel_action.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -264,6 +265,7 @@
       <itemPath>../CustomSSLCert.c</itemPath>
       <itemPath>../MainDemo.c</itemPath>
       <itemPath>qel_state.c</itemPath>
+      <itemPath>qel_action.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

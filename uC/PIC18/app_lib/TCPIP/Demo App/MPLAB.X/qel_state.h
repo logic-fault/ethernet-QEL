@@ -52,6 +52,7 @@ typedef struct
     nfc_request_t  nfc_request;
     tcp_update_t   tcp_update;
     unsigned char nfc_data[NFC_DATA_SIZE];
+    unsigned char qel_name[32];
 
 
 } SYSTEM_STATE_STRUCT;
@@ -65,6 +66,12 @@ void           update_system_state(SYSTEM_STATE_STRUCT * sys,
 void request_nfc_state(SYSTEM_STATE_STRUCT * sys, unsigned char * buf);
 
 system_state_t    get_system_state(SYSTEM_STATE_STRUCT * sys);
+
+const unsigned char * get_system_name(SYSTEM_STATE_STRUCT * sys);
+
+void clear_nfc_state(SYSTEM_STATE_STRUCT * sys);
+
+void clear_update_system_state(SYSTEM_STATE_STRUCT * sys);
 
 
 

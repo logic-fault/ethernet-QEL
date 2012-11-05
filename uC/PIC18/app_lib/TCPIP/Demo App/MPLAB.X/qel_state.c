@@ -63,4 +63,8 @@ system_state_t    get_system_state(SYSTEM_STATE_STRUCT * sys)
     return sys->state;
 }
 
+const unsigned char * get_system_name(SYSTEM_STATE_STRUCT * sys)
+{
+    return sys->qel_name;
+}
 

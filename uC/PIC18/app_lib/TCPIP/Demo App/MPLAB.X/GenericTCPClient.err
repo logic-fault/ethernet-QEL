@@ -1,0 +1,4 @@
+Warning[2066] ../GenericTCPClient.c 153 : type qualifier mismatch in assignment
+Warning[2066] ../GenericTCPClient.c 161 : type qualifier mismatch in assignment
+Warning[2058] ../GenericTCPClient.c 227 : call of function without prototype
+Warning[2058] ../GenericTCPClient.c 234 : call of function without prototype
