@@ -55,8 +55,8 @@
 #define __GENERICTCPCLIENT_C
 
 #include "TCPIPConfig.h"
+#include "qel_state.h"
 
-#if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)
 
 #include "TCPIP Stack/TCPIP.h"
 
@@ -97,7 +97,7 @@ static WORD ServerPort = 12345;
   Returns:
   	None
   ***************************************************************************/
-void GenericTCPClient(void)
+void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 {
 	BYTE 				i;
 	WORD				w;
@@ -149,11 +149,38 @@ void GenericTCPClient(void)
 			if(TCPIsPutReady(MySocket) < 125u)
 				break;
 			
-			// Place the application protocol data into the transmit buffer.  For this example, we are connected to an HTTP server, so we'll send an HTTP GET request.
-			TCPPutROMString(MySocket, (ROM BYTE*)"GET ");
-			TCPPutROMString(MySocket, (ROM BYTE*)" HTTP/1.0\r\nHost: ");
-			TCPPutString(MySocket, ServerName);
-			TCPPutROMString(MySocket, (ROM BYTE*)"\r\nConnection: close\r\n\r\n");
+			TCPPutROMString(MySocket, (ROM BYTE*)"QEL_ID_0;");
+
+
+                        // process nfc request if needed
+                        if (qel_state->nfc_request == NFC_IS_REQUEST)
+                        {
+                            TCPPutROMString(MySocket, (ROM BYTE*)"CHECK_TAG;");
+                            TCPPutString(MySocket, qel_state->nfc_data)
+                            TCPPutROMString(MySocket, ";");
+                        }
+
+                        else
+                        {
+                            switch(get_system_state(qel_state))
+                            {
+                                case SYS_INIT:
+                                case SYS_LOCKED_WAITING:
+                                case SYS_NFC_AUTH_WAITING:
+                                case SYS_LOCKING_TO_WAIT:
+                                case SYS_LOCKED_HOLDING:
+                                case SYS_LOCKING_TO_HOLD:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_OPENED;");
+                                    break;
+                                case SYS_UNLOCKED_HOLDING:
+                                case SYS_UNLOCKING_TO_HOLD:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_CLOSED;");
+                                    break;
+                                default:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_UNKNOWN;");
+                                    break;
+                            }
+                        }
 
 			// Send the packet
 			TCPFlush(MySocket);
@@ -187,6 +214,18 @@ void GenericTCPClient(void)
 				putsUART((char*)vBuffer);
 				#endif
 				
+                                // check if access granted
+                                if (vBuffer[0] == 'G' || vBuffer[0] == 'g')
+                                {
+
+                                }
+
+                                if (vBuffer[0] == 'D' || vBuffer[0] == 'd')
+                                {
+
+                                }
+
+                                
 				// putsUART is a blocking call which will slow down the rest of the stack 
 				// if we shovel the whole TCP RX FIFO into the serial port all at once.  
 				// Therefore, let's break out after only one chunk most of the time.  The 
@@ -207,11 +246,10 @@ void GenericTCPClient(void)
 			break;
 	
 		case SM_DONE:
-			// Do nothing unless the user pushes BUTTON1 and wants to restart the whole connection/download process
-			if(BUTTON1_IO == 0u)
+			// Do nothing unless an nfc request or tcp update request is made
+			if(qel_state->nfc_request  == NFC_IS_REQUEST || qel_state->tcp_update == TCP_IS_UPDATE)
 				GenericTCPExampleState = SM_HOME;
 			break;
 	}
 }
 
-#endif	//#if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)

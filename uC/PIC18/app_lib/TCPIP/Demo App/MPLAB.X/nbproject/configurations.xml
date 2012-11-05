@@ -8643,8 +8643,8 @@
       </C18-LD>
       <C18LanguageToolchain>
       </C18LanguageToolchain>
-      <ICD3PlatformTool>
-      </ICD3PlatformTool>
+      <Simulator>
+      </Simulator>
     </conf>
     <conf name="C18-PICDN2_MRF24WB" type="2">
       <toolsSet>
