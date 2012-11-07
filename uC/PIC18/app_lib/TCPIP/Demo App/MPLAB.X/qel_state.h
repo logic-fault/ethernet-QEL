@@ -48,6 +48,7 @@ typedef enum
 
 typedef struct
 {
+    DWORD tick_enter_state;  // ticks at which this particular state was entered
     system_state_t state;
     nfc_request_t  nfc_request;
     tcp_update_t   tcp_update;
