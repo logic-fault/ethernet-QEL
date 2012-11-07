@@ -103,7 +103,8 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 	BYTE 				i;
 	WORD				w;
 	BYTE				vBuffer[8];  // should be 'GRANT' OR 'DENY'
-	static DWORD		Timer;
+	static DWORD		Timer = 0;
+        static DWORD            Refresh_Timer;
 	static TCP_SOCKET	MySocket = INVALID_SOCKET;
 	static enum QEL_TCP_STATE_T
 	{
@@ -258,9 +259,18 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 			break;
 	
 		case SM_DONE:
-			// Do nothing unless an nfc request or tcp update request is made
+
+			// nfc request or tcp update request is made
 			if(qel_state->nfc_request  == NFC_IS_REQUEST || qel_state->tcp_update == TCP_IS_UPDATE)
 				QEL_TCP_state = SM_HOME;
+
+                        // check to see if 1 minute has elapsed, if so send an update
+                        if (Refresh_Timer < TickGet() - 60*TICK_SECOND)
+                        {
+                            Refresh_Timer = TickGet();
+                            QEL_TCP_state = SM_HOME;
+                        }
+
 			break;
 	}
 }

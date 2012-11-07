@@ -16,8 +16,16 @@ void           update_system_state(SYSTEM_STATE_STRUCT * sys, system_state_t sta
     if (sys->state == state)
        return;
 
+    switch(state)
+    {
+        case SYS_NFC_AUTH_WAITING:
+            sys->nfc_request == NFC_IS_REQUEST;
+            break;
+        default:
+            sys->tcp_update = TCP_IS_UPDATE;
+            break;
+    }
     sys->state = state;
-    sys->tcp_update = TCP_IS_UPDATE;
 
     return;
 }
@@ -68,3 +76,30 @@ const unsigned char * get_system_name(SYSTEM_STATE_STRUCT * sys)
     return sys->qel_name;
 }
 
+
+void handle_state(SYSTEM_STATE_STRUCT * sys)
+{
+    switch(get_system_state(sys))
+    {
+        case     SYS_INIT:              // system is booting up
+            break;
+        case     SYS_LOCKED_WAITING:        // locked waiting for NFC
+            break;
+        case     SYS_NFC_AUTH_WAITING:      // card received, waiting for auth from server
+            break;
+        case     SYS_TEMPORARY_UNLOCK:      // temporarily unlocked after reading NFC
+            break;
+        case     SYS_LOCKING_TO_WAIT:       // locking after allowing access via NFC
+            break;
+        case     SYS_UNLOCKED_HOLDING:      // unlocked indefinitely
+            break;
+        case     SYS_UNLOCKING_TO_HOLD:     // unlocking to allow indefinite unlock
+            break;
+        case     SYS_LOCKED_HOLDING:        // indefinitely locked
+            break;
+        case     SYS_LOCKING_TO_HOLD:        // locking to lock indefinitely
+            break;
+        default:
+            break;
+    }
+}
