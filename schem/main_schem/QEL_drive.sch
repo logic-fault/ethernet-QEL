@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 10/12/2012 10:11:24 AM
+EESchema Schematic File Version 2  date 11/1/2012 8:24:50 AM
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,7 +39,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 3 6
 Title "QEL_Driver"
-Date "12 oct 2012"
+Date "1 nov 2012"
 Rev "2"
 Comp "ECE 402 Senior Design"
 Comment1 "Copyright (c) Brock Anderson 2012"
@@ -47,15 +47,11 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L PS2501-1 U3
-U 1 1 5072317B
-P 5700 3550
-F 0 "U3" H 5675 3775 60  0000 C CNN
-F 1 "PS2501-1" H 5700 3250 60  0000 C CNN
-	1    5700 3550
-	1    0    0    -1  
-$EndComp
+Connection ~ 8150 4350
+Wire Wire Line
+	8150 4350 8550 4350
+Wire Wire Line
+	8550 4350 8550 4150
 Wire Wire Line
 	8150 4250 8150 4550
 Wire Wire Line
@@ -84,29 +80,52 @@ Wire Wire Line
 Wire Wire Line
 	4850 3650 5050 3650
 Connection ~ 7700 3450
+Wire Wire Line
+	8400 3650 8400 3950
+Wire Wire Line
+	8400 3950 8550 3950
+Connection ~ 8400 3650
 $Comp
-L GNDPWR #PWR12
+L CONN_2 P8
+U 1 1 508A9634
+P 8900 4050
+F 0 "P8" V 8850 4050 40  0000 C CNN
+F 1 "CONN_2" V 8950 4050 40  0000 C CNN
+	1    8900 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L PS2501-1 U3
+U 1 1 5072317B
+P 5700 3550
+F 0 "U3" H 5675 3775 60  0000 C CNN
+F 1 "PS2501-1" H 5700 3250 60  0000 C CNN
+	1    5700 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDPWR #PWR14
 U 1 1 506747B4
 P 8150 4550
-F 0 "#PWR12" H 8150 4600 40  0001 C CNN
+F 0 "#PWR14" H 8150 4600 40  0001 C CNN
 F 1 "GNDPWR" H 8150 4470 40  0000 C CNN
 	1    8150 4550
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDPWR #PWR10
+L GNDPWR #PWR12
 U 1 1 506747A8
 P 7000 4550
-F 0 "#PWR10" H 7000 4600 40  0001 C CNN
+F 0 "#PWR12" H 7000 4600 40  0001 C CNN
 F 1 "GNDPWR" H 7000 4470 40  0000 C CNN
 	1    7000 4550
 	1    0    0    -1  
 $EndComp
 $Comp
-L VSS #PWR9
+L VSS #PWR11
 U 1 1 50674779
 P 4300 3800
-F 0 "#PWR9" H 4300 3800 30  0001 C CNN
+F 0 "#PWR11" H 4300 3800 30  0001 C CNN
 F 1 "VSS" H 4300 3730 30  0000 C CNN
 	1    4300 3800
 	1    0    0    -1  
@@ -157,10 +176,10 @@ F 1 "CONN_2" V 8950 3550 40  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +24V #PWR11
+L +24V #PWR13
 U 1 1 504BA51D
 P 7250 3400
-F 0 "#PWR11" H 7250 3350 20  0001 C CNN
+F 0 "#PWR13" H 7250 3350 20  0001 C CNN
 F 1 "+24V" H 7250 3500 30  0000 C CNN
 	1    7250 3400
 	1    0    0    -1  

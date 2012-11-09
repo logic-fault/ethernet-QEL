@@ -1,0 +1,67 @@
+ALTIUM DESIGNER - NEW ROUTER INTERFACE
+Design File : main_schem
+Date        : 10/27/2012
+Start Time  : 10:24:38 AM
+End   Time  : 10:24:38 AM
+
+
+Total errors encountered: 8
+Total warnings encountered: 48
+
+
+WARNING: Skipped block between lines: 13-15, from keyword: PROPERTY
+WARNING: Skipped block between lines: 19-21, from keyword: PROPERTY
+WARNING: Skipped block between lines: 25-27, from keyword: PROPERTY
+WARNING: Skipped block between lines: 31-33, from keyword: PROPERTY
+ERROR: Unexpected token <DEFAULT_SMD> in line 56
+WARNING: Skipped block between lines: 56-56, from keyword: DEFAULT_SMD
+ERROR: Unexpected token <CLEARANCE> in line 57
+ERROR: Unexpected token <1.75> in line 57
+ERROR: Unexpected token <TYPE> in line 57
+ERROR: Unexpected token <SMD_SMD> in line 57
+ERROR: Invalid library reference returned, while tryng to create board level routing via styles.
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (60150000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (86550000, -46750000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (77450000, -46400000) has invalid net reference: TXC
+WARNING: Filled Polygon Shape shape, starting at point (88000000, -47500000) has invalid net reference: @:NO_NET_0
+WARNING: Filled Polygon Shape shape, starting at point (88000000, -47500000) has invalid net reference: @:NO_NET_0
+WARNING: Filled Polygon Shape shape, starting at point (88000000, -47500000) has invalid net reference: @:NO_NET_0
+WARNING: Filled Polygon Shape shape, starting at point (88000000, -47500000) has invalid net reference: @:NO_NET_0
+WARNING: Filled Polygon Shape shape, starting at point (88000000, -47500000) has invalid net reference: @:NO_NET_0
+WARNING: Filled Polygon Shape shape, starting at point (45000000, -47000000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (45000000, -47000000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (45000000, -47000000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (45000000, -47000000) has invalid net reference: GND
+WARNING: Filled Polygon Shape shape, starting at point (45000000, -47000000) has invalid net reference: GND
+WARNING: Board Shape Not Found, Design Bounding Rectangle Not Found!
+ERROR: Netlist not loaded, can't export to PCB.
+ERROR: Library not loaded, can't export to PCB.

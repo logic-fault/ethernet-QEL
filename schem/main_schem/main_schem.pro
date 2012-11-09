@@ -1,5 +1,10 @@
-update=10/15/2012 1:04:51 PM
-last_client=cvpcb
+update=10/27/2012 5:30:10 PM
+last_client=pcbnew
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
 [eeschema]
 version=1
 LibDir=../component_lib
@@ -67,9 +72,9 @@ LibName32=pic18f97j60
 LibName33=pwr
 [pcbnew]
 version=1
-PadDrlX=320
-PadDimH=600
-PadDimV=600
+PadDrlX=620
+PadDimH=620
+PadDimV=620
 BoardThickness=630
 TxtPcbV=800
 TxtPcbH=600
@@ -83,6 +88,7 @@ TxtLar=120
 MSegLar=150
 LastNetListRead=main_schem.net
 [pcbnew/libraries]
+LibDir=../component_lib
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -102,9 +108,6 @@ LibName16=XTAL_ECX-64A
 LibName17=SPST_K5G
 LibName18=DUAL_LED
 LibName19=DO214_DIODE
-LibDir=../component_lib
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
+LibName20=RJ45-QEL
+LibName21=borniers
+LibName22=C:/Users/null/Downloads/LOGO (2)

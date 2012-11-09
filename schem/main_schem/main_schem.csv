@@ -25,13 +25,17 @@
 "D3";"NETWORK_RED_GREEN";1210;"160-1172-1-ND";"Digikey";"Dual LED package";"Y"
 "FB1";"120 @ 100 MHz";805;"A102194CT-ND";"Digikey";"FERRITE CHIP 120 OHM 300MA 0805";"Y"
 "FB2";"120 @ 100 MHz";805;"A102194CT-ND";"Digikey";"FERRITE CHIP 120 OHM 300MA 0805";"Y"
-"P1";"CONN_2";;"A19450-ND";"Digikey";"CONN HEADER RTANG 2POS .100 TIN";"Y"
-"P2";"CONN_PORTD";;"A100102-ND ";"Digikey";"CONN HEADER 8PS 2MM VERT W/LATCH";"Y"
+"J1";"RJ45-QEL";"custom";"08B0-1G1T-06-F";"Digikey";"CONN MAGJCK 1PORT 10/100B-TX G/G";
+"P1";"CONN_2";;"ED2609-ND";"Digikey";"TERM BLOCK 5.08MM VERT 2POS PCB";"Y"
+"P2";"CONN_PORTD";;;;"No connector";"Y"
 "P3";"CONN_ICD";;;;"No connector";"Y"
 "P4";"CONN_NFC";;"A100102-ND ";"Digikey";"CONN HEADER 8PS 2MM VERT W/LATCH";"Y"
 "P5";"CONN_2";;"A19450-ND";"Digikey";"CONN HEADER RTANG 2POS .100 TIN";"Y"
+"P6";"CONN_2";;"ED2609-ND";"Digikey";"TERM BLOCK 5.08MM VERT 2POS PCB";
+"P7";"CONN_EEPROM";;;;"No connector";
+"P8";"CONN_2";;"ED2609-ND";"Digikey";"TERM BLOCK 5.08MM VERT 2POS PCB";
 "Q1";"ENHANCED_MOSFET_N";"TO-220-3";"IRF630NPBF-ND";"Digikey";"IRF630, through hole";"Y"
-"Q?";"NPN";"SOT-23-3 ";"568-1636-1-ND";"Digikey";"TRANS NPN GP 100MA 45V SOT23";"Y"
+"Q2";"NPN";"SOT-23-3 ";"568-1636-1-ND";"Digikey";"TRANS NPN GP 100MA 45V SOT23";"Y"
 "R1";49.9;1206;"P49.9FCT-ND ";"Digikey";"RES 49.9 OHM 1/4W 1% 1206 SMD";"Y"
 "R2";49.9;1206;"P49.9FCT-ND ";"Digikey";"RES 49.9 OHM 1/4W 1% 1206 SMD";"Y"
 "R3";"100k";1206;"P100KECT-ND";"Digikey";"5% Thick Film ";"Y"
@@ -53,8 +57,8 @@
 "R19";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film ";"Y"
 "R20";"1k";1206;"P1.0KECT-ND ";"Digikey";"5% Thick Film ";"Y"
 "R21";470;1206;"P470ECT-ND";"Digikey";"5% Thick Film ";"Y"
-"R22";"3.3K";1206;"P3.3KECT-ND ";"Digikey";"5% Thick Film ";"Y"
-"R23";"3.3K";1206;"P3.3KECT-ND ";"Digikey";"5% Thick Film ";"Y"
+"R22";220;1206;"P220ECT-ND";"Digikey";"5% Thick Film ";"Y"
+"R23";220;1206;"P220ECT-ND";"Digikey";"5% Thick Film ";"Y"
 "SW1";"SW_RESET";"See datasheet";"CKN10226CT-ND";"Digikey";"NO, momentary, SPST";"Y"
 "U1";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";;"Y"
 "U2";"SPDT_ANALOG";"SC70";"NC7SB3157P6XCT-ND";"Digikey";;"Y"
