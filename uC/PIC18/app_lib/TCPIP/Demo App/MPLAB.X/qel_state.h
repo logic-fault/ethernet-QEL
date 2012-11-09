@@ -19,7 +19,7 @@ extern "C" {
 
 #define INIT_DELAY_SECONDS 1
 #define NFC_OPEN_TIME_SECONDS 3
-#define NFC_DATA_SIZE 321
+#define NFC_DATA_SIZE 32
 
 typedef enum
 {

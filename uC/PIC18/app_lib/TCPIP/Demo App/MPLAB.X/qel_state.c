@@ -14,6 +14,8 @@
 #include "qel_state.h"
 #include "qel_action.h"
 
+#pragma udata udata_state
+
 void           update_system_state(SYSTEM_STATE_STRUCT * sys, system_state_t state)
 {
     if (sys->state == state)
