@@ -12,8 +12,8 @@
 extern "C" {
 #endif
 
-    void qel_action_temporary_unlock();
-    void qel_action_locked_holding();
+    void qel_action_lock();
+    void qel_action_unlock();
 
 
 #ifdef	__cplusplus

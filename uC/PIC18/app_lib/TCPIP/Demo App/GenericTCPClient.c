@@ -167,7 +167,7 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
                         {
                             switch(get_system_state(qel_state))
                             {
-                                case SYS_INIT:
+                                case SYS_INIT: 
                                 case SYS_LOCKED_WAITING:
                                 case SYS_NFC_AUTH_WAITING:
                                 case SYS_LOCKING_TO_WAIT:
@@ -226,14 +226,12 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
                                     {
                                         clear_nfc_state(qel_state);
                                         update_system_state(qel_state, SYS_TEMPORARY_UNLOCK);
-                                        qel_action_temporary_unlock();
                                     }
 
                                     if (vBuffer[0] == 'D' || vBuffer[0] == 'd')
                                     {
                                         clear_nfc_state(qel_state);
                                         update_system_state(qel_state, SYS_LOCKED_WAITING);
-                                        qel_action_locked_holding();
                                     }
                                 }
                                 
