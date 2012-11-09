@@ -1,7 +1,7 @@
 ~inc:header.inc
 +hellomsg
 +inc:footer.inc
-+cookiename
+cookiename
 +
 +builddate
 +led(7)
@@ -12,14 +12,14 @@
 +led(2)
 +led(1)
 +lcdtext
-+ledSelected(4,TRUE)
-+ledSelected(4,FALSE)
-+ledSelected(3,TRUE)
-+ledSelected(3,FALSE)
-+ledSelected(2,TRUE)
-+ledSelected(2,FALSE)
-+ledSelected(1,TRUE)
-+ledSelected(1,FALSE)
+ledSelected(4,TRUE)
+ledSelected(4,FALSE)
+ledSelected(3,TRUE)
+ledSelected(3,FALSE)
+ledSelected(2,TRUE)
+ledSelected(2,FALSE)
+ledSelected(1,TRUE)
+ledSelected(1,FALSE)
 +version
 +led(0)
 +btn(0)
@@ -27,7 +27,7 @@
 +btn(2)
 +btn(3)
 +pot
-+uploadedmd5
+uploadedmd5
 +status_ok
 +ddns_status
 +ddns_status_msg
@@ -72,3 +72,5 @@ write_community(2)
 +write_comm(2)
 +smtps_en
 +snmp_en
+IP
+ip
