@@ -40,7 +40,6 @@ build/C18-PICDN2_ETH97/production/_ext/1954962658/ZeroconfMulticastDNS.o:  \
 	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/SPIRAM.h  \
 	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/LCDBlocking.h  \
 	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/UART2TCPBridge.h  \
-	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/FTP.h  \
 	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/Announce.h  \
 	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/NBNS.h  \
 	/home/shreyas/ethernet-QEL/uC/PIC18/app_lib/Microchip/Include/TCPIP\ Stack/Telnet.h  \
