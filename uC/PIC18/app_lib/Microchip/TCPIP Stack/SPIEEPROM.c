@@ -155,6 +155,7 @@ void XEEInit(void)
 {
     EEPROM_CS_IO = 1;
     EEPROM_CS_TRIS = 0;     // Drive SPI EEPROM chip select pin
+    LED4_IO = 1;
 
     EEPROM_SCK_TRIS = 0;    // Set SCK pin as an output
     EEPROM_SDI_TRIS = 1;    // Make sure SDI pin is an input
@@ -299,6 +300,7 @@ XEE_RESULT XEEReadArray(DWORD address,
     SPI_ON_BIT = 1;
 
     EEPROM_CS_IO = 0;
+    LED4_IO = 0;
 
     // Send READ opcode
     EEPROM_SSPBUF = OPCODE_READ;
@@ -330,6 +332,7 @@ XEE_RESULT XEEReadArray(DWORD address,
     };
 
     EEPROM_CS_IO = 1;
+    LED4_IO = 1;
 
     // Restore SPI state
     SPI_ON_BIT = 0;
@@ -483,14 +486,17 @@ static void DoWrite(void)
     SPI_ON_BIT = 1;
 
     // Set the Write Enable latch
-    EEPROM_CS_IO = 0;
+    //EEPROM_CS_IO = 0;
+    LED4_IO = 0;
     EEPROM_SSPBUF = OPCODE_WREN;
     WaitForDataByte();
     vDummy = EEPROM_SSPBUF;
-    EEPROM_CS_IO = 1;
+    //EEPROM_CS_IO = 1;
+    LED4_IO = 1;
 
     // Send WRITE opcode
-    EEPROM_CS_IO = 0;
+    //EEPROM_CS_IO = 0;
+    LED4_IO = 0;
     EEPROM_SSPBUF = OPCODE_WRITE;
     WaitForDataByte();
     vDummy = EEPROM_SSPBUF;
@@ -520,7 +526,8 @@ static void DoWrite(void)
     }
 
     // Begin the write
-    EEPROM_CS_IO = 1;
+    //EEPROM_CS_IO = 1;
+    LED4_IO = 1;
 
 	// Update write address and clear write cache
     EEPROMAddress += vBytesInBuffer;
@@ -574,7 +581,8 @@ BOOL XEEIsBusy(void)
     EEPROM_SPICON1 = PROPER_SPICON1;
     SPI_ON_BIT = 1;
 
-    EEPROM_CS_IO = 0;
+    //EEPROM_CS_IO = 0;
+    LED4_IO = 0;
     // Send RDSR - Read Status Register opcode
     EEPROM_SSPBUF = OPCODE_RDSR;
     WaitForDataByte();
@@ -584,7 +592,8 @@ BOOL XEEIsBusy(void)
     EEPROM_SSPBUF = 0;
     WaitForDataByte();
     result.Val = EEPROM_SSPBUF;
-    EEPROM_CS_IO = 1;
+    //EEPROM_CS_IO = 1;
+    LED4_IO = 1;
 
     // Restore SPI State
     SPI_ON_BIT = 0;

@@ -190,8 +190,8 @@
 //#define WF_SPI_IP			(IPR1bits.SSPIP)
 
 // 25LC256 I/O pins
-#define EEPROM_CS_TRIS		(TRISDbits.TRISD7)
-#define EEPROM_CS_IO		(LATDbits.LATD7)
+#define EEPROM_CS_TRIS		(TRISJbits.TRISJ4)
+#define EEPROM_CS_IO		(LATJbits.LATJ4)
 #define EEPROM_SCK_TRIS		(TRISCbits.TRISC3)
 #define EEPROM_SDI_TRIS		(TRISCbits.TRISC4)
 #define EEPROM_SDO_TRIS		(TRISCbits.TRISC5)

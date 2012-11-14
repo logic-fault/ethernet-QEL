@@ -181,6 +181,7 @@ void main(void)
 int main(void)
 #endif
 {
+        int i;
 	static DWORD t = 0;
 	static DWORD dwLastIP = 0;
 
@@ -203,11 +204,41 @@ int main(void)
 	MPFSInit();
 	#endif
 
+        
+        for (i = 0; i < 5; i++)
+        {
+
+            int counter = 0;
+
+            LED0_IO ^= 1;
+            LED1_IO ^= 1;
+
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+
+            LED2_IO ^= 1;
+            LED3_IO ^= 1;
+            //LED4_IO ^= 1;
+            //LED5_IO ^= 1;
+
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            for (counter = 0; counter<10000; counter++);
+            
+        }
+        
+
 	// Initialize Stack and application related NV variables into AppConfig.
 	InitAppConfig();
 
     // Initiates board setup process if button is depressed 
 	// on startup
+        /*
     if(BUTTON0_IO == 0u)
     {
 		#if defined(EEPROM_CS_TRIS) || defined(SPIFLASH_CS_TRIS)
@@ -249,6 +280,7 @@ int main(void)
 		#endif
     }
 
+         */
 	// Initialize core stack layers (MAC, ARP, TCP, UDP) and
 	// application modules (HTTP, SNMP, etc.)
     StackInit();
@@ -645,17 +677,28 @@ static void ProcessIO(void)
     None
   ***************************************************************************/
 static void InitializeBoard(void)
-{	
+{
+    int i;
+
 	// LEDs
 	LED0_TRIS = 0;
 	LED1_TRIS = 0;
 	LED2_TRIS = 0;
-	LED3_TRIS = 0;
-	LED4_TRIS = 0;
+	LED3_TRIS = 1;
+	LED4_TRIS = 1;
 	LED5_TRIS = 0;
 	LED6_TRIS = 0;
 	LED7_TRIS = 0;
 	LED_PUT(0x00);
+
+        EEPROM_CS_TRIS = 0;
+        EEPROM_CS_IO = 0;
+        for ( i = 0; i < 10000; i++);
+        EEPROM_CS_IO = 1;
+        LED4_IO = 1;
+        for ( i = 0; i < 10000; i++);
+        EEPROM_CS_IO = 0;
+
 
 #if defined(__18CXX)
 	// Enable 4x/5x/96MHz PLL on PIC18F87J10, PIC18F97J60, PIC18F87J50, etc.
