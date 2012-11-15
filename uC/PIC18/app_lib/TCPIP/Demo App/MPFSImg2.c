@@ -1,7 +1,9 @@
 /***************************************************************
  * FileName:    MPFSImg2.c
  * Description: Defines an MPFS2 image to be stored in program memory.
- * Processor:   PIC18,PIC32
+ * Processor:   PIC18,PIC32   (primarily for the PIC32 starter kit as it has no external EEPROM
+ * hence .c file is required stored in the program memory, .bin file for PICdem)
+ *
  * Compiler:    Microchip C18, C32
  *
  * NOT FOR HAND MODIFICATION

@@ -55,26 +55,20 @@
 #define __GENERICTCPCLIENT_C
 
 #include "TCPIPConfig.h"
+#include "qel_state.h"
+#include "qel_action.h"
 
-#if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)
 
 #include "TCPIP Stack/TCPIP.h"
 
 
 // Defines the server to be accessed for this application
-static BYTE ServerName[] =	"www.google.com";
+static BYTE ServerName[] =	"QEL_Server";
+static WORD ServerPort = 12345;
 
-// Defines the port to be accessed for this application
-#if defined(STACK_USE_SSL_CLIENT)
-    static WORD ServerPort = HTTPS_PORT;
-	// Note that if HTTPS is used, the ServerName and URL 
-	// must change to an SSL enabled server.
-#else
-    static WORD ServerPort = HTTP_PORT;
-#endif
 
 // Defines the URL to be requested by this HTTP client
-static ROM BYTE RemoteURL[] = "/search?as_q=Microchip&as_sitesearch=microchip.com";
+//static ROM BYTE RemoteURL[] = "/search?as_q=Microchip&as_sitesearch=microchip.com";
 
 
 /*****************************************************************************
@@ -104,26 +98,24 @@ static ROM BYTE RemoteURL[] = "/search?as_q=Microchip&as_sitesearch=microchip.co
   Returns:
   	None
   ***************************************************************************/
-void GenericTCPClient(void)
+void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 {
 	BYTE 				i;
 	WORD				w;
-	BYTE				vBuffer[9];
-	static DWORD		Timer;
+	BYTE				vBuffer[8];  // should be 'GRANT' OR 'DENY'
+	static DWORD		Timer = 0;
+        static DWORD            Refresh_Timer;
 	static TCP_SOCKET	MySocket = INVALID_SOCKET;
-	static enum _GenericTCPExampleState
+	static enum QEL_TCP_STATE_T
 	{
 		SM_HOME = 0,
 		SM_SOCKET_OBTAINED,
-		#if defined(STACK_USE_SSL_CLIENT)
-    	SM_START_SSL,
-    	#endif
 		SM_PROCESS_RESPONSE,
 		SM_DISCONNECT,
 		SM_DONE
-	} GenericTCPExampleState = SM_DONE;
+	} QEL_TCP_state = SM_DONE;
 
-	switch(GenericTCPExampleState)
+	switch(QEL_TCP_state)
 	{
 		case SM_HOME:
 			// Connect a socket to the remote TCP server
@@ -134,11 +126,7 @@ void GenericTCPClient(void)
 			if(MySocket == INVALID_SOCKET)
 				break;
 
-			#if defined(STACK_USE_UART)
-			putrsUART((ROM char*)"\r\n\r\nConnecting using Microchip TCP API...\r\n");
-			#endif
-
-			GenericTCPExampleState++;
+			QEL_TCP_state++;
 			Timer = TickGet();
 			break;
 
@@ -152,47 +140,54 @@ void GenericTCPClient(void)
 					// Close the socket so it can be used by other modules
 					TCPDisconnect(MySocket);
 					MySocket = INVALID_SOCKET;
-					GenericTCPExampleState--;
+					QEL_TCP_state--;
 				}
 				break;
 			}
 
 			Timer = TickGet();
 			
-    #if defined (STACK_USE_SSL_CLIENT)
-            if(!TCPStartSSLClient(MySocket,(void *)"thishost"))
-                break;
-			GenericTCPExampleState++;
-			break;
-
-        case SM_START_SSL:
-            if (TCPSSLIsHandshaking(MySocket)) 
-            {
-				if(TickGet()-Timer > 10*TICK_SECOND)
-				{
-					// Close the socket so it can be used by other modules
-					TCPDisconnect(MySocket);
-					MySocket = INVALID_SOCKET;
-					GenericTCPExampleState=SM_HOME;
-				}
-                break;
-            }
-    #endif
-
 			// Make certain the socket can be written to
 			if(TCPIsPutReady(MySocket) < 125u)
 				break;
 			
-			// Place the application protocol data into the transmit buffer.  For this example, we are connected to an HTTP server, so we'll send an HTTP GET request.
-			TCPPutROMString(MySocket, (ROM BYTE*)"GET ");
-			TCPPutROMString(MySocket, RemoteURL);
-			TCPPutROMString(MySocket, (ROM BYTE*)" HTTP/1.0\r\nHost: ");
-			TCPPutString(MySocket, ServerName);
-			TCPPutROMString(MySocket, (ROM BYTE*)"\r\nConnection: close\r\n\r\n");
+			TCPPutString(MySocket, get_system_name(qel_state));
+                        TCPPutROMString(MySocket, ";");
+
+
+                        // process nfc request if needed
+                        if (qel_state->nfc_request == NFC_IS_REQUEST)
+                        {
+                            TCPPutROMString(MySocket, (ROM BYTE*)"CHECK_TAG;");
+                            TCPPutString(MySocket, qel_state->nfc_data);
+                            TCPPutROMString(MySocket, ";");
+                        }
+
+                        else
+                        {
+                            switch(get_system_state(qel_state))
+                            {
+                                case SYS_INIT: 
+                                case SYS_LOCKED_WAITING:
+                                case SYS_NFC_AUTH_WAITING:
+                                case SYS_LOCKING_TO_WAIT:
+                                case SYS_LOCKED_HOLDING:
+                                case SYS_LOCKING_TO_HOLD:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_OPENED;");
+                                    break;
+                                case SYS_UNLOCKED_HOLDING:
+                                case SYS_UNLOCKING_TO_HOLD:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_CLOSED;");
+                                    break;
+                                default:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_UNKNOWN;");
+                                    break;
+                            }
+                        }
 
 			// Send the packet
 			TCPFlush(MySocket);
-			GenericTCPExampleState++;
+			QEL_TCP_state++;
 			break;
 
 		case SM_PROCESS_RESPONSE:
@@ -200,7 +195,7 @@ void GenericTCPClient(void)
 			// If application data is available, write it to the UART
 			if(!TCPIsConnected(MySocket))
 			{
-				GenericTCPExampleState = SM_DISCONNECT;
+				QEL_TCP_state = SM_DISCONNECT;
 				// Do not break;  We might still have data in the TCP RX FIFO waiting for us
 			}
 	
@@ -221,13 +216,31 @@ void GenericTCPClient(void)
 				#if defined(STACK_USE_UART)
 				putsUART((char*)vBuffer);
 				#endif
-				
+
+
+                                // process nfc response if needed
+                                if (qel_state->nfc_request == NFC_IS_REQUEST)
+                                // check if access granted
+                                {
+                                    if (vBuffer[0] == 'G' || vBuffer[0] == 'g')
+                                    {
+                                        clear_nfc_state(qel_state);
+                                        update_system_state(qel_state, SYS_TEMPORARY_UNLOCK);
+                                    }
+
+                                    if (vBuffer[0] == 'D' || vBuffer[0] == 'd')
+                                    {
+                                        clear_nfc_state(qel_state);
+                                        update_system_state(qel_state, SYS_LOCKED_WAITING);
+                                    }
+                                }
+                                
 				// putsUART is a blocking call which will slow down the rest of the stack 
 				// if we shovel the whole TCP RX FIFO into the serial port all at once.  
 				// Therefore, let's break out after only one chunk most of the time.  The 
 				// only exception is when the remote node disconncets from us and we need to 
 				// use up all the data before changing states.
-				if(GenericTCPExampleState == SM_PROCESS_RESPONSE)
+				if(QEL_TCP_state == SM_PROCESS_RESPONSE)
 					break;
 			}
 	
@@ -236,17 +249,27 @@ void GenericTCPClient(void)
 		case SM_DISCONNECT:
 			// Close the socket so it can be used by other modules
 			// For this application, we wish to stay connected, but this state will still get entered if the remote server decides to disconnect
+                        clear_nfc_state(qel_state);
+                        clear_update_system_state(qel_state);
 			TCPDisconnect(MySocket);
 			MySocket = INVALID_SOCKET;
-			GenericTCPExampleState = SM_DONE;
+			QEL_TCP_state = SM_DONE;
 			break;
 	
 		case SM_DONE:
-			// Do nothing unless the user pushes BUTTON1 and wants to restart the whole connection/download process
-			if(BUTTON1_IO == 0u)
-				GenericTCPExampleState = SM_HOME;
+
+			// nfc request or tcp update request is made
+			if(qel_state->nfc_request  == NFC_IS_REQUEST || qel_state->tcp_update == TCP_IS_UPDATE)
+				QEL_TCP_state = SM_HOME;
+
+                        // check to see if 1 minute has elapsed, if so send an update
+                        if (Refresh_Timer < TickGet() - 60*TICK_SECOND)
+                        {
+                            Refresh_Timer = TickGet();
+                            QEL_TCP_state = SM_HOME;
+                        }
+
 			break;
 	}
 }
 
-#endif	//#if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)

@@ -193,7 +193,9 @@ static void _Validate(void);
 	
   Remarks:
 	This function is called only one during lifetime of the application.
-  ***************************************************************************/
+        MPFS - Multi Protocol File System is a multi-path network filesystem technology.
+        MPFS is intended to allow hundreds to thousands of client computer nodes to access shared computer data
+******************************************************************************/
 void MPFSInit(void)
 {
 	BYTE i;

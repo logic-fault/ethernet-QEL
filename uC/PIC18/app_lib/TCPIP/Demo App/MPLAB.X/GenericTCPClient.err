@@ -1,0 +1,3 @@
+Warning[2066] ../GenericTCPClient.c 154 : type qualifier mismatch in assignment
+Warning[2066] ../GenericTCPClient.c 155 : type qualifier mismatch in assignment
+Warning[2066] ../GenericTCPClient.c 163 : type qualifier mismatch in assignment

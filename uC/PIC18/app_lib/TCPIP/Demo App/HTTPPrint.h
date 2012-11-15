@@ -13,11 +13,11 @@
  * Copyright (C) 2012 Microchip Technology Inc.  All rights
  * reserved.
  *
- * Microchip licenses to you the right to use, modify, copy, and
- * distribute:
- * (i)  the Software when embedded on a Microchip microcontroller or
- *      digital signal controller product ("Device") which is
- *      integrated into Licensee's product; or
+ * Microchip licenses to you the right to use, modify, copy, and 
+  * distribute: 
+ * (i)  the Software when embedded on a Microchip microcontroller or 
+ *      digital signal controller product ("Device") which is 
+ *      integrated into Licensee's product; or 
  * (ii) ONLY the Software driver source files ENC28J60.c, ENC28J60.h,
  *		ENCX24J600.c and ENCX24J600.h ported to a non-Microchip device
  *		used in conjunction with a Microchip ethernet controller for
@@ -48,22 +48,18 @@
 
 #if defined(STACK_USE_HTTP2_SERVER)
 
-extern HTTP_CONN curHTTP;
 extern HTTP_STUB httpStubs[MAX_HTTP_CONNECTIONS];
 extern BYTE curHTTPID;
 
 void HTTPPrint(DWORD callbackID);
 void HTTPPrint_hellomsg(void);
-void HTTPPrint_cookiename(void);
 void HTTPPrint_(void);
 void HTTPPrint_builddate(void);
 void HTTPPrint_led(WORD);
 void HTTPPrint_lcdtext(void);
-void HTTPPrint_ledSelected(WORD,WORD);
 void HTTPPrint_version(void);
 void HTTPPrint_btn(WORD);
 void HTTPPrint_pot(void);
-void HTTPPrint_uploadedmd5(void);
 void HTTPPrint_status_ok(void);
 void HTTPPrint_ddns_status(void);
 void HTTPPrint_ddns_status_msg(void);
@@ -97,9 +93,6 @@ void HTTPPrint(DWORD callbackID)
         case 0x00000002:
 			HTTPIncFile((ROM BYTE*)"footer.inc");
 			break;
-        case 0x00000003:
-			HTTPPrint_cookiename();
-			break;
         case 0x00000004:
 			HTTPPrint_();
 			break;
@@ -130,30 +123,6 @@ void HTTPPrint(DWORD callbackID)
         case 0x0000000d:
 			HTTPPrint_lcdtext();
 			break;
-        case 0x0000000e:
-			HTTPPrint_ledSelected(4,TRUE);
-			break;
-        case 0x0000000f:
-			HTTPPrint_ledSelected(4,FALSE);
-			break;
-        case 0x00000010:
-			HTTPPrint_ledSelected(3,TRUE);
-			break;
-        case 0x00000011:
-			HTTPPrint_ledSelected(3,FALSE);
-			break;
-        case 0x00000012:
-			HTTPPrint_ledSelected(2,TRUE);
-			break;
-        case 0x00000013:
-			HTTPPrint_ledSelected(2,FALSE);
-			break;
-        case 0x00000014:
-			HTTPPrint_ledSelected(1,TRUE);
-			break;
-        case 0x00000015:
-			HTTPPrint_ledSelected(1,FALSE);
-			break;
         case 0x00000016:
 			HTTPPrint_version();
 			break;
@@ -174,9 +143,6 @@ void HTTPPrint(DWORD callbackID)
 			break;
         case 0x0000001c:
 			HTTPPrint_pot();
-			break;
-        case 0x0000001d:
-			HTTPPrint_uploadedmd5();
 			break;
         case 0x0000001e:
 			HTTPPrint_status_ok();

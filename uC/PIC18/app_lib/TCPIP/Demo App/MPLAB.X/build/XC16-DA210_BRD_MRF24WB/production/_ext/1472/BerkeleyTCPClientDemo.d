@@ -1,0 +1,1 @@
+ build/XC16-DA210_BRD_MRF24WB/production/_ext/1472/BerkeleyTCPClientDemo.d  build/XC16-DA210_BRD_MRF24WB/production/_ext/1472/BerkeleyTCPClientDemo.p1:  ../BerkeleyTCPClientDemo.c ../TCPIPConfig.h ../Configs/TCPIP\ ENC624.h
