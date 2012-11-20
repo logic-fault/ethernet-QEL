@@ -51,6 +51,8 @@
 #ifndef _MAINDEMO_H
 #define _MAINDEMO_H
 
+#include "qel_state.h"
+
 #define BAUD_RATE       (19200)		// bps
 
 #if !defined(THIS_IS_STACK_APPLICATION)
@@ -69,7 +71,7 @@ void SMTPDemo(void);
 void PingDemo(void);
 void SNMPTrapDemo(void);
 void SNMPV2TrapDemo(void);
-void GenericTCPClient(void);
+void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state);
 void GenericTCPServer(void);
 void BerkeleyTCPClientDemo(void);
 void BerkeleyTCPServerDemo(void);

@@ -189,6 +189,7 @@ int main(void)
 	static DWORD t = 0;
 	static DWORD dwLastIP = 0;
         static BYTE toggle_on = 0;
+        static BYTE last_toggle_on = 0;
 
         // initialize qel state machine
         init_system_state(&qel_state);
@@ -343,10 +344,20 @@ int main(void)
         if(TickGet() - t >= TICK_SECOND/2ul)
         {
             t = TickGet();
-            LED2_IO ^= 1;
+           // LED2_IO ^= 1;
             //LED3_IO = LED2_IO;
         }
-        LED2_IO = QEL_DRIVE_IO =  BUTTON3_IO ? 0 : 1;
+        toggle_on = BUTTON3_IO ? 0 : 1;
+
+        if (toggle_on != last_toggle_on)
+        {
+            if (toggle_on == 1)
+                update_system_state(&qel_state, SYS_TEMPORARY_UNLOCK);
+        }
+
+        handle_state(&qel_state);
+
+        // act on qel state machine
 
         // This task performs normal stack task including checking
         // for incoming packet, type of packet and calling
@@ -380,9 +391,7 @@ int main(void)
 		// the inputs on the board itself.
 		// Any custom modules or processing you need to do should
 		// go here.
-		#if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)
-		GenericTCPClient();
-		#endif
+		GenericTCPClient(&qel_state);
 		
 		#if defined(STACK_USE_GENERIC_TCP_SERVER_EXAMPLE)
 		GenericTCPServer();

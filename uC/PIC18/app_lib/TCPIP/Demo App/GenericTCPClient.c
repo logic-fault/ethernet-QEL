@@ -63,7 +63,7 @@
 
 
 // Defines the server to be accessed for this application
-static BYTE ServerName[] =	"QEL_Server";
+static BYTE ServerName[] =	"QEL-server";
 static WORD ServerPort = 12345;
 
 
@@ -104,7 +104,7 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 	WORD				w;
 	BYTE				vBuffer[8];  // should be 'GRANT' OR 'DENY'
 	static DWORD		Timer = 0;
-        static DWORD            Refresh_Timer;
+        static DWORD            Refresh_Timer = 0;
 	static TCP_SOCKET	MySocket = INVALID_SOCKET;
 	static enum QEL_TCP_STATE_T
 	{
@@ -151,8 +151,8 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 			if(TCPIsPutReady(MySocket) < 125u)
 				break;
 			
-			TCPPutString(MySocket, get_system_name(qel_state));
-                        TCPPutROMString(MySocket, ";");
+			//TCPPutString(MySocket, get_system_name(qel_state));
+                        TCPPutROMString(MySocket, "QELink_Board_1;");
 
 
                         // process nfc request if needed
@@ -173,11 +173,12 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
                                 case SYS_LOCKING_TO_WAIT:
                                 case SYS_LOCKED_HOLDING:
                                 case SYS_LOCKING_TO_HOLD:
-                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_OPENED;");
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_CLOSED;");
                                     break;
                                 case SYS_UNLOCKED_HOLDING:
                                 case SYS_UNLOCKING_TO_HOLD:
-                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_CLOSED;");
+                                case SYS_TEMPORARY_UNLOCK:
+                                    TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_OPENED;");
                                     break;
                                 default:
                                     TCPPutROMString(MySocket, (ROM BYTE*)"LATCH_UNKNOWN;");
@@ -198,7 +199,15 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 				QEL_TCP_state = SM_DISCONNECT;
 				// Do not break;  We might still have data in the TCP RX FIFO waiting for us
 			}
-	
+
+
+                        // don't wait for a response if shouldn't have one
+                        if (qel_state->nfc_request != NFC_IS_REQUEST)
+                        {
+                            QEL_TCP_state++;
+                            break;
+                        }
+
 			// Get count of RX bytes waiting
 			w = TCPIsGetReady(MySocket);	
 	
@@ -226,14 +235,20 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
                                     {
                                         clear_nfc_state(qel_state);
                                         update_system_state(qel_state, SYS_TEMPORARY_UNLOCK);
+                                        QEL_TCP_state++;
+                                        break;
                                     }
 
                                     if (vBuffer[0] == 'D' || vBuffer[0] == 'd')
                                     {
                                         clear_nfc_state(qel_state);
                                         update_system_state(qel_state, SYS_LOCKED_WAITING);
+                                        QEL_TCP_state++;
+                                        break;
                                     }
                                 }
+                                else
+                                    QEL_TCP_state++;
                                 
 				// putsUART is a blocking call which will slow down the rest of the stack 
 				// if we shovel the whole TCP RX FIFO into the serial port all at once.  
@@ -263,7 +278,7 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 				QEL_TCP_state = SM_HOME;
 
                         // check to see if 1 minute has elapsed, if so send an update
-                        if (Refresh_Timer < TickGet() - 60*TICK_SECOND)
+                        if (Refresh_Timer < TickGet() - 10 * TICK_SECOND)
                         {
                             Refresh_Timer = TickGet();
                             QEL_TCP_state = SM_HOME;

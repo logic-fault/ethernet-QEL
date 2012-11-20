@@ -258,7 +258,7 @@ static void GetTickCopy(void)
   ***************************************************************************/
 DWORD TickGet(void)
 {
-	GetTickCopy();
+        GetTickCopy();
 	return *((DWORD*)&vTickReading[0]);
 }
 

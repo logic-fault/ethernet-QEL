@@ -13,6 +13,7 @@
 #include "TCPIPConfig.h"
 #include "qel_state.h"
 #include "qel_action.h"
+#include "TCPIP Stack/TCPIP.h"
 
 #pragma udata udata_state
 
@@ -130,7 +131,7 @@ void handle_state(SYSTEM_STATE_STRUCT * sys)
     switch(get_system_state(sys))
     {
         case     SYS_INIT:              // system is booting up
-            if (cur_tick - INIT_DELAY_SECONDS > sys->tick_enter_state)
+            if (cur_tick - INIT_DELAY_SECONDS * TICK_SECOND > sys->tick_enter_state)
                 update_system_state(sys, SYS_LOCKED_WAITING);
             break;
         case     SYS_LOCKED_WAITING:        // locked waiting for NFC
@@ -138,11 +139,11 @@ void handle_state(SYSTEM_STATE_STRUCT * sys)
         case     SYS_NFC_AUTH_WAITING:      // card received, waiting for auth from server
             break;
         case     SYS_TEMPORARY_UNLOCK:      // temporarily unlocked after reading NFC
-            if (cur_tick - INIT_DELAY_SECONDS > sys->tick_enter_state)
+            if ((cur_tick - NFC_OPEN_TIME_SECONDS * TICK_SECOND) > sys->tick_enter_state)
                 update_system_state(sys, SYS_LOCKING_TO_WAIT);
             break;
         case     SYS_LOCKING_TO_WAIT:       // locking after allowing access via NFC
-            update_system_state(sys, SYS_NFC_AUTH_WAITING);
+            update_system_state(sys, SYS_LOCKED_WAITING);
             break;
         case     SYS_UNLOCKED_HOLDING:      // unlocked indefinitely
             // must exit this state using webserver or tcp client

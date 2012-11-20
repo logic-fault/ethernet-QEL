@@ -76,6 +76,8 @@ void clear_nfc_state(SYSTEM_STATE_STRUCT * sys);
 
 void clear_update_system_state(SYSTEM_STATE_STRUCT * sys);
 
+void handle_state(SYSTEM_STATE_STRUCT * sys);
+
 
 
 #ifdef	__cplusplus
