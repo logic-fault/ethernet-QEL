@@ -100,6 +100,9 @@
 #define QEL_TRIS			(TRISBbits.TRISB5)	// Ref D8
 #define QEL_IO				(LATBbits.LATB5)
 
+#define QEL_DRIVE_TRIS          (TRISBbits.TRISB5)
+#define QEL_DRIVE_IO            (PORTBbits.RB5)
+
 // Momentary push buttons
 #define BUTTON0_TRIS		(TRISBbits.TRISB3)	// Ref S5
 #define	BUTTON0_IO			(PORTBbits.RB3)
@@ -192,8 +195,8 @@
 //#define WF_SPI_IP			(IPR1bits.SSPIP)
 
 // 25LC256 I/O pins
-#define EEPROM_CS_TRIS		(TRISDbits.TRISD7)
-#define EEPROM_CS_IO		(LATDbits.LATD7)
+#define EEPROM_CS_TRIS		(TRISJbits.TRISJ4)
+#define EEPROM_CS_IO		(LATJbits.LATJ4)
 #define EEPROM_SCK_TRIS		(TRISCbits.TRISC3)
 #define EEPROM_SDI_TRIS		(TRISCbits.TRISC4)
 #define EEPROM_SDO_TRIS		(TRISCbits.TRISC5)
