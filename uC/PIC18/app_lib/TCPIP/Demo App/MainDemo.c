@@ -184,6 +184,7 @@ int main(void)
         int i;
 	static DWORD t = 0;
 	static DWORD dwLastIP = 0;
+        static BYTE toggle_on = 0;
 
 	// Initialize application specific hardware
 	InitializeBoard();
@@ -335,8 +336,10 @@ int main(void)
         if(TickGet() - t >= TICK_SECOND/2ul)
         {
             t = TickGet();
-            LED0_IO ^= 1;
+            LED2_IO ^= 1;
+            //LED3_IO = LED2_IO;
         }
+        LED2_IO = QEL_DRIVE_IO =  BUTTON3_IO ? 0 : 1;
 
         // This task performs normal stack task including checking
         // for incoming packet, type of packet and calling
@@ -679,6 +682,9 @@ static void ProcessIO(void)
 static void InitializeBoard(void)
 {
     int i;
+
+        QEL_DRIVE_TRIS = 0;
+        QEL_DRIVE_IO   = 0;
 
 	// LEDs
 	LED0_TRIS = 0;

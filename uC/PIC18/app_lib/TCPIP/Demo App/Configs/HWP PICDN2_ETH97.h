@@ -98,6 +98,9 @@
 #define LED_GET()			(LATJ)
 #define LED_PUT(a)			(LATJ = (a))
 
+#define QEL_DRIVE_TRIS          (TRISBbits.TRISB5)
+#define QEL_DRIVE_IO            (PORTBbits.RB5)
+
 // Momentary push buttons
 #define BUTTON0_TRIS		(TRISBbits.TRISB3)	// Ref S5
 #define	BUTTON0_IO			(PORTBbits.RB3)
