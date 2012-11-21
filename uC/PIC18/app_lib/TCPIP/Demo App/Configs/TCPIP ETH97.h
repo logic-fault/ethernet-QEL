@@ -130,12 +130,14 @@
  *   For MPFS Classic, this setting must match the Reserved setting
  *	 on the Advanced Settings page of the MPFS2 Utility.
  */
-#define MPFS_RESERVE_BLOCK				(137ul)
+
+#define MPFS_RESERVE_BLOCK				(218ul)
 
 /* MPFS File Handles
  *   Maximum number of simultaneously open MPFS2 files.
  *   For MPFS Classic, this has no effect.
  */
+
 #define MAX_MPFS_HANDLES				(7ul)
 
 
@@ -148,7 +150,7 @@
  *   To clear EEPROM, hold BUTTON0, reset the board, and continue
  *   holding until the LEDs flash.  Release, and reset again.
  */
-#define MY_DEFAULT_HOST_NAME			"MCHPBOARD"
+#define MY_DEFAULT_HOST_NAME			"QELINK"
 
 #define MY_DEFAULT_MAC_BYTE1            (0x00)	// Use the default of 00-04-A3-00-00-00
 #define MY_DEFAULT_MAC_BYTE2            (0x04)	// if using an ENCX24J600, MRF24WB0M, or

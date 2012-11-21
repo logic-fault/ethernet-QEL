@@ -107,31 +107,11 @@ typedef struct __attribute__((__packed__)) appConfigStruct
 	} Flags;                            // Flag structure
 	MAC_ADDR	MyMACAddr;              // Application MAC address
 
-#if defined(WF_CS_TRIS)
-	BYTE		MySSID[32];             // Wireless SSID (if using MRF24W)
-	BYTE        SsidLength;             // number of bytes in SSID
-	BYTE        SecurityMode;           // WF_SECURITY_OPEN or one of the other security modes
-	BYTE        SecurityKey[64];        // WiFi Security key, or passphrase.   
-	BYTE        SecurityKeyLength;      // number of bytes in security key (can be 0)
-	BYTE        WepKeyIndex;            // WEP key index (only valid for WEP)
-    #if defined(EZ_CONFIG_STORE) // WLAN configuration data stored to NVM
-    BYTE        dataValid;
-    BYTE        networkType;
-    BYTE        saveSecurityInfo;       // Save 32-byte PSK
-    #endif
-#endif
-	
-#if defined(STACK_USE_SNMP_SERVER) || defined(STACK_USE_SNMPV3_SERVER)
-	// SNMPv2C Read community names
-	// SNMP_COMMUNITY_MAX_LEN (8) + 1 null termination byte
-	BYTE readCommunity[SNMP_MAX_COMMUNITY_SUPPORT][SNMP_COMMUNITY_MAX_LEN+1]; 
-
-	// SNMPv2C Write community names
-	// SNMP_COMMUNITY_MAX_LEN (8) + 1 null termination byte
-	BYTE writeCommunity[SNMP_MAX_COMMUNITY_SUPPORT][SNMP_COMMUNITY_MAX_LEN+1];
-
-	UINT32 SnmpEngineBootRcrd;
-#endif
+        // permanent QEL information
+        BYTE            QEL_ID[16];
+        BYTE            QEL_name[32];
+        BYTE            QEL_server[32];
+        BYTE            QEL_state;
 
 } APP_CONFIG;
 

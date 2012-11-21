@@ -1165,102 +1165,18 @@ static void InitAppConfig(void)
 		AppConfig.MyGateway.Val = MY_DEFAULT_GATE_BYTE1 | MY_DEFAULT_GATE_BYTE2<<8ul | MY_DEFAULT_GATE_BYTE3<<16ul | MY_DEFAULT_GATE_BYTE4<<24ul;
 		AppConfig.PrimaryDNSServer.Val = MY_DEFAULT_PRIMARY_DNS_BYTE1 | MY_DEFAULT_PRIMARY_DNS_BYTE2<<8ul  | MY_DEFAULT_PRIMARY_DNS_BYTE3<<16ul  | MY_DEFAULT_PRIMARY_DNS_BYTE4<<24ul;
 		AppConfig.SecondaryDNSServer.Val = MY_DEFAULT_SECONDARY_DNS_BYTE1 | MY_DEFAULT_SECONDARY_DNS_BYTE2<<8ul  | MY_DEFAULT_SECONDARY_DNS_BYTE3<<16ul  | MY_DEFAULT_SECONDARY_DNS_BYTE4<<24ul;
+
+                // save qel status information and network info
+                memcpypgm2ram(AppConfig.QEL_ID, (ROM void*)"QEL_NEPTUNE", 12);
+                memcpypgm2ram(AppConfig.QEL_name, (ROM void*)"QEL_NEPTUNE", 12);
+                memcpypgm2ram(AppConfig.QEL_server, (ROM void*)"QEL-server", 12);
+                AppConfig.QEL_state = 0;
 	
-	
-		// SNMP Community String configuration
-		#if defined(STACK_USE_SNMP_SERVER)
-		{
-			BYTE i;
-			static ROM char * ROM cReadCommunities[] = SNMP_READ_COMMUNITIES;
-			static ROM char * ROM cWriteCommunities[] = SNMP_WRITE_COMMUNITIES;
-			ROM char * strCommunity;
-			
-			for(i = 0; i < SNMP_MAX_COMMUNITY_SUPPORT; i++)
-			{
-				// Get a pointer to the next community string
-				strCommunity = cReadCommunities[i];
-				if(i >= sizeof(cReadCommunities)/sizeof(cReadCommunities[0]))
-					strCommunity = "";
-	
-				// Ensure we don't buffer overflow.  If your code gets stuck here, 
-				// it means your SNMP_COMMUNITY_MAX_LEN definition in TCPIPConfig.h 
-				// is either too small or one of your community string lengths 
-				// (SNMP_READ_COMMUNITIES) are too large.  Fix either.
-				if(strlenpgm(strCommunity) >= sizeof(AppConfig.readCommunity[0]))
-					while(1);
-				
-				// Copy string into AppConfig
-				strcpypgm2ram((char*)AppConfig.readCommunity[i], strCommunity);
-	
-				// Get a pointer to the next community string
-				strCommunity = cWriteCommunities[i];
-				if(i >= sizeof(cWriteCommunities)/sizeof(cWriteCommunities[0]))
-					strCommunity = "";
-	
-				// Ensure we don't buffer overflow.  If your code gets stuck here, 
-				// it means your SNMP_COMMUNITY_MAX_LEN definition in TCPIPConfig.h 
-				// is either too small or one of your community string lengths 
-				// (SNMP_WRITE_COMMUNITIES) are too large.  Fix either.
-				if(strlenpgm(strCommunity) >= sizeof(AppConfig.writeCommunity[0]))
-					while(1);
-	
-				// Copy string into AppConfig
-				strcpypgm2ram((char*)AppConfig.writeCommunity[i], strCommunity);
-			}
-		}
-		#endif
 	
 		// Load the default NetBIOS Host Name
 		memcpypgm2ram(AppConfig.NetBIOSName, (ROM void*)MY_DEFAULT_HOST_NAME, 16);
 		FormatNetBIOSName(AppConfig.NetBIOSName);
 	
-		#if defined(WF_CS_TRIS)
-			// Load the default SSID Name
-			WF_ASSERT(sizeof(MY_DEFAULT_SSID_NAME) <= sizeof(AppConfig.MySSID));
-			memcpypgm2ram(AppConfig.MySSID, (ROM void*)MY_DEFAULT_SSID_NAME, sizeof(MY_DEFAULT_SSID_NAME));
-			AppConfig.SsidLength = sizeof(MY_DEFAULT_SSID_NAME) - 1;
-	
-	        AppConfig.SecurityMode = MY_DEFAULT_WIFI_SECURITY_MODE;
-	        
-	        #if (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_OPEN)
-	            memset(AppConfig.SecurityKey, 0x00, sizeof(AppConfig.SecurityKey));
-	            AppConfig.SecurityKeyLength = 0;
-	
-	        #elif MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WEP_40
-				AppConfig.WepKeyIndex  = MY_DEFAULT_WEP_KEY_INDEX;
-	            memcpypgm2ram(AppConfig.SecurityKey, (ROM void*)MY_DEFAULT_WEP_KEYS_40, sizeof(MY_DEFAULT_WEP_KEYS_40) - 1);
-	            AppConfig.SecurityKeyLength = sizeof(MY_DEFAULT_WEP_KEYS_40) - 1;
-	
-	        #elif MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WEP_104
-				AppConfig.WepKeyIndex  = MY_DEFAULT_WEP_KEY_INDEX;
-			    memcpypgm2ram(AppConfig.SecurityKey, (ROM void*)MY_DEFAULT_WEP_KEYS_104, sizeof(MY_DEFAULT_WEP_KEYS_104) - 1);
-			    AppConfig.SecurityKeyLength = sizeof(MY_DEFAULT_WEP_KEYS_104) - 1;
-	
-	        #elif (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPA_WITH_KEY)       || \
-	              (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPA2_WITH_KEY)      || \
-	              (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPA_AUTO_WITH_KEY)
-			    memcpypgm2ram(AppConfig.SecurityKey, (ROM void*)MY_DEFAULT_PSK, sizeof(MY_DEFAULT_PSK) - 1);
-			    AppConfig.SecurityKeyLength = sizeof(MY_DEFAULT_PSK) - 1;
-	
-	        #elif (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPA_WITH_PASS_PHRASE)     || \
-	              (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPA2_WITH_PASS_PHRASE)    || \
-	              (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPA_AUTO_WITH_PASS_PHRASE)
-	            memcpypgm2ram(AppConfig.SecurityKey, (ROM void*)MY_DEFAULT_PSK_PHRASE, sizeof(MY_DEFAULT_PSK_PHRASE) - 1);
-	            AppConfig.SecurityKeyLength = sizeof(MY_DEFAULT_PSK_PHRASE) - 1;
-			#elif (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPS_PUSH_BUTTON)
-				memset(AppConfig.SecurityKey, 0x00, sizeof(AppConfig.SecurityKey));
-	            AppConfig.SecurityKeyLength = 0;
-			#elif (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_WPS_PIN)
-				memcpypgm2ram(AppConfig.SecurityKey, (ROM void*)MY_DEFAULT_WPS_PIN, sizeof(MY_DEFAULT_WPS_PIN) - 1);
-			    AppConfig.SecurityKeyLength = sizeof(MY_DEFAULT_WPS_PIN) - 1;
-			#elif (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_EAP)
-	            memset(AppConfig.SecurityKey, 0x00, sizeof(AppConfig.SecurityKey));
-	            AppConfig.SecurityKeyLength = 0;
-	        #else 
-	            #error "No security defined"
-	        #endif /* MY_DEFAULT_WIFI_SECURITY_MODE */
-	
-		#endif
 
 		// Compute the checksum of the AppConfig defaults as loaded from ROM
 		wOriginalAppConfigChecksum = CalcIPChecksum((BYTE*)&AppConfig, sizeof(AppConfig));
