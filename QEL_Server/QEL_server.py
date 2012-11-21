@@ -25,7 +25,7 @@ RECV_SIZE = 1024
 
 class QEL_Server(object):
     def __init__(self, hostname, port):
-        self.hostname = hostname
+        self.hostname =  '0.0.0.0'   #hostname
         self.port     = port
         self.db            = mongoDriver.Mongo_Driver('localhost', 'QEL_Server' , 27017)
 
