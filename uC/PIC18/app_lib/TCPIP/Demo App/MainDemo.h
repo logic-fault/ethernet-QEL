@@ -71,7 +71,7 @@ void SMTPDemo(void);
 void PingDemo(void);
 void SNMPTrapDemo(void);
 void SNMPV2TrapDemo(void);
-void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state);
+void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * config);
 void GenericTCPServer(void);
 void BerkeleyTCPClientDemo(void);
 void BerkeleyTCPServerDemo(void);

@@ -63,7 +63,6 @@
 
 
 // Defines the server to be accessed for this application
-static BYTE ServerName[] =	"QEL-server";
 static WORD ServerPort = 12345;
 
 
@@ -98,7 +97,7 @@ static WORD ServerPort = 12345;
   Returns:
   	None
   ***************************************************************************/
-void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
+void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * config)
 {
 	BYTE 				i;
 	WORD				w;
@@ -119,7 +118,7 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 	{
 		case SM_HOME:
 			// Connect a socket to the remote TCP server
-			MySocket = TCPOpen((DWORD)&ServerName[0], TCP_OPEN_RAM_HOST, ServerPort, TCP_PURPOSE_GENERIC_TCP_CLIENT);
+			MySocket = TCPOpen((DWORD)&config->QEL_server[0], TCP_OPEN_RAM_HOST, ServerPort, TCP_PURPOSE_GENERIC_TCP_CLIENT);
 			
 			// Abort operation if no TCP socket of type TCP_PURPOSE_GENERIC_TCP_CLIENT is available
 			// If this ever happens, you need to go add one to TCPIPConfig.h
@@ -150,9 +149,23 @@ void GenericTCPClient(SYSTEM_STATE_STRUCT * qel_state)
 			// Make certain the socket can be written to
 			if(TCPIsPutReady(MySocket) < 125u)
 				break;
-			
+
+                        /*
+                        for(i = 0; i < sizeof(IP_ADDR); i++)
+                        {
+                            uitoa((WORD)IPVal.v[i], IPDigit);
+                            TCPPutString((char *) IPDigit);
+
+                            if(i == sizeof(IP_ADDR)-1)
+                              break;
+
+                            TCPPutRomString(MySocket, (ROM BYTE *) ".");
+                        }
+                         */
+
 			//TCPPutString(MySocket, get_system_name(qel_state));
-                        TCPPutROMString(MySocket, "QELink_Board_1;");
+                        TCPPutString(MySocket, config->QEL_name);
+                        TCPPutROMString(MySocket, (ROM BYTE *)";");
 
 
                         // process nfc request if needed

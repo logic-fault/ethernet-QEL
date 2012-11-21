@@ -391,7 +391,7 @@ int main(void)
 		// the inputs on the board itself.
 		// Any custom modules or processing you need to do should
 		// go here.
-		GenericTCPClient(&qel_state);
+		GenericTCPClient(&qel_state, &AppConfig);
 		
 		#if defined(STACK_USE_GENERIC_TCP_SERVER_EXAMPLE)
 		GenericTCPServer();
