@@ -99,6 +99,7 @@ static WORD ServerPort = 12345;
   ***************************************************************************/
 void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * config)
 {
+        BYTE                    IPDigit;
 	BYTE 				i;
 	WORD				w;
 	BYTE				vBuffer[8];  // should be 'GRANT' OR 'DENY'
@@ -150,13 +151,11 @@ void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * 
 			if(TCPIsPutReady(MySocket) < 125u)
 				break;
 
-
-                        BYTE IPDigit;
                         
                         for(i = 0; i < sizeof(IP_ADDR); i++)
                         {
                             uitoa((WORD)config->MyIPAddr.v[i], IPDigit);
-                            TCPPutString((char *) IPDigit);
+                            TCPPutString(MySocket, (char *) IPDigit);
 
                             if(i == sizeof(IP_ADDR)-1)
                               break;

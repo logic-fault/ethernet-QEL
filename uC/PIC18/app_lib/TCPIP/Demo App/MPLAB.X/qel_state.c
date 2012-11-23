@@ -74,6 +74,16 @@ void           update_system_state(SYSTEM_STATE_STRUCT * sys, system_state_t sta
     return;
 }
 
+SYSTEM_STATE_STRUCT get_system_struct(SYSTEM_STATE_STRUCT * sys)
+{
+    static SYSTEM_STATE_STRUCT * s;
+
+    if ((void *)sys != (void *)0)
+        s = sys;
+
+    return s;
+}
+
 void clear_update_system_state(SYSTEM_STATE_STRUCT * sys)
 {
     sys->tcp_update = TCP_NO_UPDATE;

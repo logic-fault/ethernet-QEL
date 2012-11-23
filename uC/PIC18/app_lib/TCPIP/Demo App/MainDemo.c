@@ -193,6 +193,7 @@ int main(void)
 
         // initialize qel state machine
         init_system_state(&qel_state);
+        get_system_struct(&qel_state);
 
 	// Initialize application specific hardware
 	InitializeBoard();
@@ -1169,7 +1170,7 @@ static void InitAppConfig(void)
                 // save qel status information and network info
                 memcpypgm2ram(AppConfig.QEL_ID, (ROM void*)"QEL_NEPTUNE", 12);
                 memcpypgm2ram(AppConfig.QEL_name, (ROM void*)"QEL_NEPTUNE", 12);
-                memcpypgm2ram(AppConfig.QEL_server, (ROM void*)"QEL-server", 12);
+                memcpypgm2ram(AppConfig.QEL_server, (ROM void*)"128.46.74.203", 14);
                 AppConfig.QEL_state = 0;
 	
 	

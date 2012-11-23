@@ -60,6 +60,8 @@ typedef struct
 
 } SYSTEM_STATE_STRUCT;
 
+SYSTEM_STATE_STRUCT get_system_struct(SYSTEM_STATE_STRUCT * sys);
+
 void init_system_state(SYSTEM_STATE_STRUCT * sys);
 
 // interface functions for state
