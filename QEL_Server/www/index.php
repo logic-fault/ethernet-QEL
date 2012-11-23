@@ -13,6 +13,14 @@ session_start();
 
 require_once('db/list.php');
 require_once('support/hf.php');
+require_once('db/qel_actions.php');
+
+
+if(isset($_POST['check_qel']) && isset($_POST['qel_action']))
+{
+   qel_action($_POST['check_qel'], $_POST['qel_action']);
+   exit();
+}
 
 if(isset($_GET['list_sort_field']))
 {
