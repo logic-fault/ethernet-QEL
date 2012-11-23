@@ -150,18 +150,22 @@ void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * 
 			if(TCPIsPutReady(MySocket) < 125u)
 				break;
 
-                        /*
+
+                        BYTE IPDigit;
+                        
                         for(i = 0; i < sizeof(IP_ADDR); i++)
                         {
-                            uitoa((WORD)IPVal.v[i], IPDigit);
+                            uitoa((WORD)config->MyIPAddr.v[i], IPDigit);
                             TCPPutString((char *) IPDigit);
 
                             if(i == sizeof(IP_ADDR)-1)
                               break;
 
-                            TCPPutRomString(MySocket, (ROM BYTE *) ".");
+                            TCPPutROMString(MySocket, (ROM BYTE *) ".");
                         }
-                         */
+
+                        TCPPutROMString(MySocket, (ROM BYTE *) ";");
+                         
 
 			//TCPPutString(MySocket, get_system_name(qel_state));
                         TCPPutString(MySocket, config->QEL_name);

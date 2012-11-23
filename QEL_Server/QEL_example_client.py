@@ -26,7 +26,7 @@ def server_session(msg):
    print 'Sending packet=' + packet
    QEL_server.send(packet)
 
-   if (msg[1] == 'CHECK_TAG'):
+   if (msg[2] == 'CHECK_TAG'):
         #get the reply
         data = QEL_server.recv(1024)
         print 'response=' + data
@@ -36,31 +36,31 @@ def server_session(msg):
 def main():
 
     print 'Latch Open test...'
-    message = [QEL_ID, 'LATCH_OPENED', '']
+    message = ["127.0.0.1", QEL_ID, 'LATCH_OPENED', '']
     server_session(message)
 
  
     QEL_ID_list = ['QEL_EE1', 'QEL_EE2', 'QEL_EW1', 'QEL_EE3'];
 
     for qel in QEL_ID_list:
-        message = [qel, 'LATCH_OPENED', '']
+        message = ["127.0.0.1", qel, 'LATCH_OPENED', '']
         server_session(message)
         time.sleep(0.01);
     
     #time.sleep(10)
 
     print 'Latch Close test...'
-    message[1] = 'LATCH_CLOSED'
+    message[2] = 'LATCH_CLOSED'
     server_session(message)
 
     #time.sleep(10)
 
-    message[2] = 'badtag' # example NFC tag num
-    message[1] = 'CHECK_TAG'
+    message[3] = 'badtag' # example NFC tag num
+    message[2] = 'CHECK_TAG'
     server_session(message)
 
-    message[2] = 'eeeeee' # example NFC tag num
-    message[1] = 'CHECK_TAG'
+    message[3] = 'eeeeee' # example NFC tag num
+    message[2] = 'CHECK_TAG'
     server_session(message)
 
 if __name__ == '__main__':

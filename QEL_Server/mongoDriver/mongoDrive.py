@@ -28,7 +28,7 @@ class Mongo_Driver(object):
         self.conn = pymongo.Connection(self.server, self.port)    
         self.db   = self.conn[self.db_name]
 
-    def _set_status(self, QEL_name, QEL_status):
+    def _set_status(self, QEL_name, QEL_status, QEL_IP):
         if (self.db == 0):
            return
      
@@ -42,12 +42,13 @@ class Mongo_Driver(object):
             pass      
  
         if (QEL != None):
+           QEL['ip']     = QEL_IP
            QEL['status'] = QEL_status
            QEL['time']   = int(time.time()) # s since unix epoch
            self.db.QEL_List.save(QEL)
            return
 
-        self.db.QEL_List.save({"name" : QEL_name, "status": QEL_status, "time" : int(time.time())}) 
+        self.db.QEL_List.save({"ip" : QEL_IP, "name" : QEL_name, "status": QEL_status, "time" : int(time.time())}) 
 
     def find_QEL_in_group(self, group, QEL_name):
         if (self.db == 0):
@@ -79,11 +80,11 @@ class Mongo_Driver(object):
 
         return stat['group']
 
-    def set_status_opened(self, QEL_name):
-        self._set_status(QEL_name, "LATCH_OPENED")
+    def set_status_opened(self, QEL_name, QEL_IP):
+        self._set_status(QEL_name, "LATCH_OPENED", QEL_IP)
 
-    def set_status_closed(self, QEL_name):
-        self._set_status(QEL_name, "LATCH_CLOSED")
+    def set_status_closed(self, QEL_name, QEL_IP):
+        self._set_status(QEL_name, "LATCH_CLOSED", QEL_IP)
 
     def get_all_status(self):
         if (self.db == 0):
@@ -108,12 +109,12 @@ def test_driver():
    print 'QEL_fake status: ' + driver.get_status('QEL_fake')
 
    print 'set QEL_test opened'
-   driver.set_status_opened('QEL_test')
+   driver.set_status_opened('QEL_test', "127.0.0.1")
    print driver.get_status('QEL_test')
 
    print 'set QEL_test closed'
-   driver.set_status_closed('QEL_test')
-   print driver.get_status('QEL_test')
+   driver.set_status_closed('QEL_test', "127.0.0.1")
+   print driver.get_status('QEL_test' )
     
    print 'ALL QEL Status:' 
    print driver.get_all_status()

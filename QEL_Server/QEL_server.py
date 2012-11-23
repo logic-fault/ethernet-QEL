@@ -30,16 +30,17 @@ class QEL_Server(object):
         self.db            = mongoDriver.Mongo_Driver('localhost', 'QEL_Server' , 27017)
 
     def handle_cmd(self,cmd):
-        if (len(cmd) < 2):
+        if (len(cmd) < 3):
            return ''
 
-        QEL_ID  = cmd[0]
-        QEL_cmd = cmd[1]
+        QEL_IP  = cmd[0]
+        QEL_ID  = cmd[1]
+        QEL_cmd = cmd[2]
 
         if (QEL_cmd == 'CHECK_TAG'):
            if (len(cmd) < 3):
               return 'DENY'
-           ID_num = cmd[2]
+           ID_num = cmd[3]
  
            grp = self.db.get_tag_group(ID_num)
            if (grp == ''):
@@ -57,13 +58,13 @@ class QEL_Server(object):
         elif (QEL_cmd == 'LATCH_OPENED'):
             # update db
             print 'latch ' + QEL_ID + 'opened'
-            self.db.set_status_opened(QEL_ID)
+            self.db.set_status_opened(QEL_ID, QEL_IP)
             return ''
 
         elif (QEL_cmd == 'LATCH_CLOSED'):
             #update db
             print 'latch' + QEL_ID + 'closed'
-            self.db.set_status_closed(QEL_ID)
+            self.db.set_status_closed(QEL_ID, QEL_IP)
             return ''
 
         return ''
