@@ -74,7 +74,7 @@ void           update_system_state(SYSTEM_STATE_STRUCT * sys, system_state_t sta
     return;
 }
 
-SYSTEM_STATE_STRUCT get_system_struct(SYSTEM_STATE_STRUCT * sys)
+SYSTEM_STATE_STRUCT * get_system_struct(SYSTEM_STATE_STRUCT * sys)
 {
     static SYSTEM_STATE_STRUCT * s;
 
