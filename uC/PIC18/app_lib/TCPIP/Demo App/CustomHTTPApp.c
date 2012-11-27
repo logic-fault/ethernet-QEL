@@ -54,6 +54,8 @@
 #define __CUSTOMHTTPAPP_C
 
 #include "TCPIPConfig.h"
+#include "qel_state.h"
+#include "qel_action.h"
 
 #if defined(STACK_USE_HTTP2_SERVER)
 
@@ -189,27 +191,22 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 	// Load the file name
 	// Make sure BYTE filename[] above is large enough for your longest name
 	MPFSGetFilename(curHTTP.file, filename, 20);          //file from current HTTP connection
-	
-	// If its the forms.htm page
-	if(!memcmppgm2ram(filename, "forms.htm", 9))
-	{
-		// Seek out each of the four LED strings, and if it exists set the LED states
-		ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"led4");
-		if(ptr)
-			LED4_IO = (*ptr == '1');
 
-		ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"led3");
-		if(ptr)
-			LED3_IO = (*ptr == '1');
 
-		ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"led2");
-		if(ptr)
-			LED2_IO = (*ptr == '1');
+        if(!memcmppgm2ram(filename, "qel_state.htm", 13))
+        {
+                // Seek out each of the four LED strings, and if it exists set the LED states
+                ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"qel");
+                if(*ptr == '1')   // locked,  waiting
+                        LED1_IO = 1;
 
-		ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"led1");
-		if(ptr)
-			LED1_IO = (*ptr == '1');
-	}
+                if(*ptr == '2')  // locked, holding
+                        LED2_IO = 1;
+
+                if(*ptr == '3') // unlocked
+                        LED3_IO = 1;
+
+        }
 	
 	// If it's the LED updater file
 	else if(!memcmppgm2ram(filename, "cookies.htm", 11))
