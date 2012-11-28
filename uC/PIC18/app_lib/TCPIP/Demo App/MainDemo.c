@@ -93,6 +93,10 @@ BYTE AN0String[8];
 
 // Private helper functions.
 // These may or may not be present in all applications.
+BYTE NFCid[4] = {0};
+BYTE NFCpasswd[16] = {0};
+int byte_count = 0;
+
 static void InitAppConfig(void);
 static void InitializeBoard(void);
 static void ProcessIO(void);
@@ -128,16 +132,34 @@ static void ProcessIO(void);
 	#else
 	#pragma interruptlow HighISR
 	void HighISR(void)
-	#endif
-	{
-	    #if defined(STACK_USE_UART2TCP_BRIDGE)
-			UART2TCPBridgeISR();
-		#endif
+        #endif
+         {
 
-		#if defined(WF_CS_TRIS)
-			WFEintISR();
-		#endif // WF_CS_TRIS
-	}
+            if (SSP2STATbits.BF)
+            {
+               /* if(SSP2BUF)
+                {
+                    byte_count = byte_count;
+                }*/
+
+
+                if(byte_count <= 3)
+                {
+                    NFCid[byte_count] = SSP2BUF;
+                    byte_count++;
+                }
+                else if((byte_count > 3) && (byte_count < 20))
+                {
+                    NFCpasswd[(byte_count - 4)] = SSP2BUF;
+                    byte_count++;
+                }
+                if(byte_count == 20)
+                     byte_count = 0;
+
+                PIR3bits.SSP2IF = 0;
+                SSP2STATbits.BF = 0;
+            }
+        }
 
 	#if !defined(HI_TECH_C)
 	#pragma code lowVector=0x18
@@ -756,6 +778,15 @@ static void InitializeBoard(void)
 	// Configure USART
     TXSTA = 0x20;
     RCSTA = 0x90;
+
+    SSP2CON1 &= ~0x40;
+    SSP2CON1 |= 0x20 | 0x05;
+  //  TRISD &= ~0x10;
+    TRISD |= 0x40;
+    PIR3bits.SSP2IF = 0;
+    PIE3bits.SSP2IE = 1;
+    IPR3bits.SSP2IP = 1;
+    RCONbits.IPEN = 1;
 
 	// See if we can use the high baud rate setting
 	#if ((GetPeripheralClock()+2*BAUD_RATE)/BAUD_RATE/4 - 1) <= 255
