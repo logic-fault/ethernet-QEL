@@ -185,6 +185,7 @@ BYTE HTTPCheckAuth(BYTE* cUser, BYTE* cPass)
   ***************************************************************************/
 HTTP_IO_RESULT HTTPExecuteGet(void)
 {
+        BYTE i;
 	BYTE *ptr;
 	BYTE filename[20];
 	
@@ -192,19 +193,47 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 	// Make sure BYTE filename[] above is large enough for your longest name
 	MPFSGetFilename(curHTTP.file, filename, 20);          //file from current HTTP connection
 
+        if(!memcmppgm2ram(filename, "config.htm", 6))
+        {
+            ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"qel_name");
+            
+            i = 0;
+            while(ptr[i])
+            {
+                AppConfig.QEL_name[i] = ptr[i];
+                AppConfig.QEL_ID[i]   = ptr[i];
+                i++;
+            }
+            AppConfig.QEL_name[i] = 0;
+
+             ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"qel_server");
+
+            i = 0;
+            while(ptr[i])
+            {
+                AppConfig.QEL_server[i] = ptr[i];
+                i++;
+            }
+            AppConfig.QEL_server[i] = 0;
+
+            // save to eeprom
+            SaveAppConfig(&AppConfig);
+
+
+        }
 
         if(!memcmppgm2ram(filename, "qel_state.htm", 13))
         {
                 // Seek out each of the four LED strings, and if it exists set the LED states
                 ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"qel");
                 if(*ptr == '1')   // locked,  waiting
-                        LED1_IO = 1;
+                    update_system_state(get_system_struct((SYSTEM_STATE_STRUCT *) 0), SYS_LOCKING_TO_WAIT);
 
                 if(*ptr == '2')  // locked, holding
-                        LED2_IO = 1;
+                    update_system_state(get_system_struct((SYSTEM_STATE_STRUCT *) 0), SYS_LOCKING_TO_HOLD);
 
                 if(*ptr == '3') // unlocked
-                        LED3_IO = 1;
+                    update_system_state(get_system_struct((SYSTEM_STATE_STRUCT *) 0), SYS_UNLOCKING_TO_HOLD);
 
         }
 	

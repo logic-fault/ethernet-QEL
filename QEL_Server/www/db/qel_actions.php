@@ -24,17 +24,18 @@ function qel_action($qel_list, $action)
    foreach ($qel_list as $qel)
    {
       $item = $db->selectCollection('QEL_List')->findOne(array("name" => $qel));
-      print $item['ip'];
+//      print $item['ip'];
      
 
-      $addr = 'http://' . $item['ip'] . '/qel.htm?qel=' . "$action_num";
+    $addr = 'http://' . $item['ip'] . '/qel_state.htm?qel=' . "$action_num";
 
       // 1 = locked, waiting
       // 2 = locknig to hold
-      echo $addr;
+//ll      echo $addr;
       $c = curl_init($addr);
       curl_setopt($c, CURLOPT_HEADER, 0);
-      curl_setopt($c, CURLOPT_CONNECTTIMEOUT_MS, 200);
+      curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($c, CURLOPT_FRESH_CONNECT, 1);
       curl_exec($c);
       curl_close($c);
    }

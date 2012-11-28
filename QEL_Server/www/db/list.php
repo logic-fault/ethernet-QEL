@@ -15,6 +15,20 @@
 
 $TIME_THRESHOLD = 60;
 
+function get_QEL_status($qel_name)
+{
+   return "";
+}
+
+function get_QEL_time($qel_name)
+{
+   $m = new Mongo();
+   $db = $m->selectDB("QEL_Server");
+   $res = $db->selectCollection('QEL_List')->findOne(array("name" => $qel_name));
+
+   return $res['time'];
+}
+
 function print_QEL_list($sort_field = 'name')
 {
    global $TIME_THRESHOLD;
