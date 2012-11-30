@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">QEL_Client</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">QEL_Client</string>
+    <string name="setting_title">Setting</string>
+    <string name="server_ip">Server IP.</string>
+    <string name="button_setting">Set</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="setip_title">The Server\'s IP</string>
+    <string name="caution">Caution</string>
+    <string name="add_group">New Group</string>
+    <string name="add_tag">New Tag</string>
+    <string name="set_group">Set Group</string>
+    
+    <string name="group_user_list">Member List</string>
+
+    <string name="comments">You can set the comment by change the value here, \nthe value is in res/string.xml</string>
+</resources>
