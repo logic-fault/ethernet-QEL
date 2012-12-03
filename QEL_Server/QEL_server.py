@@ -44,6 +44,8 @@ class QEL_Server(object):
  
            grp = self.db.get_tag_group(ID_num)
            if (grp == ''):
+              # add the id to the database, with group NO_ACCESS
+              self.db.insert_tag(ID_num)
               return 'DENY'
 
            print 'Looking up group'
@@ -131,6 +133,7 @@ class QEL_Server(object):
                         data = ready_socket.recv(RECV_SIZE)
                         if (data):
                             #handle it
+                            print 'data= ' + data;
                             req = data.split(';')
                             response = self.handle_cmd(req)
                             if (response != ''):

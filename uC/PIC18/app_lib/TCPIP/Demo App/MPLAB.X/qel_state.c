@@ -90,8 +90,11 @@ void clear_update_system_state(SYSTEM_STATE_STRUCT * sys)
     return;
 }
 
-void request_nfc_state(SYSTEM_STATE_STRUCT * sys, unsigned char * buf)
+void request_nfc_state(SYSTEM_STATE_STRUCT * sys, BYTE * buf)
 {
+    int i = 0;
+    int j = 0;
+    
     unsigned char * buf_ptr = buf;
     unsigned char * nfc_ptr = sys->nfc_data;
 
@@ -102,7 +105,13 @@ void request_nfc_state(SYSTEM_STATE_STRUCT * sys, unsigned char * buf)
     }
 
     // copy until zero terminated or end of datasizes
-    while(*nfc_ptr++ = *buf_ptr++ && (nfc_ptr < sys->nfc_data + NFC_DATA_SIZE));
+    while(i < NFC_DATA_SIZE)
+    {
+        nfc_ptr[i] = j = buf_ptr[i];
+        if(nfc_ptr[i] == 0)
+            break;
+        i++;
+    }
 
     sys->nfc_request = NFC_IS_REQUEST;
 }

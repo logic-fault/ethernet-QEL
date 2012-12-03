@@ -84,6 +84,12 @@ APP_CONFIG AppConfig;
 static unsigned short wOriginalAppConfigChecksum;	// Checksum of the ROM defaults for AppConfig
 BYTE AN0String[8];
 
+BYTE test_nfc_data[] = { 0xa1, 0xb2, 0xc3, 0xd4, // User ID
+                       'h', 'e', 'l', 'l',       // pass
+                       'o', 0, 0, 0,
+                        0, 0, 0, 0,
+                        0, 0, 0, 0};
+
 // Use UART2 instead of UART1 for stdout (printf functions).  Explorer 16 
 // serial port hardware is on PIC UART2 module.
 #if defined(EXPLORER_16) || defined(PIC24FJ256DA210_DEV_BOARD)
@@ -377,7 +383,10 @@ int main(void)
         if (toggle_on != last_toggle_on)
         {
             if (toggle_on == 1)
-                update_system_state(&qel_state, SYS_TEMPORARY_UNLOCK);
+            {
+                request_nfc_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), test_nfc_data);
+                //update_system_state(&qel_state, SYS_TEMPORARY_UNLOCK);
+            }
         }
 
         handle_state(&qel_state);

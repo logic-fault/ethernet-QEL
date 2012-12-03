@@ -65,17 +65,31 @@
 // Defines the server to be accessed for this application
 static WORD ServerPort = 12345;
 
-/*
+static BYTE nibble_to_ascii(BYTE  in)
+{
+    BYTE out;
+
+    in &= 0x0f;
+    
+    if (in < 0x0a) // we are using numbers
+        out = 0x30;
+    else              // we are using 'a'-'f'
+        out = 0x61 - 0x0a;
+
+    return out + in;
+}
+
 void byte_to_ascii(BYTE * in, BYTE * out, unsigned int size)
 {
     int i;
 
     for (i = 0; i < size; i++)
     {
-        BYTE 
+        out[2*i + 1] = nibble_to_ascii(in[i]);
+        out[2*i + 0] = nibble_to_ascii(in[i] >> 4);
     }
 }
-*/
+
 
 // Defines the URL to be requested by this HTTP client
 //static ROM BYTE RemoteURL[] = "/search?as_q=Microchip&as_sitesearch=microchip.com";
@@ -114,6 +128,7 @@ void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * 
 	BYTE 				i;
 	WORD				w;
 	BYTE				vBuffer[8];  // should be 'GRANT' OR 'DENY'
+        BYTE                            asciiNFC[25];
 	static DWORD		Timer = 0;
         static DWORD            Refresh_Timer = 0;
 	static TCP_SOCKET	MySocket = INVALID_SOCKET;
@@ -186,7 +201,18 @@ void GenericTCPClient(const SYSTEM_STATE_STRUCT * qel_state, const APP_CONFIG * 
                         if (qel_state->nfc_request == NFC_IS_REQUEST)
                         {
                             TCPPutROMString(MySocket, (ROM BYTE*)"CHECK_TAG;");
-                            TCPPutString(MySocket, qel_state->nfc_data);
+
+                            // convert binary hex to  alphanum hex ascii
+                            byte_to_ascii(qel_state->nfc_data, asciiNFC, 4);
+
+                            // copy in password, which is already ascii alphanum
+                            for (i = 8; i < 24; i++)
+                                asciiNFC[i] = qel_state->nfc_data[i - 4];
+
+                            // null terminate
+                            asciiNFC[24] = 0;
+                            
+                            TCPPutString(MySocket, asciiNFC);
                             TCPPutROMString(MySocket, ";");
                         }
 

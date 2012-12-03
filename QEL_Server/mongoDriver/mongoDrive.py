@@ -80,6 +80,14 @@ class Mongo_Driver(object):
 
         return stat['group']
 
+    def insert_tag(self, tag_id):
+       if (self.db == 0):
+           return ''
+
+       print 'before save'
+       self.db.tag_permissions.save({"ID" : tag_id, "name" : "nobody", "group" : "NO_ACCESS"})
+       print 'after save'
+
     def set_status_opened(self, QEL_name, QEL_IP):
         self._set_status(QEL_name, "LATCH_OPENED", QEL_IP)
 
