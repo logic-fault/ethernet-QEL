@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tag Name"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:textStyle="bold" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/etTagName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tag ID"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:textStyle="bold" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/etTagId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:singleLine="true" />
+
+</LinearLayout>
