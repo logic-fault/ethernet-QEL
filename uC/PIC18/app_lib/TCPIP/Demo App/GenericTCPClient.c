@@ -65,6 +65,17 @@
 // Defines the server to be accessed for this application
 static WORD ServerPort = 12345;
 
+/*
+void byte_to_ascii(BYTE * in, BYTE * out, unsigned int size)
+{
+    int i;
+
+    for (i = 0; i < size; i++)
+    {
+        BYTE 
+    }
+}
+*/
 
 // Defines the URL to be requested by this HTTP client
 //static ROM BYTE RemoteURL[] = "/search?as_q=Microchip&as_sitesearch=microchip.com";

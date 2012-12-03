@@ -218,6 +218,7 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 
             // save to eeprom
             SaveAppConfig(&AppConfig);
+            InitAppConfig();
 
 
         }

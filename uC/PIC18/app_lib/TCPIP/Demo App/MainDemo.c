@@ -93,11 +93,10 @@ BYTE AN0String[8];
 
 // Private helper functions.
 // These may or may not be present in all applications.
-BYTE NFCid[4] = {0};
-BYTE NFCpasswd[16] = {0};
+BYTE NFCdata[20] = {0};
 int byte_count = 0;
 
-static void InitAppConfig(void);
+void InitAppConfig(void);
 static void InitializeBoard(void);
 static void ProcessIO(void);
 #if defined(WF_CS_TRIS)
@@ -145,16 +144,19 @@ static void ProcessIO(void);
 
                 if(byte_count <= 3)
                 {
-                    NFCid[byte_count] = SSP2BUF;
+                    NFCdata[byte_count] = SSP2BUF;
                     byte_count++;
                 }
                 else if((byte_count > 3) && (byte_count < 20))
                 {
-                    NFCpasswd[(byte_count - 4)] = SSP2BUF;
+                    NFCdata[byte_count] = SSP2BUF;
                     byte_count++;
                 }
                 if(byte_count == 20)
+                {
+                     request_nfc_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), NFCdata);
                      byte_count = 0;
+                }
 
                 PIR3bits.SSP2IF = 0;
                 SSP2STATbits.BF = 0;
@@ -1170,12 +1172,20 @@ static void InitializeBoard(void)
 static ROM BYTE SerializedMACAddress[6] = {MY_DEFAULT_MAC_BYTE1, MY_DEFAULT_MAC_BYTE2, MY_DEFAULT_MAC_BYTE3, MY_DEFAULT_MAC_BYTE4, MY_DEFAULT_MAC_BYTE5, MY_DEFAULT_MAC_BYTE6};
 //#pragma romdata
 
-static void InitAppConfig(void)
+void InitAppConfig(void)
 {
 #if defined(EEPROM_CS_TRIS) || defined(SPIFLASH_CS_TRIS)
 	unsigned char vNeedToSaveDefaults = 0;
 #endif
-	
+
+       #if defined(EEPROM_CS_TRIS)
+       {
+           NVM_VALIDATION_STRUCT NVMValidationStruct;
+
+	   XEEReadArray(0x0000, (BYTE*)&NVMValidationStruct, sizeof(NVMValidationStruct));
+	   XEEReadArray(sizeof(NVMValidationStruct), (BYTE*)&AppConfig, sizeof(AppConfig));
+       }
+
 	while(1)
 	{
 		// Start out zeroing all AppConfig bytes to ensure all fields are 

@@ -61,6 +61,8 @@
 
 void DoUARTConfig(void);
 
+void InitAppConfig(void);
+
 #if defined(EEPROM_CS_TRIS) || defined(SPIFLASH_CS_TRIS)
 	void SaveAppConfig(const APP_CONFIG *AppConfig);
 #else
