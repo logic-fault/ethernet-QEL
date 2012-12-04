@@ -772,7 +772,7 @@ static void InitializeBoard(void)
 	LED0_TRIS = 0;
 	LED1_TRIS = 0;
 	LED2_TRIS = 0;
-	LED3_TRIS = 1;
+	LED3_TRIS = 0;
 	LED4_TRIS = 1;
 	LED5_TRIS = 0;
 	LED6_TRIS = 0;
