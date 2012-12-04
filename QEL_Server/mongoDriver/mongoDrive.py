@@ -49,7 +49,7 @@ class Mongo_Driver(object):
            return
 
         # if new QEL name, delete all qels at same ip with this name
-        self.db.QEL_list.remove({"ip" : QEL_IP})       
+        self.db.QEL_List.remove({"ip" : QEL_IP})       
         self.db.QEL_List.save({"ip" : QEL_IP, "name" : QEL_name, "status": QEL_status, "time" : int(time.time())}) 
 
     def find_QEL_in_group(self, group, QEL_name):
