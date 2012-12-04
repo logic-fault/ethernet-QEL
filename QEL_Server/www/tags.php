@@ -65,6 +65,9 @@ if(isset($_POST['check_tag']))
        if($_POST['tag_radio'] == 'delete')
           delete_tags($_POST['check_tag']);
 
+       if($_POST['tag_radio'] == 'set_name')
+          set_tags_name($_POST['check_tag'], $_POST['name']);
+
        if($_POST['tag_radio'] == 'set_group')
           set_tags_group($_POST['check_tag'], $_POST['group_select']);
     }
@@ -74,7 +77,7 @@ if(isset($_POST['check_tag']))
 printHeader( 'tags.php' ,'Tags');
 
 print_tag_list($tag_sort);
-print_tag_entry();
+//print_tag_entry();
 
 printFooter();
 

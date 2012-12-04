@@ -38,6 +38,9 @@ function qel_action($qel_list, $action)
       curl_setopt($c, CURLOPT_FRESH_CONNECT, 1);
       curl_exec($c);
       curl_close($c);
+
+      // now wait 5 ms for a response
+      usleep(50000);
    }
 
 }

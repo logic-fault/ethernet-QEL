@@ -75,7 +75,7 @@ function print_QEL_list($sort_field = 'name')
       {
           $class_name = 'element_even';
       }
-      echo '<tr class="' . $class_name . '"><td class="table_c"><input type="checkbox" name="check_qel[]" value="' . $qel['name']  . '" /> <br /> </td><td class="table_c"> ' . $qel['name'] . '</td> <td> ' .$qel['status'] . '</td><td style="float: right" class="table_c">' . $timediff  .'</td></tr>';
+      echo '<tr class="' . $class_name . '"><td class="table_c"><input type="checkbox" name="check_qel[]" value="' . $qel['name']  . '" /> <br /> </td><td class="table_c"> <a style="text-decoration:none" href="http://' . $qel['ip']  .  '" >' . $qel['name'] . '</a></td> <td> ' .$qel['status'] . '</td><td style="float: right" class="table_c">' . $timediff  .'</td></tr>';
    }
    ?>
    </table>

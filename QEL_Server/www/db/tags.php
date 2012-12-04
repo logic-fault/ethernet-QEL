@@ -64,6 +64,23 @@ function set_tags_group($tags, $group)
    }
 }
 
+function set_tags_name($tags, $name)
+{
+
+   $m = new Mongo();
+   $db = $m->selectDB("QEL_Server");
+
+   foreach ($tags as $tag)
+   {
+      $res = $db->selectCollection('tag_permissions')->find(array('ID' =>$tag));
+      foreach($res as $item)
+      {
+         $item['name'] = $name;
+         $db->selectCollection('tag_permissions')->save($item);
+      }
+   }
+}
+
 /* Show all NFC tags */
 function print_tag_list($sort_field = 'name')
 {
@@ -116,6 +133,9 @@ function print_tag_list($sort_field = 'name')
    print_groups_dropdown();
 
    ?>
+   <br />
+   <input type="radio" name="tag_radio" value="set_name">set name</input>
+   <input type="text" name="name" />
    <br />
    <input type="radio" name="tag_radio" value="delete">delete</input>
    <div class="submit_div">
