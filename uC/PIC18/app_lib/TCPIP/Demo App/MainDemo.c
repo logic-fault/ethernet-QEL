@@ -84,6 +84,8 @@ APP_CONFIG AppConfig;
 static unsigned short wOriginalAppConfigChecksum;	// Checksum of the ROM defaults for AppConfig
 BYTE AN0String[8];
 
+volatile BYTE nfc_flag;
+
 BYTE test_nfc_data[] = { 0xa1, 0xb2, 0xc3, 0xd4, // User ID
                        'h', 'e', 'l', 'l',       // pass
                        'o', 0, 0, 0,
@@ -103,6 +105,7 @@ BYTE NFCdata[20] = {0};
 int byte_count = 0;
 
 void InitAppConfig(void);
+static void InitAppConfig_opt(unsigned char saveDefaults);
 static void InitializeBoard(void);
 static void ProcessIO(void);
 #if defined(WF_CS_TRIS)
@@ -160,12 +163,11 @@ static void ProcessIO(void);
                 }
                 if(byte_count == 20)
                 {
-                     request_nfc_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), NFCdata);
+                     nfc_flag = 1;
                      byte_count = 0;
                 }
 
                 PIR3bits.SSP2IF = 0;
-                SSP2STATbits.BF = 0;
             }
         }
 
@@ -216,6 +218,7 @@ int main(void)
 #endif
 {
         int i;
+        static DWORD button_timer, button_diff;
 	static DWORD t = 0;
 	static DWORD dwLastIP = 0;
         static BYTE toggle_on = 0;
@@ -369,6 +372,9 @@ int main(void)
     // job.
     // If a task needs very long time to do its job, it must be broken
     // down into smaller pieces so that other tasks can have CPU time.
+
+    nfc_flag = 0;
+
     while(1)
     {
         // Blink LED0 (right most one) every second.
@@ -378,15 +384,41 @@ int main(void)
            // LED2_IO ^= 1;
             //LED3_IO = LED2_IO;
         }
+        
         toggle_on = BUTTON3_IO ? 0 : 1;
 
         if (toggle_on != last_toggle_on)
         {
+            last_toggle_on = toggle_on;
+            
             if (toggle_on == 1)
             {
+                button_timer = TickGet();
                 request_nfc_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), test_nfc_data);
                 //update_system_state(&qel_state, SYS_TEMPORARY_UNLOCK);
             }
+            else // button released
+            {
+                // find time button pressed in seconds
+                button_diff = (TickGet() - button_timer) / TICK_SECOND;
+
+                if (button_diff > 10)
+                {
+                    InitAppConfig_opt(1); // reset to defaults
+                    Reset();              // now reboot
+                }
+                else
+                {
+                    update_system_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), SYS_TEMPORARY_UNLOCK);
+                }
+            }
+        }
+
+        // see if isr marked that nfc is ready
+        if (nfc_flag)
+        {
+            nfc_flag = 0;
+            request_nfc_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), NFCdata);
         }
 
         handle_state(&qel_state);
@@ -1183,8 +1215,13 @@ static ROM BYTE SerializedMACAddress[6] = {MY_DEFAULT_MAC_BYTE1, MY_DEFAULT_MAC_
 
 void InitAppConfig(void)
 {
+    InitAppConfig_opt(0);
+}
+
+static void InitAppConfig_opt(unsigned char saveDefaults)
+{
 #if defined(EEPROM_CS_TRIS) || defined(SPIFLASH_CS_TRIS)
-	unsigned char vNeedToSaveDefaults = 0;
+	unsigned char vNeedToSaveDefaults = saveDefaults;
 #endif
 
        #if defined(EEPROM_CS_TRIS)
