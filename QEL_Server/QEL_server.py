@@ -48,6 +48,10 @@ class QEL_Server(object):
               self.db.insert_tag(ID_num)
               return 'DENY'
 
+           # exception for no_restrictions group
+           if (grp == 'no_restrictions'):
+              return 'GRANT'
+
            print 'Looking up group'
            per = self.db.find_QEL_in_group(grp, QEL_ID)
            if (per == False):
