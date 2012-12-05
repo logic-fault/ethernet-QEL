@@ -10,5 +10,5 @@
     void qel_action_lock()
     {
         LED2_IO = QEL_DRIVE_IO =  0;
-        LED3_IO = 1;
+        LED3_IO = 1;  // comment to reduce power
     }

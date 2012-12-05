@@ -107,9 +107,9 @@ void request_nfc_state(SYSTEM_STATE_STRUCT * sys, BYTE * buf)
     // copy until zero terminated or end of datasizes
     while(i < NFC_DATA_SIZE)
     {
-        nfc_ptr[i] = j = buf_ptr[i];
-        if(nfc_ptr[i] == 0)
-            break;
+        nfc_ptr[i] = buf_ptr[i];
+        //if(nfc_ptr[i] == 0)
+        //    break;
         i++;
     }
 

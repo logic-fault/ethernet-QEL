@@ -418,6 +418,7 @@ int main(void)
         if (nfc_flag)
         {
             nfc_flag = 0;
+
             request_nfc_state(get_system_struct((SYSTEM_STATE_STRUCT *)0), NFCdata);
         }
 
@@ -771,8 +772,8 @@ static void InitializeBoard(void)
 	// LEDs
 	LED0_TRIS = 0;
 	LED1_TRIS = 0;
-	LED2_TRIS = 0;
-	LED3_TRIS = 0;
+	LED2_TRIS = 0; // originally 0
+	LED3_TRIS = 0; // originally 0
 	LED4_TRIS = 1;
 	LED5_TRIS = 0;
 	LED6_TRIS = 0;
@@ -1210,7 +1211,7 @@ static void InitializeBoard(void)
 // that locate the MAC address at 0x1FFF0.  Syntax below is for MPLAB C 
 // Compiler for PIC18 MCUs. Syntax will vary for other compilers.
 //#pragma romdata MACROM=0x1FFF0
-static ROM BYTE SerializedMACAddress[6] = {MY_DEFAULT_MAC_BYTE1, MY_DEFAULT_MAC_BYTE2, MY_DEFAULT_MAC_BYTE3, MY_DEFAULT_MAC_BYTE4, MY_DEFAULT_MAC_BYTE5, MY_DEFAULT_MAC_BYTE6};
+static ROM BYTE SerializedMACAddress[6] = {MY_DEFAULT_MAC_BYTE1, MY_DEFAULT_MAC_BYTE2, MY_DEFAULT_MAC_BYTE3, MY_DEFAULT_MAC_BYTE4, MY_DEFAULT_MAC_BYTE5, MY_DEFAULT_MAC_BYTE6 + 1};
 //#pragma romdata
 
 void InitAppConfig(void)
